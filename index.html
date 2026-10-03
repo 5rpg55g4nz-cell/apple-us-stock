@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Apple US Stock Checker</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   "SF Pro Text", "Helvetica Neue",
+                   Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #6e6e73;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: #6e6e73;
+      margin-bottom: 5px;
+    }
+
+    .part-number {
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .store {
+      background: white;
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .store-name {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .location {
+      color: #6e6e73;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .available {
+      color: #248a3d;
+      font-weight: 600;
+    }
+
+    .unavailable {
+      color: #d70015;
+      font-weight: 600;
+    }
+
+    #updated {
+      text-align: center;
+      color: #86868b;
+      font-size: 13px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🇺🇸 Apple US Stock</h1>
+
+  <div class="subtitle">
+    Oregon Apple Store pickup availability
+  </div>
+
+  <div class="product">
+    <div class="label">PART NUMBER</div>
+    <div class="part-number">MJW64LL/A</div>
+  </div>
+
+  <div id="stores">
+    Loading availability...
+  </div>
+
+  <div id="updated"></div>
+
+</div>
+
+
+<script>
+
+async function loadStock() {
+
+  try {
+
+    const response = await fetch(
+      "stock.json?t=" + Date.now()
+    );
+
+    const data = await response.json();
+
+    const container =
+      document.getElementById("stores");
+
+    container.innerHTML = "";
+
+    data.stores.forEach(store => {
+
+      const card =
+        document.createElement("div");
+
+      card.className = "store";
+
+      const statusClass =
+        store.available
+        ? "available"
+        : "unavailable";
+
+      const statusText =
+        store.available
+        ? "● Available"
+        : "● Unavailable";
+
+      card.innerHTML = `
+        <div>
+          <div class="store-name">
+            ${store.name}
+          </div>
+
+          <div class="location">
+            Oregon
+          </div>
+        </div>
+
+        <div class="${statusClass}">
+          ${statusText}
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+    document.getElementById("updated").innerText =
+      "Last checked: " + data.updated;
+
+  }
+
+  catch(error) {
+
+    document.getElementById("stores").innerHTML =
+      "Stock data is not available yet.";
+
+  }
+
+}
+
+loadStock();
+
+setInterval(loadStock, 60000);
+
+</script>
+
+</body>
+</html>
