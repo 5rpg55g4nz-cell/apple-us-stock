@@ -1,128 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Apple US Stock Checker</title>
+<title>Apple US Stock</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      padding: 24px 16px 50px;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      font-family: -apple-system, BlinkMacSystemFont,
-                   "SF Pro Text", "Helvetica Neue",
-                   Arial, sans-serif;
-    }
+body {
+  margin: 0;
+  padding: 24px 16px 60px;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont,
+               "SF Pro Text", "Helvetica Neue",
+               Arial, sans-serif;
+}
 
-    .container {
-      max-width: 650px;
-      margin: 0 auto;
-    }
+.container {
+  max-width: 720px;
+  margin: auto;
+}
 
-    h1 {
-      font-size: 32px;
-      margin: 0 0 5px;
-    }
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
 
-    .subtitle {
-      color: #6e6e73;
-      margin-bottom: 28px;
-    }
+.subtitle {
+  color: #6e6e73;
+  margin: 6px 0 25px;
+}
 
-    .product {
-      background: white;
-      border-radius: 22px;
-      padding: 22px;
-      margin-bottom: 24px;
-    }
+/* FILTER */
 
-    .label {
-      font-size: 12px;
-      color: #86868b;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
+.filters {
+  background: white;
+  padding: 18px;
+  border-radius: 22px;
+  margin-bottom: 22px;
+}
 
-    .part-number {
-      font-size: 22px;
-      font-weight: 700;
-    }
+.filter-title {
+  font-size: 12px;
+  color: #86868b;
+  font-weight: 600;
+  margin: 4px 0 8px;
+}
 
-    .region {
-      color: #6e6e73;
-      font-size: 14px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-    }
+select {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  background: white;
+}
 
-    .store {
-      padding: 16px 0;
-      border-top: 1px solid #e5e5e7;
+.stock-only {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin-top: 3px;
+}
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
+.stock-only input {
+  width: 20px;
+  height: 20px;
+}
 
-    .store-name {
-      font-size: 16px;
-      font-weight: 600;
-    }
+/* PRODUCT */
 
-    .available {
-      color: #248a3d;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+.product {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
 
-    .unavailable {
-      color: #d70015;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+.product-name {
+  font-size: 20px;
+  font-weight: 700;
+}
 
-    .error {
-      background: white;
-      padding: 20px;
-      border-radius: 18px;
-    }
+.part-number {
+  color: #86868b;
+  font-size: 13px;
+  margin-top: 4px;
+}
 
-    #updated {
-      text-align: center;
-      color: #86868b;
-      font-size: 13px;
-      margin-top: 25px;
-    }
-  </style>
+.region {
+  margin-top: 20px;
+}
+
+.region-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.store {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 0;
+  border-top: 1px solid #e5e5e7;
+}
+
+.store-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.available {
+  color: #248a3d;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.unavailable {
+  color: #d70015;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.empty {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  color: #6e6e73;
+}
+
+#updated {
+  text-align: center;
+  color: #86868b;
+  font-size: 13px;
+  margin-top: 25px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🇺🇸 Apple US Stock</h1>
+<h1>🇺🇸 Apple US Stock</h1>
 
-  <div class="subtitle">
-    Apple Store pickup availability
-  </div>
+<div class="subtitle">
+iPhone pickup availability
+</div>
 
-  <div id="products">
-    Loading availability...
-  </div>
 
-  <div id="updated"></div>
+<div class="filters">
+
+<div class="filter-title">
+MODEL
+</div>
+
+<select id="modelFilter">
+  <option value="all">All Models</option>
+  <option value="iPhone 18 Pro ">iPhone 18 Pro</option>
+  <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
+</select>
+
+
+<div class="filter-title">
+STORAGE
+</div>
+
+<select id="storageFilter">
+  <option value="all">All Storage</option>
+  <option value="256GB">256GB</option>
+  <option value="512GB">512GB</option>
+  <option value="1TB">1TB</option>
+  <option value="2TB">2TB</option>
+</select>
+
+
+<div class="filter-title">
+COLOR
+</div>
+
+<select id="colorFilter">
+  <option value="all">All Colors</option>
+  <option value="Black">Black</option>
+  <option value="Silver">Silver</option>
+  <option value="Burgundy">Burgundy</option>
+  <option value="Glacier">Glacier</option>
+</select>
+
+
+<div class="filter-title">
+REGION
+</div>
+
+<select id="regionFilter">
+  <option value="all">All Regions</option>
+  <option value="Oregon">Oregon</option>
+  <option value="Hawaii">Hawaii</option>
+</select>
+
+
+<label class="stock-only">
+  <input
+    type="checkbox"
+    id="stockOnly"
+  >
+  🟢 Show available products only
+</label>
 
 </div>
 
+
+<div id="products">
+Loading availability...
+</div>
+
+<div id="updated"></div>
+
+</div>
+
+
 <script>
+
+let stockData = null;
+
 
 async function loadStock() {
 
@@ -136,33 +247,139 @@ async function loadStock() {
       throw new Error("Unable to load stock.json");
     }
 
-    const data = await response.json();
+    stockData = await response.json();
 
-    const container =
-      document.getElementById("products");
+    renderProducts();
 
-    container.innerHTML = "";
+    document.getElementById(
+      "updated"
+    ).innerText =
+      "Last checked: " + stockData.updated;
 
-    data.products.forEach(product => {
+  }
 
-      const productCard =
-        document.createElement("div");
+  catch(error) {
 
-      productCard.className = "product";
+    document.getElementById(
+      "products"
+    ).innerHTML =
+      '<div class="empty">' +
+      'Stock data is currently unavailable.' +
+      '</div>';
+
+    console.error(error);
+  }
+}
+
+
+function renderProducts() {
+
+  if (!stockData) return;
+
+  const model =
+    document.getElementById(
+      "modelFilter"
+    ).value;
+
+  const storage =
+    document.getElementById(
+      "storageFilter"
+    ).value;
+
+  const color =
+    document.getElementById(
+      "colorFilter"
+    ).value;
+
+  const selectedRegion =
+    document.getElementById(
+      "regionFilter"
+    ).value;
+
+  const stockOnly =
+    document.getElementById(
+      "stockOnly"
+    ).checked;
+
+
+  const container =
+    document.getElementById(
+      "products"
+    );
+
+  container.innerHTML = "";
+
+  let displayed = 0;
+
+
+  stockData.products.forEach(product => {
+
+    const name = product.name;
+
+
+    /* MODEL FILTER */
+
+    if (
+      model !== "all" &&
+      !name.startsWith(model)
+    ) {
+      return;
+    }
+
+
+    /* STORAGE FILTER */
+
+    if (
+      storage !== "all" &&
+      !name.includes(storage)
+    ) {
+      return;
+    }
+
+
+    /* COLOR FILTER */
+
+    if (
+      color !== "all" &&
+      !name.endsWith(color)
+    ) {
+      return;
+    }
+
+
+    let regionsHTML = "";
+
+    let productHasStock = false;
+
+
+    product.regions.forEach(region => {
+
+      if (
+        selectedRegion !== "all" &&
+        region.name !== selectedRegion
+      ) {
+        return;
+      }
+
 
       let storesHTML = "";
 
-      product.stores.forEach(store => {
+      region.stores.forEach(store => {
+
+        if (store.available) {
+          productHasStock = true;
+        }
 
         const statusClass =
           store.available
-            ? "available"
-            : "unavailable";
+          ? "available"
+          : "unavailable";
 
-        const statusText =
+        const status =
           store.available
-            ? "● Available"
-            : "● Unavailable";
+          ? "● Available"
+          : "● Unavailable";
+
 
         storesHTML += `
           <div class="store">
@@ -172,55 +389,132 @@ async function loadStock() {
             </div>
 
             <div class="${statusClass}">
-              ${statusText}
+              ${status}
             </div>
 
           </div>
         `;
+
       });
 
-      productCard.innerHTML = `
 
-        <div class="label">
-          PART NUMBER
-        </div>
+      if (storesHTML) {
 
-        <div class="part-number">
-          ${product.partNumber}
-        </div>
+        regionsHTML += `
+          <div class="region">
 
-        <div class="region">
-          ${product.region}
-        </div>
+            <div class="region-name">
+              ${region.name}
+            </div>
 
-        ${storesHTML}
-      `;
+            ${storesHTML}
 
-      container.appendChild(productCard);
+          </div>
+        `;
+      }
 
     });
 
-    document.getElementById("updated").innerText =
-      "Last checked: " + data.updated;
 
-  }
+    if (
+      stockOnly &&
+      !productHasStock
+    ) {
+      return;
+    }
 
-  catch(error) {
 
-    document.getElementById("products").innerHTML =
-      `<div class="error">
-        Stock data is currently unavailable.
-      </div>`;
+    if (!regionsHTML) {
+      return;
+    }
 
-    console.error(error);
+
+    const card =
+      document.createElement("div");
+
+    card.className = "product";
+
+    card.innerHTML = `
+
+      <div class="product-name">
+        ${product.name}
+      </div>
+
+      <div class="part-number">
+        ${product.partNumber}
+      </div>
+
+      ${regionsHTML}
+    `;
+
+    container.appendChild(card);
+
+    displayed++;
+
+  });
+
+
+  if (displayed === 0) {
+
+    container.innerHTML = `
+      <div class="empty">
+        No matching products found.
+      </div>
+    `;
+
   }
 
 }
 
+
+/* FILTER EVENTS */
+
+document
+.getElementById("modelFilter")
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+document
+.getElementById("storageFilter")
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+document
+.getElementById("colorFilter")
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+document
+.getElementById("regionFilter")
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+document
+.getElementById("stockOnly")
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+/* START */
+
 loadStock();
 
-/* ページを開いている間は1分ごとに再読込 */
-setInterval(loadStock, 60000);
+/* 1分ごとに在庫データを再読込 */
+
+setInterval(
+  loadStock,
+  60000
+);
 
 </script>
 
