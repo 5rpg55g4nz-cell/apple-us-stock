@@ -1,3 +1,4 @@
+import os
 import requests
 
 PART_NUMBER = "MJW64LL/A"
@@ -9,7 +10,8 @@ TARGET_STORES = {
     "Bridgeport Village",
 }
 
-url = "https://www.apple.com/shop/retail/pickup-message"
+APPLE_URL = "https://www.apple.com/shop/retail/pickup-message"
+NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 
 params = {
     "pl": "true",
@@ -24,7 +26,7 @@ headers = {
 }
 
 response = requests.get(
-    url,
+    APPLE_URL,
     params=params,
     headers=headers,
     timeout=20
@@ -35,11 +37,11 @@ data = response.json()
 
 stores = data.get("body", {}).get("stores", [])
 
-print(f"Apple US Stock Checker")
+available_stores = []
+
+print("Apple US Stock Checker")
 print(f"Product: {PART_NUMBER}")
 print("=" * 45)
-
-available_stores = []
 
 for store in stores:
     name = store.get("storeName", "")
@@ -64,8 +66,29 @@ print("=" * 45)
 
 if available_stores:
     print("🚨 STOCK FOUND!")
-    print("Available at:")
-    for store_name in available_stores:
-        print(f" - {store_name}")
+
+    if not NTFY_TOPIC:
+        raise RuntimeError("NTFY_TOPIC is not configured")
+
+    store_list = ", ".join(available_stores)
+
+    notification = requests.post(
+        f"https://ntfy.sh/{NTFY_TOPIC}",
+        data=(
+            f"MJW64LL/A is AVAILABLE!\n"
+            f"Store: {store_list}\n"
+            f"Check Apple Store now."
+        ).encode("utf-8"),
+        headers={
+            "Title": "Apple US Stock Found!",
+            "Priority": "urgent",
+            "Tags": "apple,rotating_light",
+        },
+        timeout=20,
+    )
+
+    notification.raise_for_status()
+
 else:
-    print("No stock in Oregon.")
+    print("No stock in Oregon. No notification sent.")
+    
