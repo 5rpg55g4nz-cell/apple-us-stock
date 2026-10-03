@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: "*/15 * * * *"
 
+permissions:
+  contents: write
+
 jobs:
   check-stock:
     runs-on: ubuntu-latest
@@ -26,3 +29,17 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python check_stock.py
+
+      - name: Save stock data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add stock.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to save."
+          else
+            git commit -m "Update Apple stock data"
+            git push
+          fi
