@@ -33,7 +33,28 @@ h1 {
 
 .subtitle {
   color: #6e6e73;
-  margin: 6px 0 25px;
+  margin: 6px 0 22px;
+}
+
+/* SUMMARY */
+
+.summary {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.summary-number {
+  color: #248a3d;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.summary-text {
+  color: #6e6e73;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 /* FILTERS */
@@ -159,9 +180,30 @@ select {
   </div>
 
 
-  <div class="filters">
+  <!-- STOCK SUMMARY -->
 
-    <!-- MODEL -->
+  <div class="summary">
+
+    <div
+      class="summary-number"
+      id="availableCount"
+    >
+      🟢 — Available
+    </div>
+
+    <div
+      class="summary-text"
+      id="summaryText"
+    >
+      Loading current availability...
+    </div>
+
+  </div>
+
+
+  <!-- FILTERS -->
+
+  <div class="filters">
 
     <div class="filter-title">
       MODEL
@@ -173,8 +215,6 @@ select {
       <option value="promax">iPhone 18 Pro Max</option>
     </select>
 
-
-    <!-- STORAGE -->
 
     <div class="filter-title">
       STORAGE
@@ -189,8 +229,6 @@ select {
     </select>
 
 
-    <!-- COLOR -->
-
     <div class="filter-title">
       COLOR
     </div>
@@ -204,8 +242,6 @@ select {
     </select>
 
 
-    <!-- REGION -->
-
     <div class="filter-title">
       REGION
     </div>
@@ -217,8 +253,6 @@ select {
     </select>
 
 
-    <!-- STORE -->
-
     <div class="filter-title">
       STORE
     </div>
@@ -227,8 +261,6 @@ select {
       <option value="all">All Stores</option>
     </select>
 
-
-    <!-- AVAILABLE ONLY -->
 
     <label class="stock-only">
 
@@ -258,9 +290,9 @@ select {
 let stockData = null;
 
 
-/* ======================================
-   STORE LIST
-====================================== */
+/* ================================
+   STORE DATA
+================================ */
 
 const storesByRegion = {
 
@@ -278,13 +310,13 @@ const storesByRegion = {
 };
 
 
-/* ======================================
+/* ================================
    UPDATE STORE FILTER
-====================================== */
+================================ */
 
 function updateStoreFilter() {
 
-  const selectedRegion =
+  const region =
     document.getElementById(
       "regionFilter"
     ).value;
@@ -298,18 +330,18 @@ function updateStoreFilter() {
     '<option value="all">All Stores</option>';
 
 
-  if (selectedRegion === "all") {
+  if (region === "all") {
 
     Object.entries(
       storesByRegion
-    ).forEach(([region, stores]) => {
+    ).forEach(([regionName, stores]) => {
 
       const group =
         document.createElement(
           "optgroup"
         );
 
-      group.label = region;
+      group.label = regionName;
 
 
       stores.forEach(store => {
@@ -336,7 +368,7 @@ function updateStoreFilter() {
   else {
 
     const stores =
-      storesByRegion[selectedRegion] || [];
+      storesByRegion[region] || [];
 
 
     stores.forEach(store => {
@@ -358,9 +390,9 @@ function updateStoreFilter() {
 }
 
 
-/* ======================================
-   LOAD STOCK DATA
-====================================== */
+/* ================================
+   LOAD STOCK
+================================ */
 
 async function loadStock() {
 
@@ -371,11 +403,9 @@ async function loadStock() {
     );
 
     if (!response.ok) {
-
       throw new Error(
         "Unable to load stock.json"
       );
-
     }
 
 
@@ -411,9 +441,9 @@ async function loadStock() {
 }
 
 
-/* ======================================
-   RENDER PRODUCTS
-====================================== */
+/* ================================
+   RENDER
+================================ */
 
 function renderProducts() {
 
@@ -466,19 +496,21 @@ function renderProducts() {
 
   container.innerHTML = "";
 
+
   let displayed = 0;
+
+  let availableCount = 0;
 
 
   stockData.products.forEach(
     product => {
 
+
       const name =
         product.name;
 
 
-      /* ================================
-         MODEL FILTER
-      ================================ */
+      /* MODEL */
 
       const isProMax =
         name.startsWith(
@@ -537,8 +569,6 @@ function renderProducts() {
         region => {
 
 
-          /* REGION */
-
           if (
             selectedRegion !== "all" &&
             region.name !== selectedRegion
@@ -554,8 +584,6 @@ function renderProducts() {
             store => {
 
 
-              /* STORE */
-
               if (
                 selectedStore !== "all" &&
                 store.name !== selectedStore
@@ -567,6 +595,8 @@ function renderProducts() {
               if (store.available) {
 
                 productHasStock = true;
+
+                availableCount++;
 
               }
 
@@ -623,8 +653,6 @@ function renderProducts() {
       );
 
 
-      /* AVAILABLE ONLY */
-
       if (
         stockOnly &&
         !productHasStock
@@ -675,6 +703,46 @@ function renderProducts() {
   );
 
 
+  /* ================================
+     SUMMARY
+  ================================ */
+
+  document.getElementById(
+    "availableCount"
+  ).textContent =
+    `🟢 ${availableCount} Available`;
+
+
+  if (availableCount === 0) {
+
+    document.getElementById(
+      "summaryText"
+    ).textContent =
+      "No pickup availability for the current filters.";
+
+  }
+
+  else if (availableCount === 1) {
+
+    document.getElementById(
+      "summaryText"
+    ).textContent =
+      "1 available store / product combination.";
+
+  }
+
+  else {
+
+    document.getElementById(
+      "summaryText"
+    ).textContent =
+      `${availableCount} available store / product combinations.`;
+
+  }
+
+
+  /* NOTHING FOUND */
+
   if (displayed === 0) {
 
     container.innerHTML = `
@@ -688,9 +756,9 @@ function renderProducts() {
 }
 
 
-/* ======================================
+/* ================================
    EVENTS
-====================================== */
+================================ */
 
 document
 .getElementById(
@@ -722,8 +790,6 @@ document
 );
 
 
-/* REGION CHANGE */
-
 document
 .getElementById(
   "regionFilter"
@@ -740,8 +806,6 @@ document
 );
 
 
-/* STORE CHANGE */
-
 document
 .getElementById(
   "storeFilter"
@@ -751,8 +815,6 @@ document
   renderProducts
 );
 
-
-/* AVAILABLE ONLY */
 
 document
 .getElementById(
@@ -764,16 +826,14 @@ document
 );
 
 
-/* ======================================
+/* ================================
    START
-====================================== */
+================================ */
 
 updateStoreFilter();
 
 loadStock();
 
-
-/* Refresh stock every minute */
 
 setInterval(
   loadStock,
