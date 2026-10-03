@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "partNumber": "MJW64LL/A",
+      "name": "MJW64LL/A",
+      "zipCode": "97205",
+      "region": "Oregon",
+      "stores": [
+        "Pioneer Place",
+        "Washington Square",
+        "Bridgeport Village"
+      ]
+    }
+  ]
+}
