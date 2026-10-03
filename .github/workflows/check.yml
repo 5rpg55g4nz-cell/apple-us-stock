@@ -3,6 +3,9 @@ name: Check Apple US Stock
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: "*/15 * * * *"
+
 jobs:
   check-stock:
     runs-on: ubuntu-latest
@@ -20,16 +23,6 @@ jobs:
         run: pip install requests
 
       - name: Check Apple stock
-        run: python check_stock.py
-
-      - name: Test iPhone notification
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: |
-          curl \
-            -H "Title: Apple Stock Checker" \
-            -H "Priority: high" \
-            -H "Tags: apple" \
-            -d "Notification test successful! MJW64LL/A monitoring is ready." \
-            "https://ntfy.sh/$NTFY_TOPIC"
-          
+        run: python check_stock.py
