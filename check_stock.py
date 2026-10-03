@@ -5,8 +5,20 @@ from zoneinfo import ZoneInfo
 
 import requests
 
+
 APPLE_URL = "https://www.apple.com/shop/retail/pickup-message"
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
+
+
+# ========================================
+# products.json を読み込む
+# ========================================
+
+with open("products.json", "r", encoding="utf-8") as file:
+    config = json.load(file)
+
+products = config["products"]
+regions = config["regions"]
 
 
 # ========================================
@@ -19,53 +31,78 @@ try:
     with open("stock.json", "r", encoding="utf-8") as file:
         old_data = json.load(file)
 
+    # 新しい形式の stock.json
     for product in old_data.get("products", []):
         part_number = product.get("partNumber")
 
-        for store in product.get("stores", []):
-            key = f"{part_number}|{store.get('name')}"
-            previous_stock[key] = store.get("available", False)
+        for region in product.get("regions", []):
+            region_name = region.get("name")
+
+            for store in region.get("stores", []):
+                store_name = store.get("name")
+
+                key = (
+                    f"{part_number}|"
+                    f"{region_name}|"
+                    f"{store_name}"
+                )
+
+                previous_stock[key] = store.get(
+                    "available",
+                    False
+                )
 
 except (FileNotFoundError, json.JSONDecodeError):
     print("Previous stock data not found.")
 
 
 # ========================================
-# 監視設定を読み込む
+# 結果を入れる箱を作る
 # ========================================
 
-with open("products.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+results = {}
+
+for part_number, product_name in products.items():
+
+    results[part_number] = {
+        "partNumber": part_number,
+        "name": product_name,
+        "regions": []
+    }
 
 
-all_products = []
 newly_available = []
 
 
 # ========================================
-# Appleの在庫をチェック
+# 地域ごとにAppleへ問い合わせ
 # ========================================
 
-for product in config["products"]:
+for region in regions:
 
-    part_number = product["partNumber"]
-    zip_code = product["zipCode"]
-    region = product["region"]
-    target_stores = set(product["stores"])
+    region_name = region["name"]
+    zip_code = region["zipCode"]
+    target_stores = set(region["stores"])
 
-    print("=" * 50)
-    print(f"Checking: {part_number} / {region}")
+    print("=" * 60)
+    print(f"Checking region: {region_name}")
+    print(f"ZIP: {zip_code}")
 
+    # 32 SKUを1つのリクエストにまとめる
     params = {
         "pl": "true",
-        "parts.0": part_number,
-        "location": zip_code,
+        "location": zip_code
     }
+
+    for index, part_number in enumerate(products.keys()):
+        params[f"parts.{index}"] = part_number
 
     headers = {
         "User-Agent": (
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) "
-            "AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+            "Mozilla/5.0 "
+            "(iPhone; CPU iPhone OS 18_0 like Mac OS X) "
+            "AppleWebKit/605.1.15 "
+            "Version/18.0 Mobile/15E148 Safari/604.1"
         ),
         "Accept": "application/json, text/plain, */*",
         "Referer": "https://www.apple.com/shop/",
@@ -75,85 +112,92 @@ for product in config["products"]:
         APPLE_URL,
         params=params,
         headers=headers,
-        timeout=20,
+        timeout=30,
     )
 
+    print(f"HTTP Status: {response.status_code}")
+
     response.raise_for_status()
+
     data = response.json()
 
-    apple_stores = data.get("body", {}).get("stores", [])
+    apple_stores = (
+        data.get("body", {})
+        .get("stores", [])
+    )
 
-    results = []
+    print(
+        f"Apple returned {len(apple_stores)} stores."
+    )
 
-    for store in apple_stores:
 
-        name = store.get("storeName", "")
+    # ====================================
+    # 各SKUについて店舗在庫を確認
+    # ====================================
 
-        if name not in target_stores:
-            continue
+    for part_number, product_name in products.items():
 
-        availability = (
-            store.get("partsAvailability", {})
-            .get(part_number, {})
-        )
+        store_results = []
 
-        pickup = availability.get(
-            "pickupDisplay",
-            "unknown"
-        )
+        for store in apple_stores:
 
-        is_available = pickup == "available"
+            store_name = store.get("storeName", "")
 
-        results.append({
-            "name": name,
-            "available": is_available
-        })
+            if store_name not in target_stores:
+                continue
 
-        key = f"{part_number}|{name}"
-
-        was_available = previous_stock.get(
-            key,
-            False
-        )
-
-        # 前回は在庫なし、今回は在庫あり
-        if is_available and not was_available:
-
-            newly_available.append({
-                "partNumber": part_number,
-                "region": region,
-                "store": name
-            })
-
-            print(
-                f"🚨 NEW STOCK: "
-                f"{part_number} / {name}"
+            availability = (
+                store.get("partsAvailability", {})
+                .get(part_number, {})
             )
 
-        symbol = "🟢" if is_available else "🔴"
-        status = (
-            "AVAILABLE"
-            if is_available
-            else "UNAVAILABLE"
-        )
+            pickup = availability.get(
+                "pickupDisplay",
+                "unknown"
+            )
 
-        print(
-            f"{symbol} {name}: {status}"
-        )
+            is_available = pickup == "available"
 
-    all_products.append({
-        "partNumber": part_number,
-        "name": product.get(
-            "name",
-            part_number
-        ),
-        "region": region,
-        "stores": results
-    })
+            store_results.append({
+                "name": store_name,
+                "available": is_available
+            })
+
+            key = (
+                f"{part_number}|"
+                f"{region_name}|"
+                f"{store_name}"
+            )
+
+            was_available = previous_stock.get(
+                key,
+                False
+            )
+
+            # 前回 🔴 → 今回 🟢 の時だけ通知対象
+            if is_available and not was_available:
+
+                newly_available.append({
+                    "partNumber": part_number,
+                    "productName": product_name,
+                    "region": region_name,
+                    "store": store_name
+                })
+
+                print(
+                    f"🚨 NEW STOCK: "
+                    f"{product_name} / "
+                    f"{store_name}"
+                )
+
+        results[part_number]["regions"].append({
+            "name": region_name,
+            "stores": store_results
+        })
 
 
 # ========================================
-# 新しく在庫が出た場合だけ通知
+# 新規在庫を通知
 # ========================================
 
 if newly_available:
@@ -163,10 +207,17 @@ if newly_available:
             "NTFY_TOPIC is not configured"
         )
 
+    print("=" * 60)
+    print(
+        f"New stock found: "
+        f"{len(newly_available)}"
+    )
+
     for item in newly_available:
 
         message = (
-            f"{item['partNumber']} is AVAILABLE!\n"
+            f"{item['productName']}\n"
+            f"{item['partNumber']}\n"
             f"Store: {item['store']}\n"
             f"Region: {item['region']}\n"
             f"Check Apple Store now."
@@ -176,11 +227,9 @@ if newly_available:
             f"https://ntfy.sh/{NTFY_TOPIC}",
             data=message.encode("utf-8"),
             headers={
-                "Title":
-                    "Apple US Stock Found!",
+                "Title": "Apple US Stock Found!",
                 "Priority": "urgent",
-                "Tags":
-                    "apple,rotating_light",
+                "Tags": "apple,rotating_light",
             },
             timeout=20,
         )
@@ -188,6 +237,8 @@ if newly_available:
         notification.raise_for_status()
 
 else:
+
+    print("=" * 60)
     print(
         "No newly available stock. "
         "No notification sent."
@@ -195,7 +246,7 @@ else:
 
 
 # ========================================
-# 新しい在庫状況を保存
+# stock.json を作成
 # ========================================
 
 checked_time = datetime.now(
@@ -205,12 +256,12 @@ checked_time = datetime.now(
 )
 
 stock_data = {
-    "updated":
-        checked_time.strftime(
-            "%Y-%m-%d %H:%M:%S PT"
-        ),
-    "products": all_products
+    "updated": checked_time.strftime(
+        "%Y-%m-%d %H:%M:%S PT"
+    ),
+    "products": list(results.values())
 }
+
 
 with open(
     "stock.json",
@@ -225,5 +276,6 @@ with open(
         ensure_ascii=False
     )
 
-print("=" * 50)
+
+print("=" * 60)
 print("stock.json updated.")
