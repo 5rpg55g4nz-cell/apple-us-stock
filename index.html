@@ -39,9 +39,7 @@ h1 {
 }
 
 
-/* ================================
-   SUMMARY
-================================ */
+/* SUMMARY */
 
 .summary {
   background: white;
@@ -54,7 +52,6 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -75,9 +72,7 @@ h1 {
 }
 
 
-/* ================================
-   FILTERS
-================================ */
+/* FILTERS */
 
 .filters {
   background: white;
@@ -86,22 +81,41 @@ h1 {
   margin-bottom: 22px;
 }
 
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.filters-heading {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.reset-button {
+  border: none;
+  background: none;
+  color: #0071e3;
+  font-size: 14px;
+  padding: 6px 0 6px 12px;
+  cursor: pointer;
+}
+
 .filter-title {
   font-size: 12px;
   color: #86868b;
   font-weight: 600;
-  margin: 4px 0 8px;
+  margin: 14px 0 8px;
 }
 
 select {
   width: 100%;
   font-size: 16px;
   padding: 12px;
-  margin-bottom: 14px;
-
+  margin-bottom: 2px;
   border: 1px solid #d2d2d7;
   border-radius: 12px;
-
   background: white;
 }
 
@@ -109,9 +123,8 @@ select {
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 15px;
-  margin-top: 3px;
+  margin-top: 18px;
 }
 
 .stock-only input {
@@ -120,9 +133,7 @@ select {
 }
 
 
-/* ================================
-   PRODUCTS
-================================ */
+/* PRODUCTS */
 
 .product {
   background: white;
@@ -156,10 +167,8 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: 12px;
   padding: 13px 0;
-
   border-top: 1px solid #e5e5e7;
 }
 
@@ -169,15 +178,12 @@ select {
 }
 
 
-/* ================================
-   STATUS
-================================ */
+/* STATUS */
 
 .status {
   display: flex;
   align-items: center;
   gap: 7px;
-
   font-weight: 600;
   white-space: nowrap;
 }
@@ -206,29 +212,22 @@ select {
 }
 
 
-/* ================================
-   EMPTY
-================================ */
+/* EMPTY */
 
 .empty {
   background: white;
   border-radius: 20px;
-
   padding: 30px 20px;
-
   text-align: center;
   color: #6e6e73;
 }
 
 
-/* ================================
-   UPDATED
-================================ */
+/* UPDATED */
 
 #updated {
   text-align: center;
   color: #86868b;
-
   font-size: 13px;
   margin-top: 25px;
 }
@@ -236,17 +235,11 @@ select {
 </style>
 </head>
 
-
 <body>
 
 <div class="container">
 
-
-  <!-- HEADER -->
-
-  <h1>
-    Stock Buddy
-  </h1>
+  <h1>Stock Buddy</h1>
 
   <div class="subtitle">
     I’ll keep an eye on it for you.
@@ -280,6 +273,22 @@ select {
   <!-- FILTERS -->
 
   <div class="filters">
+
+    <div class="filters-header">
+
+      <div class="filters-heading">
+        Filters
+      </div>
+
+      <button
+        class="reset-button"
+        id="resetFilters"
+        type="button"
+      >
+        Reset Filters
+      </button>
+
+    </div>
 
 
     <div class="filter-title">
@@ -418,7 +427,6 @@ select {
     Loading availability...
   </div>
 
-
   <div id="updated"></div>
 
 </div>
@@ -428,9 +436,12 @@ select {
 
 let stockData = null;
 
+const STORAGE_KEY =
+  "stockBuddyFilters";
+
 
 /* ================================
-   STORE DATA
+   STORES
 ================================ */
 
 const storesByRegion = {
@@ -453,7 +464,9 @@ const storesByRegion = {
    UPDATE STORE FILTER
 ================================ */
 
-function updateStoreFilter() {
+function updateStoreFilter(
+  selectedStore = "all"
+) {
 
   const region =
     document.getElementById(
@@ -478,12 +491,10 @@ function updateStoreFilter() {
     ).forEach(
       ([regionName, stores]) => {
 
-
         const group =
           document.createElement(
             "optgroup"
           );
-
 
         group.label =
           regionName;
@@ -492,27 +503,22 @@ function updateStoreFilter() {
         stores.forEach(
           store => {
 
-
             const option =
               document.createElement(
                 "option"
               );
 
-
             option.value =
               store;
 
-
             option.textContent =
               store;
-
 
             group.appendChild(
               option
             );
 
           }
-
         );
 
 
@@ -521,7 +527,6 @@ function updateStoreFilter() {
         );
 
       }
-
     );
 
   }
@@ -535,30 +540,257 @@ function updateStoreFilter() {
     stores.forEach(
       store => {
 
-
         const option =
           document.createElement(
             "option"
           );
 
-
         option.value =
           store;
 
-
         option.textContent =
           store;
-
 
         storeFilter.appendChild(
           option
         );
 
       }
-
     );
 
   }
+
+
+  /*
+   前回選択した店舗が
+   現在のRegionに存在する場合だけ復元
+  */
+
+  const validOption =
+    Array.from(
+      storeFilter.options
+    ).some(
+      option =>
+        option.value === selectedStore
+    );
+
+
+  storeFilter.value =
+    validOption
+      ? selectedStore
+      : "all";
+
+}
+
+
+/* ================================
+   SAVE FILTERS
+================================ */
+
+function saveFilters() {
+
+  const settings = {
+
+    model:
+      document.getElementById(
+        "modelFilter"
+      ).value,
+
+    storage:
+      document.getElementById(
+        "storageFilter"
+      ).value,
+
+    color:
+      document.getElementById(
+        "colorFilter"
+      ).value,
+
+    region:
+      document.getElementById(
+        "regionFilter"
+      ).value,
+
+    store:
+      document.getElementById(
+        "storeFilter"
+      ).value,
+
+    stockOnly:
+      document.getElementById(
+        "stockOnly"
+      ).checked
+
+  };
+
+
+  try {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(settings)
+    );
+
+  }
+
+  catch(error) {
+
+    console.error(
+      "Unable to save filters:",
+      error
+    );
+
+  }
+
+}
+
+
+/* ================================
+   LOAD SAVED FILTERS
+================================ */
+
+function loadSavedFilters() {
+
+  let settings = null;
+
+
+  try {
+
+    const saved =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
+
+
+    if (saved) {
+
+      settings =
+        JSON.parse(saved);
+
+    }
+
+  }
+
+  catch(error) {
+
+    console.error(
+      "Unable to load filters:",
+      error
+    );
+
+  }
+
+
+  if (!settings) {
+
+    updateStoreFilter();
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "modelFilter"
+  ).value =
+    settings.model || "all";
+
+
+  document.getElementById(
+    "storageFilter"
+  ).value =
+    settings.storage || "all";
+
+
+  document.getElementById(
+    "colorFilter"
+  ).value =
+    settings.color || "all";
+
+
+  document.getElementById(
+    "regionFilter"
+  ).value =
+    settings.region || "all";
+
+
+  document.getElementById(
+    "stockOnly"
+  ).checked =
+    settings.stockOnly === true;
+
+
+  updateStoreFilter(
+    settings.store || "all"
+  );
+
+}
+
+
+/* ================================
+   RESET FILTERS
+================================ */
+
+function resetFilters() {
+
+  document.getElementById(
+    "modelFilter"
+  ).value =
+    "all";
+
+
+  document.getElementById(
+    "storageFilter"
+  ).value =
+    "all";
+
+
+  document.getElementById(
+    "colorFilter"
+  ).value =
+    "all";
+
+
+  document.getElementById(
+    "regionFilter"
+  ).value =
+    "all";
+
+
+  document.getElementById(
+    "stockOnly"
+  ).checked =
+    false;
+
+
+  updateStoreFilter();
+
+
+  document.getElementById(
+    "storeFilter"
+  ).value =
+    "all";
+
+
+  try {
+
+    localStorage.removeItem(
+      STORAGE_KEY
+    );
+
+  }
+
+  catch(error) {
+
+    console.error(
+      "Unable to reset filters:",
+      error
+    );
+
+  }
+
+
+  renderProducts();
 
 }
 
@@ -798,14 +1030,14 @@ function renderProducts() {
 
               const statusClass =
                 store.available
-                ? "available"
-                : "unavailable";
+                  ? "available"
+                  : "unavailable";
 
 
               const statusText =
                 store.available
-                ? "Available"
-                : "Unavailable";
+                  ? "Available"
+                  : "Unavailable";
 
 
               storesHTML += `
@@ -827,7 +1059,6 @@ function renderProducts() {
               `;
 
             }
-
           );
 
 
@@ -848,7 +1079,6 @@ function renderProducts() {
           }
 
         }
-
       );
 
 
@@ -900,13 +1130,10 @@ function renderProducts() {
       displayed++;
 
     }
-
   );
 
 
-  /* ================================
-     SUMMARY
-  ================================ */
+  /* SUMMARY */
 
   document.getElementById(
     "availableCount"
@@ -946,8 +1173,6 @@ function renderProducts() {
   }
 
 
-  /* NOTHING FOUND */
-
   if (
     displayed === 0
   ) {
@@ -964,8 +1189,19 @@ function renderProducts() {
 
 
 /* ================================
-   EVENTS
+   FILTER CHANGE
 ================================ */
+
+function filterChanged() {
+
+  saveFilters();
+
+  renderProducts();
+
+}
+
+
+/* MODEL */
 
 document
 .getElementById(
@@ -973,9 +1209,11 @@ document
 )
 .addEventListener(
   "change",
-  renderProducts
+  filterChanged
 );
 
+
+/* STORAGE */
 
 document
 .getElementById(
@@ -983,9 +1221,11 @@ document
 )
 .addEventListener(
   "change",
-  renderProducts
+  filterChanged
 );
 
+
+/* COLOR */
 
 document
 .getElementById(
@@ -993,9 +1233,11 @@ document
 )
 .addEventListener(
   "change",
-  renderProducts
+  filterChanged
 );
 
+
+/* REGION */
 
 document
 .getElementById(
@@ -1007,11 +1249,15 @@ document
 
     updateStoreFilter();
 
+    saveFilters();
+
     renderProducts();
 
   }
 );
 
+
+/* STORE */
 
 document
 .getElementById(
@@ -1019,9 +1265,11 @@ document
 )
 .addEventListener(
   "change",
-  renderProducts
+  filterChanged
 );
 
+
+/* AVAILABLE ONLY */
 
 document
 .getElementById(
@@ -1029,7 +1277,19 @@ document
 )
 .addEventListener(
   "change",
-  renderProducts
+  filterChanged
+);
+
+
+/* RESET */
+
+document
+.getElementById(
+  "resetFilters"
+)
+.addEventListener(
+  "click",
+  resetFilters
 );
 
 
@@ -1037,10 +1297,26 @@ document
    START
 ================================ */
 
-updateStoreFilter();
+/*
+ページを開いた時点で
+前回の設定を復元
+*/
+
+loadSavedFilters();
+
+
+/*
+その設定のまま
+在庫情報を読み込む
+*/
 
 loadStock();
 
+
+/*
+ページを開いている間は
+60秒ごとに表示を更新
+*/
 
 setInterval(
   loadStock,
