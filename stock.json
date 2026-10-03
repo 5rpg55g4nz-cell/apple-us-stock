@@ -1,22 +1,1155 @@
 {
-  "updated": "2026-10-03 07:24:14 PT",
+  "updated": "2026-10-03 07:32:31 PT",
   "products": [
     {
+      "partNumber": "MJQ34LL/A",
+      "name": "iPhone 18 Pro 256GB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ44LL/A",
+      "name": "iPhone 18 Pro 256GB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ54LL/A",
+      "name": "iPhone 18 Pro 256GB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ64LL/A",
+      "name": "iPhone 18 Pro 256GB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ74LL/A",
+      "name": "iPhone 18 Pro 512GB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ84LL/A",
+      "name": "iPhone 18 Pro 512GB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQ94LL/A",
+      "name": "iPhone 18 Pro 512GB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQA4LL/A",
+      "name": "iPhone 18 Pro 512GB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQC4LL/A",
+      "name": "iPhone 18 Pro 1TB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": true
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQD4LL/A",
+      "name": "iPhone 18 Pro 1TB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQE4LL/A",
+      "name": "iPhone 18 Pro 1TB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQF4LL/A",
+      "name": "iPhone 18 Pro 1TB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQG4LL/A",
+      "name": "iPhone 18 Pro 2TB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQH4LL/A",
+      "name": "iPhone 18 Pro 2TB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQJ4LL/A",
+      "name": "iPhone 18 Pro 2TB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": true
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJQK4LL/A",
+      "name": "iPhone 18 Pro 2TB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": true
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJW44LL/A",
+      "name": "iPhone 18 Pro Max 256GB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": true
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJW54LL/A",
+      "name": "iPhone 18 Pro Max 256GB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "partNumber": "MJW64LL/A",
-      "name": "MJW64LL/A",
-      "region": "Oregon",
-      "stores": [
+      "name": "iPhone 18 Pro Max 256GB Burgundy",
+      "regions": [
         {
-          "name": "Pioneer Place",
-          "available": false
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
         },
         {
-          "name": "Washington Square",
-          "available": false
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJW74LL/A",
+      "name": "iPhone 18 Pro Max 256GB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
         },
         {
-          "name": "Bridgeport Village",
-          "available": false
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJW84LL/A",
+      "name": "iPhone 18 Pro Max 512GB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJW94LL/A",
+      "name": "iPhone 18 Pro Max 512GB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWA4LL/A",
+      "name": "iPhone 18 Pro Max 512GB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWC4LL/A",
+      "name": "iPhone 18 Pro Max 512GB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWD4LL/A",
+      "name": "iPhone 18 Pro Max 1TB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWE4LL/A",
+      "name": "iPhone 18 Pro Max 1TB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWF4LL/A",
+      "name": "iPhone 18 Pro Max 1TB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWG4LL/A",
+      "name": "iPhone 18 Pro Max 1TB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWH4LL/A",
+      "name": "iPhone 18 Pro Max 2TB Black",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWJ4LL/A",
+      "name": "iPhone 18 Pro Max 2TB Silver",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWK4LL/A",
+      "name": "iPhone 18 Pro Max 2TB Burgundy",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "partNumber": "MJWL4LL/A",
+      "name": "iPhone 18 Pro Max 2TB Glacier",
+      "regions": [
+        {
+          "name": "Oregon",
+          "stores": [
+            {
+              "name": "Pioneer Place",
+              "available": false
+            },
+            {
+              "name": "Washington Square",
+              "available": false
+            },
+            {
+              "name": "Bridgeport Village",
+              "available": false
+            }
+          ]
+        },
+        {
+          "name": "Hawaii",
+          "stores": [
+            {
+              "name": "Ala Moana",
+              "available": false
+            },
+            {
+              "name": "Kahala",
+              "available": false
+            }
+          ]
         }
       ]
     }
