@@ -75,7 +75,7 @@ select {
   height: 20px;
 }
 
-/* PRODUCT CARDS */
+/* PRODUCT */
 
 .product {
   background: white;
@@ -169,8 +169,8 @@ select {
 
     <select id="modelFilter">
       <option value="all">All Models</option>
-      <option value="iPhone 18 Pro ">iPhone 18 Pro</option>
-      <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
+      <option value="pro">iPhone 18 Pro</option>
+      <option value="promax">iPhone 18 Pro Max</option>
     </select>
 
 
@@ -224,40 +224,7 @@ select {
     </div>
 
     <select id="storeFilter">
-
-      <option value="all">
-        All Stores
-      </option>
-
-      <optgroup label="Oregon">
-
-        <option value="Pioneer Place">
-          Pioneer Place
-        </option>
-
-        <option value="Washington Square">
-          Washington Square
-        </option>
-
-        <option value="Bridgeport Village">
-          Bridgeport Village
-        </option>
-
-      </optgroup>
-
-
-      <optgroup label="Hawaii">
-
-        <option value="Ala Moana">
-          Ala Moana
-        </option>
-
-        <option value="Kahala">
-          Kahala
-        </option>
-
-      </optgroup>
-
+      <option value="all">All Stores</option>
     </select>
 
 
@@ -292,7 +259,107 @@ let stockData = null;
 
 
 /* ======================================
-   LOAD STOCK.JSON
+   STORE LIST
+====================================== */
+
+const storesByRegion = {
+
+  Oregon: [
+    "Pioneer Place",
+    "Washington Square",
+    "Bridgeport Village"
+  ],
+
+  Hawaii: [
+    "Ala Moana",
+    "Kahala"
+  ]
+
+};
+
+
+/* ======================================
+   UPDATE STORE FILTER
+====================================== */
+
+function updateStoreFilter() {
+
+  const selectedRegion =
+    document.getElementById(
+      "regionFilter"
+    ).value;
+
+  const storeFilter =
+    document.getElementById(
+      "storeFilter"
+    );
+
+  storeFilter.innerHTML =
+    '<option value="all">All Stores</option>';
+
+
+  if (selectedRegion === "all") {
+
+    Object.entries(
+      storesByRegion
+    ).forEach(([region, stores]) => {
+
+      const group =
+        document.createElement(
+          "optgroup"
+        );
+
+      group.label = region;
+
+
+      stores.forEach(store => {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = store;
+        option.textContent = store;
+
+        group.appendChild(option);
+
+      });
+
+
+      storeFilter.appendChild(group);
+
+    });
+
+  }
+
+  else {
+
+    const stores =
+      storesByRegion[selectedRegion] || [];
+
+
+    stores.forEach(store => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+      option.value = store;
+      option.textContent = store;
+
+      storeFilter.appendChild(option);
+
+    });
+
+  }
+
+}
+
+
+/* ======================================
+   LOAD STOCK DATA
 ====================================== */
 
 async function loadStock() {
@@ -304,14 +371,20 @@ async function loadStock() {
     );
 
     if (!response.ok) {
+
       throw new Error(
         "Unable to load stock.json"
       );
+
     }
 
-    stockData = await response.json();
+
+    stockData =
+      await response.json();
+
 
     renderProducts();
+
 
     document.getElementById(
       "updated"
@@ -332,12 +405,14 @@ async function loadStock() {
     `;
 
     console.error(error);
+
   }
+
 }
 
 
 /* ======================================
-   DISPLAY PRODUCTS
+   RENDER PRODUCTS
 ====================================== */
 
 function renderProducts() {
@@ -397,14 +472,37 @@ function renderProducts() {
   stockData.products.forEach(
     product => {
 
-      const name = product.name;
+      const name =
+        product.name;
 
 
-      /* MODEL */
+      /* ================================
+         MODEL FILTER
+      ================================ */
+
+      const isProMax =
+        name.startsWith(
+          "iPhone 18 Pro Max "
+        );
+
+
+      const isPro =
+        name.startsWith(
+          "iPhone 18 Pro "
+        ) && !isProMax;
+
 
       if (
-        model !== "all" &&
-        !name.startsWith(model)
+        model === "pro" &&
+        !isPro
+      ) {
+        return;
+      }
+
+
+      if (
+        model === "promax" &&
+        !isProMax
       ) {
         return;
       }
@@ -439,7 +537,7 @@ function renderProducts() {
         region => {
 
 
-          /* REGION FILTER */
+          /* REGION */
 
           if (
             selectedRegion !== "all" &&
@@ -456,7 +554,7 @@ function renderProducts() {
             store => {
 
 
-              /* STORE FILTER */
+              /* STORE */
 
               if (
                 selectedStore !== "all" &&
@@ -467,7 +565,9 @@ function renderProducts() {
 
 
               if (store.available) {
+
                 productHasStock = true;
+
               }
 
 
@@ -498,6 +598,7 @@ function renderProducts() {
               `;
 
             }
+
           );
 
 
@@ -518,6 +619,7 @@ function renderProducts() {
           }
 
         }
+
       );
 
 
@@ -569,10 +671,9 @@ function renderProducts() {
       displayed++;
 
     }
+
   );
 
-
-  /* NOTHING FOUND */
 
   if (displayed === 0) {
 
@@ -588,7 +689,7 @@ function renderProducts() {
 
 
 /* ======================================
-   FILTER EVENTS
+   EVENTS
 ====================================== */
 
 document
@@ -621,15 +722,25 @@ document
 );
 
 
+/* REGION CHANGE */
+
 document
 .getElementById(
   "regionFilter"
 )
 .addEventListener(
   "change",
-  renderProducts
+  function() {
+
+    updateStoreFilter();
+
+    renderProducts();
+
+  }
 );
 
+
+/* STORE CHANGE */
 
 document
 .getElementById(
@@ -640,6 +751,8 @@ document
   renderProducts
 );
 
+
+/* AVAILABLE ONLY */
 
 document
 .getElementById(
@@ -655,10 +768,12 @@ document
    START
 ====================================== */
 
+updateStoreFilter();
+
 loadStock();
 
 
-/* 1分ごとに最新データを取得 */
+/* Refresh stock every minute */
 
 setInterval(
   loadStock,
