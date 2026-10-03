@@ -1,7 +1,13 @@
 import requests
 
 PART_NUMBER = "MJW64LL/A"
-ZIP_CODE = "97205"  # Portland, Oregon
+ZIP_CODE = "97205"
+
+TARGET_STORES = {
+    "Pioneer Place",
+    "Washington Square",
+    "Bridgeport Village",
+}
 
 url = "https://www.apple.com/shop/retail/pickup-message"
 
@@ -24,26 +30,42 @@ response = requests.get(
     timeout=20
 )
 
-print("HTTP Status:", response.status_code)
-print("Request URL:", response.url)
-
 response.raise_for_status()
-
 data = response.json()
 
 stores = data.get("body", {}).get("stores", [])
 
-print(f"Stores returned: {len(stores)}")
-print("=" * 50)
+print(f"Apple US Stock Checker")
+print(f"Product: {PART_NUMBER}")
+print("=" * 45)
+
+available_stores = []
 
 for store in stores:
-    name = store.get("storeName", "Unknown Store")
-    state = store.get("state", "")
+    name = store.get("storeName", "")
 
-    availability = store.get("partsAvailability", {}).get(
-        PART_NUMBER, {}
+    if name not in TARGET_STORES:
+        continue
+
+    availability = (
+        store.get("partsAvailability", {})
+        .get(PART_NUMBER, {})
     )
 
     pickup = availability.get("pickupDisplay", "unknown")
 
-    print(f"{name} | {state} | {pickup}")
+    if pickup == "available":
+        print(f"🟢 {name}: AVAILABLE")
+        available_stores.append(name)
+    else:
+        print(f"🔴 {name}: UNAVAILABLE")
+
+print("=" * 45)
+
+if available_stores:
+    print("🚨 STOCK FOUND!")
+    print("Available at:")
+    for store_name in available_stores:
+        print(f" - {store_name}")
+else:
+    print("No stock in Oregon.")
