@@ -21,3 +21,15 @@ jobs:
 
       - name: Check Apple stock
         run: python check_stock.py
+
+      - name: Test iPhone notification
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          curl \
+            -H "Title: Apple Stock Checker" \
+            -H "Priority: high" \
+            -H "Tags: apple" \
+            -d "Notification test successful! MJW64LL/A monitoring is ready." \
+            "https://ntfy.sh/$NTFY_TOPIC"
+          
