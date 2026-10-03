@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Apple US Stock</title>
+<title>Stock Buddy</title>
 
 <style>
 * {
@@ -28,15 +28,20 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 34px;
+  letter-spacing: -0.7px;
 }
 
 .subtitle {
   color: #6e6e73;
   margin: 6px 0 22px;
+  font-size: 16px;
 }
 
-/* SUMMARY */
+
+/* ================================
+   SUMMARY
+================================ */
 
 .summary {
   background: white;
@@ -46,18 +51,33 @@ h1 {
 }
 
 .summary-number {
-  color: #248a3d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   font-size: 28px;
   font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.green-dot {
+  width: 13px;
+  height: 13px;
+  background: #30d158;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .summary-text {
   color: #6e6e73;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
-/* FILTERS */
+
+/* ================================
+   FILTERS
+================================ */
 
 .filters {
   background: white;
@@ -78,8 +98,10 @@ select {
   font-size: 16px;
   padding: 12px;
   margin-bottom: 14px;
+
   border: 1px solid #d2d2d7;
   border-radius: 12px;
+
   background: white;
 }
 
@@ -87,6 +109,7 @@ select {
   display: flex;
   align-items: center;
   gap: 10px;
+
   font-size: 15px;
   margin-top: 3px;
 }
@@ -96,7 +119,10 @@ select {
   height: 20px;
 }
 
-/* PRODUCT */
+
+/* ================================
+   PRODUCTS
+================================ */
 
 .product {
   background: white;
@@ -130,8 +156,10 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 12px;
   padding: 13px 0;
+
   border-top: 1px solid #e5e5e7;
 }
 
@@ -140,55 +168,103 @@ select {
   font-weight: 500;
 }
 
-.available {
-  color: #248a3d;
+
+/* ================================
+   STATUS
+================================ */
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
   font-weight: 600;
   white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.available {
+  color: #248a3d;
+}
+
+.available .status-dot {
+  background: #30d158;
 }
 
 .unavailable {
   color: #d70015;
-  font-weight: 600;
-  white-space: nowrap;
 }
+
+.unavailable .status-dot {
+  background: #ff3b30;
+}
+
+
+/* ================================
+   EMPTY
+================================ */
 
 .empty {
   background: white;
   border-radius: 20px;
+
   padding: 30px 20px;
+
   text-align: center;
   color: #6e6e73;
 }
 
+
+/* ================================
+   UPDATED
+================================ */
+
 #updated {
   text-align: center;
   color: #86868b;
+
   font-size: 13px;
   margin-top: 25px;
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
-  <h1>🇺🇸 Apple US Stock</h1>
+
+  <!-- HEADER -->
+
+  <h1>
+    Stock Buddy
+  </h1>
 
   <div class="subtitle">
-    iPhone pickup availability
+    I’ll keep an eye on it for you.
   </div>
 
 
-  <!-- STOCK SUMMARY -->
+  <!-- SUMMARY -->
 
   <div class="summary">
 
-    <div
-      class="summary-number"
-      id="availableCount"
-    >
-      🟢 — Available
+    <div class="summary-number">
+
+      <span class="green-dot"></span>
+
+      <span id="availableCount">
+        — Available
+      </span>
+
     </div>
 
     <div
@@ -205,14 +281,25 @@ select {
 
   <div class="filters">
 
+
     <div class="filter-title">
       MODEL
     </div>
 
     <select id="modelFilter">
-      <option value="all">All Models</option>
-      <option value="pro">iPhone 18 Pro</option>
-      <option value="promax">iPhone 18 Pro Max</option>
+
+      <option value="all">
+        All Models
+      </option>
+
+      <option value="pro">
+        iPhone 18 Pro
+      </option>
+
+      <option value="promax">
+        iPhone 18 Pro Max
+      </option>
+
     </select>
 
 
@@ -221,11 +308,27 @@ select {
     </div>
 
     <select id="storageFilter">
-      <option value="all">All Storage</option>
-      <option value="256GB">256GB</option>
-      <option value="512GB">512GB</option>
-      <option value="1TB">1TB</option>
-      <option value="2TB">2TB</option>
+
+      <option value="all">
+        All Storage
+      </option>
+
+      <option value="256GB">
+        256GB
+      </option>
+
+      <option value="512GB">
+        512GB
+      </option>
+
+      <option value="1TB">
+        1TB
+      </option>
+
+      <option value="2TB">
+        2TB
+      </option>
+
     </select>
 
 
@@ -234,11 +337,27 @@ select {
     </div>
 
     <select id="colorFilter">
-      <option value="all">All Colors</option>
-      <option value="Black">Black</option>
-      <option value="Silver">Silver</option>
-      <option value="Burgundy">Burgundy</option>
-      <option value="Glacier">Glacier</option>
+
+      <option value="all">
+        All Colors
+      </option>
+
+      <option value="Black">
+        Black
+      </option>
+
+      <option value="Silver">
+        Silver
+      </option>
+
+      <option value="Burgundy">
+        Burgundy
+      </option>
+
+      <option value="Glacier">
+        Glacier
+      </option>
+
     </select>
 
 
@@ -247,9 +366,19 @@ select {
     </div>
 
     <select id="regionFilter">
-      <option value="all">All Regions</option>
-      <option value="Oregon">Oregon</option>
-      <option value="Hawaii">Hawaii</option>
+
+      <option value="all">
+        All Regions
+      </option>
+
+      <option value="Oregon">
+        Oregon
+      </option>
+
+      <option value="Hawaii">
+        Hawaii
+      </option>
+
     </select>
 
 
@@ -258,7 +387,11 @@ select {
     </div>
 
     <select id="storeFilter">
-      <option value="all">All Stores</option>
+
+      <option value="all">
+        All Stores
+      </option>
+
     </select>
 
 
@@ -269,16 +402,22 @@ select {
         id="stockOnly"
       >
 
-      🟢 Show available products only
+      <span class="status available">
+        <span class="status-dot"></span>
+        Show available products only
+      </span>
 
     </label>
 
   </div>
 
 
+  <!-- PRODUCTS -->
+
   <div id="products">
     Loading availability...
   </div>
+
 
   <div id="updated"></div>
 
@@ -321,10 +460,12 @@ function updateStoreFilter() {
       "regionFilter"
     ).value;
 
+
   const storeFilter =
     document.getElementById(
       "storeFilter"
     );
+
 
   storeFilter.innerHTML =
     '<option value="all">All Stores</option>';
@@ -334,34 +475,54 @@ function updateStoreFilter() {
 
     Object.entries(
       storesByRegion
-    ).forEach(([regionName, stores]) => {
-
-      const group =
-        document.createElement(
-          "optgroup"
-        );
-
-      group.label = regionName;
+    ).forEach(
+      ([regionName, stores]) => {
 
 
-      stores.forEach(store => {
-
-        const option =
+        const group =
           document.createElement(
-            "option"
+            "optgroup"
           );
 
-        option.value = store;
-        option.textContent = store;
 
-        group.appendChild(option);
-
-      });
+        group.label =
+          regionName;
 
 
-      storeFilter.appendChild(group);
+        stores.forEach(
+          store => {
 
-    });
+
+            const option =
+              document.createElement(
+                "option"
+              );
+
+
+            option.value =
+              store;
+
+
+            option.textContent =
+              store;
+
+
+            group.appendChild(
+              option
+            );
+
+          }
+
+        );
+
+
+        storeFilter.appendChild(
+          group
+        );
+
+      }
+
+    );
 
   }
 
@@ -371,19 +532,31 @@ function updateStoreFilter() {
       storesByRegion[region] || [];
 
 
-    stores.forEach(store => {
+    stores.forEach(
+      store => {
 
-      const option =
-        document.createElement(
-          "option"
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+
+        option.value =
+          store;
+
+
+        option.textContent =
+          store;
+
+
+        storeFilter.appendChild(
+          option
         );
 
-      option.value = store;
-      option.textContent = store;
+      }
 
-      storeFilter.appendChild(option);
-
-    });
+    );
 
   }
 
@@ -398,14 +571,19 @@ async function loadStock() {
 
   try {
 
-    const response = await fetch(
-      "stock.json?t=" + Date.now()
-    );
+    const response =
+      await fetch(
+        "stock.json?t=" +
+        Date.now()
+      );
+
 
     if (!response.ok) {
+
       throw new Error(
         "Unable to load stock.json"
       );
+
     }
 
 
@@ -434,7 +612,10 @@ async function loadStock() {
       </div>
     `;
 
-    console.error(error);
+
+    console.error(
+      error
+    );
 
   }
 
@@ -442,7 +623,7 @@ async function loadStock() {
 
 
 /* ================================
-   RENDER
+   RENDER PRODUCTS
 ================================ */
 
 function renderProducts() {
@@ -498,7 +679,6 @@ function renderProducts() {
 
 
   let displayed = 0;
-
   let availableCount = 0;
 
 
@@ -521,7 +701,8 @@ function renderProducts() {
       const isPro =
         name.startsWith(
           "iPhone 18 Pro "
-        ) && !isProMax;
+        ) &&
+        !isProMax;
 
 
       if (
@@ -544,7 +725,9 @@ function renderProducts() {
 
       if (
         storage !== "all" &&
-        !name.includes(storage)
+        !name.includes(
+          storage
+        )
       ) {
         return;
       }
@@ -554,7 +737,9 @@ function renderProducts() {
 
       if (
         color !== "all" &&
-        !name.endsWith(color)
+        !name.endsWith(
+          color
+        )
       ) {
         return;
       }
@@ -562,16 +747,20 @@ function renderProducts() {
 
       let regionsHTML = "";
 
-      let productHasStock = false;
+      let productHasStock =
+        false;
 
 
       product.regions.forEach(
         region => {
 
 
+          /* REGION */
+
           if (
             selectedRegion !== "all" &&
-            region.name !== selectedRegion
+            region.name !==
+              selectedRegion
           ) {
             return;
           }
@@ -584,17 +773,23 @@ function renderProducts() {
             store => {
 
 
+              /* STORE */
+
               if (
                 selectedStore !== "all" &&
-                store.name !== selectedStore
+                store.name !==
+                  selectedStore
               ) {
                 return;
               }
 
 
-              if (store.available) {
+              if (
+                store.available
+              ) {
 
-                productHasStock = true;
+                productHasStock =
+                  true;
 
                 availableCount++;
 
@@ -609,8 +804,8 @@ function renderProducts() {
 
               const statusText =
                 store.available
-                ? "● Available"
-                : "● Unavailable";
+                ? "Available"
+                : "Unavailable";
 
 
               storesHTML += `
@@ -620,8 +815,12 @@ function renderProducts() {
                     ${store.name}
                   </div>
 
-                  <div class="${statusClass}">
+                  <div class="status ${statusClass}">
+
+                    <span class="status-dot"></span>
+
                     ${statusText}
+
                   </div>
 
                 </div>
@@ -652,6 +851,8 @@ function renderProducts() {
 
       );
 
+
+      /* AVAILABLE ONLY */
 
       if (
         stockOnly &&
@@ -710,10 +911,12 @@ function renderProducts() {
   document.getElementById(
     "availableCount"
   ).textContent =
-    `🟢 ${availableCount} Available`;
+    `${availableCount} Available`;
 
 
-  if (availableCount === 0) {
+  if (
+    availableCount === 0
+  ) {
 
     document.getElementById(
       "summaryText"
@@ -722,7 +925,9 @@ function renderProducts() {
 
   }
 
-  else if (availableCount === 1) {
+  else if (
+    availableCount === 1
+  ) {
 
     document.getElementById(
       "summaryText"
@@ -743,7 +948,9 @@ function renderProducts() {
 
   /* NOTHING FOUND */
 
-  if (displayed === 0) {
+  if (
+    displayed === 0
+  ) {
 
     container.innerHTML = `
       <div class="empty">
