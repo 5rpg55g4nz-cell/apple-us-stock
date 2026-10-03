@@ -36,7 +36,7 @@ h1 {
   margin: 6px 0 25px;
 }
 
-/* FILTER */
+/* FILTERS */
 
 .filters {
   background: white;
@@ -75,7 +75,7 @@ select {
   height: 20px;
 }
 
-/* PRODUCT */
+/* PRODUCT CARDS */
 
 .product {
   background: white;
@@ -110,7 +110,6 @@ select {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-
   padding: 13px 0;
   border-top: 1px solid #e5e5e7;
 }
@@ -153,79 +152,136 @@ select {
 
 <div class="container">
 
-<h1>🇺🇸 Apple US Stock</h1>
+  <h1>🇺🇸 Apple US Stock</h1>
 
-<div class="subtitle">
-iPhone pickup availability
-</div>
-
-
-<div class="filters">
-
-<div class="filter-title">
-MODEL
-</div>
-
-<select id="modelFilter">
-  <option value="all">All Models</option>
-  <option value="iPhone 18 Pro ">iPhone 18 Pro</option>
-  <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
-</select>
+  <div class="subtitle">
+    iPhone pickup availability
+  </div>
 
 
-<div class="filter-title">
-STORAGE
-</div>
+  <div class="filters">
 
-<select id="storageFilter">
-  <option value="all">All Storage</option>
-  <option value="256GB">256GB</option>
-  <option value="512GB">512GB</option>
-  <option value="1TB">1TB</option>
-  <option value="2TB">2TB</option>
-</select>
+    <!-- MODEL -->
 
+    <div class="filter-title">
+      MODEL
+    </div>
 
-<div class="filter-title">
-COLOR
-</div>
-
-<select id="colorFilter">
-  <option value="all">All Colors</option>
-  <option value="Black">Black</option>
-  <option value="Silver">Silver</option>
-  <option value="Burgundy">Burgundy</option>
-  <option value="Glacier">Glacier</option>
-</select>
+    <select id="modelFilter">
+      <option value="all">All Models</option>
+      <option value="iPhone 18 Pro ">iPhone 18 Pro</option>
+      <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
+    </select>
 
 
-<div class="filter-title">
-REGION
-</div>
+    <!-- STORAGE -->
 
-<select id="regionFilter">
-  <option value="all">All Regions</option>
-  <option value="Oregon">Oregon</option>
-  <option value="Hawaii">Hawaii</option>
-</select>
+    <div class="filter-title">
+      STORAGE
+    </div>
 
-
-<label class="stock-only">
-  <input
-    type="checkbox"
-    id="stockOnly"
-  >
-  🟢 Show available products only
-</label>
-
-</div>
+    <select id="storageFilter">
+      <option value="all">All Storage</option>
+      <option value="256GB">256GB</option>
+      <option value="512GB">512GB</option>
+      <option value="1TB">1TB</option>
+      <option value="2TB">2TB</option>
+    </select>
 
 
-<div id="products">
-Loading availability...
-</div>
+    <!-- COLOR -->
 
-<div id="updated"></div>
+    <div class="filter-title">
+      COLOR
+    </div>
+
+    <select id="colorFilter">
+      <option value="all">All Colors</option>
+      <option value="Black">Black</option>
+      <option value="Silver">Silver</option>
+      <option value="Burgundy">Burgundy</option>
+      <option value="Glacier">Glacier</option>
+    </select>
+
+
+    <!-- REGION -->
+
+    <div class="filter-title">
+      REGION
+    </div>
+
+    <select id="regionFilter">
+      <option value="all">All Regions</option>
+      <option value="Oregon">Oregon</option>
+      <option value="Hawaii">Hawaii</option>
+    </select>
+
+
+    <!-- STORE -->
+
+    <div class="filter-title">
+      STORE
+    </div>
+
+    <select id="storeFilter">
+
+      <option value="all">
+        All Stores
+      </option>
+
+      <optgroup label="Oregon">
+
+        <option value="Pioneer Place">
+          Pioneer Place
+        </option>
+
+        <option value="Washington Square">
+          Washington Square
+        </option>
+
+        <option value="Bridgeport Village">
+          Bridgeport Village
+        </option>
+
+      </optgroup>
+
+
+      <optgroup label="Hawaii">
+
+        <option value="Ala Moana">
+          Ala Moana
+        </option>
+
+        <option value="Kahala">
+          Kahala
+        </option>
+
+      </optgroup>
+
+    </select>
+
+
+    <!-- AVAILABLE ONLY -->
+
+    <label class="stock-only">
+
+      <input
+        type="checkbox"
+        id="stockOnly"
+      >
+
+      🟢 Show available products only
+
+    </label>
+
+  </div>
+
+
+  <div id="products">
+    Loading availability...
+  </div>
+
+  <div id="updated"></div>
 
 </div>
 
@@ -234,6 +290,10 @@ Loading availability...
 
 let stockData = null;
 
+
+/* ======================================
+   LOAD STOCK.JSON
+====================================== */
 
 async function loadStock() {
 
@@ -244,7 +304,9 @@ async function loadStock() {
     );
 
     if (!response.ok) {
-      throw new Error("Unable to load stock.json");
+      throw new Error(
+        "Unable to load stock.json"
+      );
     }
 
     stockData = await response.json();
@@ -254,7 +316,8 @@ async function loadStock() {
     document.getElementById(
       "updated"
     ).innerText =
-      "Last checked: " + stockData.updated;
+      "Last checked: " +
+      stockData.updated;
 
   }
 
@@ -262,39 +325,57 @@ async function loadStock() {
 
     document.getElementById(
       "products"
-    ).innerHTML =
-      '<div class="empty">' +
-      'Stock data is currently unavailable.' +
-      '</div>';
+    ).innerHTML = `
+      <div class="empty">
+        Stock data is currently unavailable.
+      </div>
+    `;
 
     console.error(error);
   }
 }
 
 
+/* ======================================
+   DISPLAY PRODUCTS
+====================================== */
+
 function renderProducts() {
 
-  if (!stockData) return;
+  if (!stockData) {
+    return;
+  }
+
 
   const model =
     document.getElementById(
       "modelFilter"
     ).value;
 
+
   const storage =
     document.getElementById(
       "storageFilter"
     ).value;
+
 
   const color =
     document.getElementById(
       "colorFilter"
     ).value;
 
+
   const selectedRegion =
     document.getElementById(
       "regionFilter"
     ).value;
+
+
+  const selectedStore =
+    document.getElementById(
+      "storeFilter"
+    ).value;
+
 
   const stockOnly =
     document.getElementById(
@@ -307,152 +388,191 @@ function renderProducts() {
       "products"
     );
 
+
   container.innerHTML = "";
 
   let displayed = 0;
 
 
-  stockData.products.forEach(product => {
+  stockData.products.forEach(
+    product => {
 
-    const name = product.name;
-
-
-    /* MODEL FILTER */
-
-    if (
-      model !== "all" &&
-      !name.startsWith(model)
-    ) {
-      return;
-    }
+      const name = product.name;
 
 
-    /* STORAGE FILTER */
-
-    if (
-      storage !== "all" &&
-      !name.includes(storage)
-    ) {
-      return;
-    }
-
-
-    /* COLOR FILTER */
-
-    if (
-      color !== "all" &&
-      !name.endsWith(color)
-    ) {
-      return;
-    }
-
-
-    let regionsHTML = "";
-
-    let productHasStock = false;
-
-
-    product.regions.forEach(region => {
+      /* MODEL */
 
       if (
-        selectedRegion !== "all" &&
-        region.name !== selectedRegion
+        model !== "all" &&
+        !name.startsWith(model)
       ) {
         return;
       }
 
 
-      let storesHTML = "";
+      /* STORAGE */
 
-      region.stores.forEach(store => {
-
-        if (store.available) {
-          productHasStock = true;
-        }
-
-        const statusClass =
-          store.available
-          ? "available"
-          : "unavailable";
-
-        const status =
-          store.available
-          ? "● Available"
-          : "● Unavailable";
-
-
-        storesHTML += `
-          <div class="store">
-
-            <div class="store-name">
-              ${store.name}
-            </div>
-
-            <div class="${statusClass}">
-              ${status}
-            </div>
-
-          </div>
-        `;
-
-      });
-
-
-      if (storesHTML) {
-
-        regionsHTML += `
-          <div class="region">
-
-            <div class="region-name">
-              ${region.name}
-            </div>
-
-            ${storesHTML}
-
-          </div>
-        `;
+      if (
+        storage !== "all" &&
+        !name.includes(storage)
+      ) {
+        return;
       }
 
-    });
+
+      /* COLOR */
+
+      if (
+        color !== "all" &&
+        !name.endsWith(color)
+      ) {
+        return;
+      }
 
 
-    if (
-      stockOnly &&
-      !productHasStock
-    ) {
-      return;
+      let regionsHTML = "";
+
+      let productHasStock = false;
+
+
+      product.regions.forEach(
+        region => {
+
+
+          /* REGION FILTER */
+
+          if (
+            selectedRegion !== "all" &&
+            region.name !== selectedRegion
+          ) {
+            return;
+          }
+
+
+          let storesHTML = "";
+
+
+          region.stores.forEach(
+            store => {
+
+
+              /* STORE FILTER */
+
+              if (
+                selectedStore !== "all" &&
+                store.name !== selectedStore
+              ) {
+                return;
+              }
+
+
+              if (store.available) {
+                productHasStock = true;
+              }
+
+
+              const statusClass =
+                store.available
+                ? "available"
+                : "unavailable";
+
+
+              const statusText =
+                store.available
+                ? "● Available"
+                : "● Unavailable";
+
+
+              storesHTML += `
+                <div class="store">
+
+                  <div class="store-name">
+                    ${store.name}
+                  </div>
+
+                  <div class="${statusClass}">
+                    ${statusText}
+                  </div>
+
+                </div>
+              `;
+
+            }
+          );
+
+
+          if (storesHTML) {
+
+            regionsHTML += `
+              <div class="region">
+
+                <div class="region-name">
+                  ${region.name}
+                </div>
+
+                ${storesHTML}
+
+              </div>
+            `;
+
+          }
+
+        }
+      );
+
+
+      /* AVAILABLE ONLY */
+
+      if (
+        stockOnly &&
+        !productHasStock
+      ) {
+        return;
+      }
+
+
+      if (!regionsHTML) {
+        return;
+      }
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "product";
+
+
+      card.innerHTML = `
+
+        <div class="product-name">
+          ${product.name}
+        </div>
+
+        <div class="part-number">
+          ${product.partNumber}
+        </div>
+
+        ${regionsHTML}
+
+      `;
+
+
+      container.appendChild(
+        card
+      );
+
+
+      displayed++;
+
     }
+  );
 
 
-    if (!regionsHTML) {
-      return;
-    }
-
-
-    const card =
-      document.createElement("div");
-
-    card.className = "product";
-
-    card.innerHTML = `
-
-      <div class="product-name">
-        ${product.name}
-      </div>
-
-      <div class="part-number">
-        ${product.partNumber}
-      </div>
-
-      ${regionsHTML}
-    `;
-
-    container.appendChild(card);
-
-    displayed++;
-
-  });
-
+  /* NOTHING FOUND */
 
   if (displayed === 0) {
 
@@ -467,49 +587,78 @@ function renderProducts() {
 }
 
 
-/* FILTER EVENTS */
+/* ======================================
+   FILTER EVENTS
+====================================== */
 
 document
-.getElementById("modelFilter")
-.addEventListener(
-  "change",
-  renderProducts
-);
-
-document
-.getElementById("storageFilter")
-.addEventListener(
-  "change",
-  renderProducts
-);
-
-document
-.getElementById("colorFilter")
-.addEventListener(
-  "change",
-  renderProducts
-);
-
-document
-.getElementById("regionFilter")
-.addEventListener(
-  "change",
-  renderProducts
-);
-
-document
-.getElementById("stockOnly")
+.getElementById(
+  "modelFilter"
+)
 .addEventListener(
   "change",
   renderProducts
 );
 
 
-/* START */
+document
+.getElementById(
+  "storageFilter"
+)
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+document
+.getElementById(
+  "colorFilter"
+)
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+document
+.getElementById(
+  "regionFilter"
+)
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+document
+.getElementById(
+  "storeFilter"
+)
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+document
+.getElementById(
+  "stockOnly"
+)
+.addEventListener(
+  "change",
+  renderProducts
+);
+
+
+/* ======================================
+   START
+====================================== */
 
 loadStock();
 
-/* 1分ごとに在庫データを再読込 */
+
+/* 1分ごとに最新データを取得 */
 
 setInterval(
   loadStock,
