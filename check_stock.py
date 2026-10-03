@@ -31,7 +31,6 @@ try:
     with open("stock.json", "r", encoding="utf-8") as file:
         old_data = json.load(file)
 
-    # 新しい形式の stock.json
     for product in old_data.get("products", []):
         part_number = product.get("partNumber")
 
@@ -57,7 +56,7 @@ except (FileNotFoundError, json.JSONDecodeError):
 
 
 # ========================================
-# 結果を入れる箱を作る
+# 結果を入れる箱
 # ========================================
 
 results = {}
@@ -88,7 +87,6 @@ for region in regions:
     print(f"Checking region: {region_name}")
     print(f"ZIP: {zip_code}")
 
-    # 32 SKUを1つのリクエストにまとめる
     params = {
         "pl": "true",
         "location": zip_code
@@ -174,7 +172,7 @@ for region in regions:
                 False
             )
 
-            # 前回 🔴 → 今回 🟢 の時だけ通知対象
+            # 🔴 → 🟢 の時だけ通知対象
             if is_available and not was_available:
 
                 newly_available.append({
@@ -185,7 +183,7 @@ for region in regions:
                 })
 
                 print(
-                    f"🚨 NEW STOCK: "
+                    f"NEW STOCK: "
                     f"{product_name} / "
                     f"{store_name}"
                 )
@@ -213,28 +211,69 @@ if newly_available:
         f"{len(newly_available)}"
     )
 
+
     for item in newly_available:
+
+        # --------------------------------
+        # 店舗の現地時間を作る
+        # --------------------------------
+
+        if item["region"] == "Hawaii":
+
+            local_zone = ZoneInfo(
+                "Pacific/Honolulu"
+            )
+
+            zone_label = "HT"
+
+        else:
+
+            # Oregon
+            local_zone = ZoneInfo(
+                "America/Los_Angeles"
+            )
+
+            zone_label = "PT"
+
+
+        local_time = datetime.now(
+            timezone.utc
+        ).astimezone(
+            local_zone
+        )
+
+
+        time_text = local_time.strftime(
+            "%b %d · %-I:%M %p"
+        )
+
+
+        # --------------------------------
+        # 通知本文
+        # --------------------------------
 
         message = (
             f"{item['productName']}\n"
-            f"{item['partNumber']}\n"
-            f"Store: {item['store']}\n"
-            f"Region: {item['region']}\n"
-            f"Check Apple Store now."
+            f"{item['store']} · "
+            f"{item['region']}\n\n"
+            f"Available at "
+            f"{time_text} {zone_label}\n"
+            f"{item['partNumber']}"
         )
+
 
         notification = requests.post(
             f"https://ntfy.sh/{NTFY_TOPIC}",
             data=message.encode("utf-8"),
             headers={
-                "Title": "Apple US Stock Found!",
-                "Priority": "urgent",
-                "Tags": "apple,rotating_light",
+                "Title": "Stock Buddy",
+                "Priority": "high",
             },
             timeout=20,
         )
 
         notification.raise_for_status()
+
 
 else:
 
@@ -254,6 +293,7 @@ checked_time = datetime.now(
 ).astimezone(
     ZoneInfo("America/Los_Angeles")
 )
+
 
 stock_data = {
     "updated": checked_time.strftime(
