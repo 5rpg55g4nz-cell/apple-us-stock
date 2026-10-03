@@ -1,18 +1,24 @@
 {
-  "partNumber": "MJW64LL/A",
-  "updated": "2026-10-03 05:16:21 PT",
-  "stores": [
+  "updated": "2026-10-03 05:33:47 PT",
+  "products": [
     {
-      "name": "Pioneer Place",
-      "available": false
-    },
-    {
-      "name": "Washington Square",
-      "available": false
-    },
-    {
-      "name": "Bridgeport Village",
-      "available": false
+      "partNumber": "MJW64LL/A",
+      "name": "MJW64LL/A",
+      "region": "Oregon",
+      "stores": [
+        {
+          "name": "Pioneer Place",
+          "available": false
+        },
+        {
+          "name": "Washington Square",
+          "available": false
+        },
+        {
+          "name": "Bridgeport Village",
+          "available": false
+        }
+      ]
     }
   ]
 }
