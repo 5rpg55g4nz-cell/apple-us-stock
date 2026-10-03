@@ -5,81 +5,123 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-PART_NUMBER = "MJW64LL/A"
-ZIP_CODE = "97205"
-
-TARGET_STORES = {
-    "Pioneer Place",
-    "Washington Square",
-    "Bridgeport Village",
-}
-
 APPLE_URL = "https://www.apple.com/shop/retail/pickup-message"
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 
-params = {
-    "pl": "true",
-    "parts.0": PART_NUMBER,
-    "location": ZIP_CODE,
-}
+# products.jsonを読み込む
+with open("products.json", "r", encoding="utf-8") as file:
+    config = json.load(file)
 
-headers = {
-    "User-Agent": (
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) "
-        "AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
-    ),
-    "Accept": "application/json, text/plain, */*",
-    "Referer": "https://www.apple.com/shop/",
-}
+all_products = []
 
-response = requests.get(
-    APPLE_URL,
-    params=params,
-    headers=headers,
-    timeout=20,
-)
+for product in config["products"]:
 
-response.raise_for_status()
-data = response.json()
+    part_number = product["partNumber"]
+    zip_code = product["zipCode"]
+    region = product["region"]
+    target_stores = set(product["stores"])
 
-stores = data.get("body", {}).get("stores", [])
+    print("=" * 50)
+    print(f"Checking: {part_number} / {region}")
 
-results = []
-available_stores = []
+    params = {
+        "pl": "true",
+        "parts.0": part_number,
+        "location": zip_code,
+    }
 
-for store in stores:
-    name = store.get("storeName", "")
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) "
+            "AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+        ),
+        "Accept": "application/json, text/plain, */*",
+        "Referer": "https://www.apple.com/shop/",
+    }
 
-    if name not in TARGET_STORES:
-        continue
-
-    availability = (
-        store.get("partsAvailability", {})
-        .get(PART_NUMBER, {})
+    response = requests.get(
+        APPLE_URL,
+        params=params,
+        headers=headers,
+        timeout=20,
     )
 
-    pickup = availability.get("pickupDisplay", "unknown")
-    is_available = pickup == "available"
+    response.raise_for_status()
+    data = response.json()
 
-    results.append({
-        "name": name,
-        "available": is_available
+    apple_stores = data.get("body", {}).get("stores", [])
+
+    results = []
+    available_stores = []
+
+    for store in apple_stores:
+
+        name = store.get("storeName", "")
+
+        if name not in target_stores:
+            continue
+
+        availability = (
+            store.get("partsAvailability", {})
+            .get(part_number, {})
+        )
+
+        pickup = availability.get("pickupDisplay", "unknown")
+        is_available = pickup == "available"
+
+        results.append({
+            "name": name,
+            "available": is_available
+        })
+
+        if is_available:
+            available_stores.append(name)
+
+        symbol = "🟢" if is_available else "🔴"
+        status = "AVAILABLE" if is_available else "UNAVAILABLE"
+
+        print(f"{symbol} {name}: {status}")
+
+    all_products.append({
+        "partNumber": part_number,
+        "name": product.get("name", part_number),
+        "region": region,
+        "stores": results
     })
 
-    if is_available:
-        available_stores.append(name)
+    # 在庫があれば通知
+    if available_stores and NTFY_TOPIC:
 
-# Oregon time
-oregon_time = datetime.now(
+        store_list = ", ".join(available_stores)
+
+        notification = requests.post(
+            f"https://ntfy.sh/{NTFY_TOPIC}",
+            data=(
+                f"{part_number} is AVAILABLE!\n"
+                f"{region}: {store_list}\n"
+                f"Check Apple Store now."
+            ).encode("utf-8"),
+            headers={
+                "Title": "Apple US Stock Found!",
+                "Priority": "urgent",
+                "Tags": "apple,rotating_light",
+            },
+            timeout=20,
+        )
+
+        notification.raise_for_status()
+
+
+# Oregon / Pacific Timeで更新時刻を保存
+checked_time = datetime.now(
     timezone.utc
 ).astimezone(
     ZoneInfo("America/Los_Angeles")
 )
 
 stock_data = {
-    "partNumber": PART_NUMBER,
-    "updated": oregon_time.strftime("%Y-%m-%d %H:%M:%S PT"),
-    "stores": results
+    "updated": checked_time.strftime("%Y-%m-%d %H:%M:%S PT"),
+    "products": all_products
 }
 
 with open("stock.json", "w", encoding="utf-8") as file:
@@ -90,43 +132,5 @@ with open("stock.json", "w", encoding="utf-8") as file:
         ensure_ascii=False
     )
 
-print("Apple US Stock Checker")
-print(f"Product: {PART_NUMBER}")
-print("=" * 45)
-
-for store in results:
-    if store["available"]:
-        print(f'🟢 {store["name"]}: AVAILABLE')
-    else:
-        print(f'🔴 {store["name"]}: UNAVAILABLE')
-
-print("=" * 45)
-print("stock.json created.")
-
-if available_stores:
-    print("🚨 STOCK FOUND!")
-
-    if not NTFY_TOPIC:
-        raise RuntimeError("NTFY_TOPIC is not configured")
-
-    store_list = ", ".join(available_stores)
-
-    notification = requests.post(
-        f"https://ntfy.sh/{NTFY_TOPIC}",
-        data=(
-            f"MJW64LL/A is AVAILABLE!\n"
-            f"Store: {store_list}\n"
-            f"Check Apple Store now."
-        ).encode("utf-8"),
-        headers={
-            "Title": "Apple US Stock Found!",
-            "Priority": "urgent",
-            "Tags": "apple,rotating_light",
-        },
-        timeout=20,
-    )
-
-    notification.raise_for_status()
-
-else:
-    print("No stock in Oregon. No notification sent.")
+print("=" * 50)
+print("stock.json updated.")
