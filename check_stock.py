@@ -1,4 +1,8 @@
 import os
+import json
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
 import requests
 
 PART_NUMBER = "MJW64LL/A"
@@ -20,7 +24,10 @@ params = {
 }
 
 headers = {
-    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1",
+    "User-Agent": (
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) "
+        "AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"
+    ),
     "Accept": "application/json, text/plain, */*",
     "Referer": "https://www.apple.com/shop/",
 }
@@ -29,7 +36,7 @@ response = requests.get(
     APPLE_URL,
     params=params,
     headers=headers,
-    timeout=20
+    timeout=20,
 )
 
 response.raise_for_status()
@@ -37,11 +44,8 @@ data = response.json()
 
 stores = data.get("body", {}).get("stores", [])
 
+results = []
 available_stores = []
-
-print("Apple US Stock Checker")
-print(f"Product: {PART_NUMBER}")
-print("=" * 45)
 
 for store in stores:
     name = store.get("storeName", "")
@@ -55,14 +59,49 @@ for store in stores:
     )
 
     pickup = availability.get("pickupDisplay", "unknown")
+    is_available = pickup == "available"
 
-    if pickup == "available":
-        print(f"🟢 {name}: AVAILABLE")
+    results.append({
+        "name": name,
+        "available": is_available
+    })
+
+    if is_available:
         available_stores.append(name)
+
+# Oregon time
+oregon_time = datetime.now(
+    timezone.utc
+).astimezone(
+    ZoneInfo("America/Los_Angeles")
+)
+
+stock_data = {
+    "partNumber": PART_NUMBER,
+    "updated": oregon_time.strftime("%Y-%m-%d %H:%M:%S PT"),
+    "stores": results
+}
+
+with open("stock.json", "w", encoding="utf-8") as file:
+    json.dump(
+        stock_data,
+        file,
+        indent=2,
+        ensure_ascii=False
+    )
+
+print("Apple US Stock Checker")
+print(f"Product: {PART_NUMBER}")
+print("=" * 45)
+
+for store in results:
+    if store["available"]:
+        print(f'🟢 {store["name"]}: AVAILABLE')
     else:
-        print(f"🔴 {name}: UNAVAILABLE")
+        print(f'🔴 {store["name"]}: UNAVAILABLE')
 
 print("=" * 45)
+print("stock.json created.")
 
 if available_stores:
     print("🚨 STOCK FOUND!")
@@ -91,4 +130,3 @@ if available_stores:
 
 else:
     print("No stock in Oregon. No notification sent.")
-    
