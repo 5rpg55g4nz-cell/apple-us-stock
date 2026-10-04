@@ -1,0 +1,59 @@
+name: Test Notification
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send test notification
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+
+        run: |
+          python - <<'PY'
+          import os
+          import urllib.request
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          topic = os.environ["NTFY_TOPIC"]
+
+          local_time = datetime.now(
+              ZoneInfo("America/Los_Angeles")
+          )
+
+          time_text = local_time.strftime(
+              "%b %d · %-I:%M %p"
+          )
+
+          message = (
+              "iPhone 18 Pro Max 256GB Black\n"
+              "Pioneer Place · Oregon\n\n"
+              f"Available at {time_text} PT\n"
+              "MJW44LL/A"
+          )
+
+          request = urllib.request.Request(
+              f"https://ntfy.sh/{topic}",
+              data=message.encode("utf-8"),
+              method="POST",
+              headers={
+                  "Title": "Stock Buddy",
+                  "Priority": "high"
+              }
+          )
+
+          with urllib.request.urlopen(
+              request,
+              timeout=20
+          ) as response:
+
+              print(
+                  "Notification sent:",
+                  response.status
+              )
+
+          PY
