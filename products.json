@@ -59,5 +59,11 @@
         "Kahala"
       ]
     }
-  ]
+  ],
+
+  "notifications": {
+    "partNumbers": "all",
+    "regions": "all",
+    "stores": "all"
+  }
 }
