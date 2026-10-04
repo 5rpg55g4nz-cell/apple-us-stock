@@ -7,7 +7,6 @@
 <title>Stock Buddy</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -17,25 +16,14 @@ body {
   padding: 24px 16px 60px;
   background: #f5f5f7;
   color: #1d1d1f;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Text",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 .container {
   max-width: 720px;
   margin: auto;
 }
-
-
-/* ================================
-   HEADER
-================================ */
 
 h1 {
   margin: 0;
@@ -49,10 +37,7 @@ h1 {
   font-size: 16px;
 }
 
-
-/* ================================
-   SUMMARY
-================================ */
+/* SUMMARY */
 
 .summary {
   background: white;
@@ -65,20 +50,15 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: -0.5px;
 }
 
 .green-dot {
   width: 13px;
   height: 13px;
-
   background: #30d158;
-
   border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .summary-text {
@@ -87,18 +67,12 @@ h1 {
   margin-top: 6px;
 }
 
-
-/* ================================
-   FILTERS
-================================ */
+/* FILTERS */
 
 .filters {
   background: white;
-
   padding: 18px;
-
   border-radius: 22px;
-
   margin-bottom: 22px;
 }
 
@@ -106,8 +80,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-bottom: 4px;
 }
 
 .filters-heading {
@@ -118,48 +90,32 @@ h1 {
 .reset-button {
   border: none;
   background: none;
-
   color: #0071e3;
-
   font-size: 14px;
-
-  padding: 6px 0 6px 12px;
-
   cursor: pointer;
 }
 
 .filter-title {
   font-size: 12px;
   color: #86868b;
-
   font-weight: 600;
-
   margin: 14px 0 8px;
 }
 
 select {
   width: 100%;
-
   font-size: 16px;
-
   padding: 12px;
-
-  margin-bottom: 2px;
-
   border: 1px solid #d2d2d7;
   border-radius: 12px;
-
   background: white;
 }
 
 .stock-only {
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   font-size: 15px;
-
   margin-top: 18px;
 }
 
@@ -168,69 +124,34 @@ select {
   height: 20px;
 }
 
-
-/* ================================
-   PRODUCTS
-================================ */
+/* PRODUCT */
 
 .product {
   background: white;
-
   border-radius: 22px;
-
   padding: 20px;
-
   margin-bottom: 18px;
 }
 
 .product-name {
   font-size: 20px;
   font-weight: 700;
-
   line-height: 1.25;
 }
 
 .part-number {
   color: #86868b;
-
   font-size: 13px;
-
   margin-top: 4px;
 }
 
-
-/* ================================
-   PRICE
-================================ */
-
-.price {
-  margin-top: 10px;
-
-  font-size: 17px;
-
-  font-weight: 600;
-
-  color: #1d1d1f;
-}
-
-.yen-price {
+.base-price {
   color: #6e6e73;
-
-  font-weight: 500;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
-.exchange-note {
-  color: #86868b;
-
-  font-size: 12px;
-
-  margin-top: 4px;
-}
-
-
-/* ================================
-   REGIONS / STORES
-================================ */
+/* REGION */
 
 .region {
   margin-top: 20px;
@@ -238,56 +159,41 @@ select {
 
 .region-name {
   font-size: 14px;
-
   font-weight: 700;
-
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
+/* STORE */
+
 .store {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  gap: 12px;
-
   padding: 13px 0;
-
   border-top: 1px solid #e5e5e7;
+}
+
+.store-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
 
 .store-name {
   font-size: 15px;
-
   font-weight: 500;
 }
 
-
-/* ================================
-   STATUS
-================================ */
-
 .status {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
-
   font-weight: 600;
-
   white-space: nowrap;
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
-
   border-radius: 50%;
-
-  flex-shrink: 0;
 }
 
 .available {
@@ -306,107 +212,81 @@ select {
   background: #ff3b30;
 }
 
+/* PRICE */
 
-/* ================================
-   EMPTY
-================================ */
+.store-price {
+  margin-top: 7px;
+  font-size: 16px;
+  font-weight: 650;
+  color: #1d1d1f;
+}
+
+.yen-price {
+  color: #6e6e73;
+  font-weight: 500;
+}
+
+/* EMPTY */
 
 .empty {
   background: white;
-
   border-radius: 20px;
-
   padding: 30px 20px;
-
   text-align: center;
-
   color: #6e6e73;
 }
 
+/* FOOTER */
 
-/* ================================
-   FOOTER
-================================ */
-
-#exchangeInfo {
-  text-align: center;
-
-  color: #86868b;
-
+.price-information {
+  margin-top: 28px;
+  padding: 18px;
+  background: white;
+  border-radius: 18px;
+  color: #6e6e73;
   font-size: 12px;
+  line-height: 1.65;
+}
 
-  margin-top: 26px;
+.price-information strong {
+  color: #1d1d1f;
+  font-size: 13px;
 }
 
 #updated {
   text-align: center;
-
   color: #86868b;
-
-  font-size: 13px;
-
-  margin-top: 7px;
+  font-size: 12px;
+  margin-top: 14px;
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-
-  <!-- ============================
-       HEADER
-  ============================= -->
-
-  <h1>
-    Stock Buddy
-  </h1>
+  <h1>Stock Buddy</h1>
 
   <div class="subtitle">
     I’ll keep an eye on it for you.
   </div>
 
-
-  <!-- ============================
-       SUMMARY
-  ============================= -->
-
   <div class="summary">
-
     <div class="summary-number">
-
       <span class="green-dot"></span>
-
-      <span id="availableCount">
-        — Available
-      </span>
-
+      <span id="availableCount">— Available</span>
     </div>
 
-    <div
-      class="summary-text"
-      id="summaryText"
-    >
+    <div class="summary-text" id="summaryText">
       Loading current availability...
     </div>
-
   </div>
-
-
-  <!-- ============================
-       FILTERS
-  ============================= -->
 
   <div class="filters">
 
     <div class="filters-header">
-
-      <div class="filters-heading">
-        Filters
-      </div>
+      <div class="filters-heading">Filters</div>
 
       <button
         class="reset-button"
@@ -415,275 +295,156 @@ select {
       >
         Reset Filters
       </button>
-
     </div>
 
-
-    <!-- MODEL -->
-
-    <div class="filter-title">
-      MODEL
-    </div>
+    <div class="filter-title">MODEL</div>
 
     <select id="modelFilter">
-
-      <option value="all">
-        All Models
-      </option>
-
-      <option value="pro">
-        iPhone 18 Pro
-      </option>
-
-      <option value="promax">
-        iPhone 18 Pro Max
-      </option>
-
+      <option value="all">All Models</option>
+      <option value="pro">iPhone 18 Pro</option>
+      <option value="promax">iPhone 18 Pro Max</option>
     </select>
 
-
-    <!-- STORAGE -->
-
-    <div class="filter-title">
-      STORAGE
-    </div>
+    <div class="filter-title">STORAGE</div>
 
     <select id="storageFilter">
-
-      <option value="all">
-        All Storage
-      </option>
-
-      <option value="256GB">
-        256GB
-      </option>
-
-      <option value="512GB">
-        512GB
-      </option>
-
-      <option value="1TB">
-        1TB
-      </option>
-
-      <option value="2TB">
-        2TB
-      </option>
-
+      <option value="all">All Storage</option>
+      <option value="256GB">256GB</option>
+      <option value="512GB">512GB</option>
+      <option value="1TB">1TB</option>
+      <option value="2TB">2TB</option>
     </select>
 
-
-    <!-- COLOR -->
-
-    <div class="filter-title">
-      COLOR
-    </div>
+    <div class="filter-title">COLOR</div>
 
     <select id="colorFilter">
-
-      <option value="all">
-        All Colors
-      </option>
-
-      <option value="Black">
-        Black
-      </option>
-
-      <option value="Silver">
-        Silver
-      </option>
-
-      <option value="Burgundy">
-        Burgundy
-      </option>
-
-      <option value="Glacier">
-        Glacier
-      </option>
-
+      <option value="all">All Colors</option>
+      <option value="Black">Black</option>
+      <option value="Silver">Silver</option>
+      <option value="Burgundy">Burgundy</option>
+      <option value="Glacier">Glacier</option>
     </select>
 
-
-    <!-- REGION -->
-
-    <div class="filter-title">
-      REGION
-    </div>
+    <div class="filter-title">REGION</div>
 
     <select id="regionFilter">
-
-      <option value="all">
-        All Regions
-      </option>
-
-      <option value="Oregon">
-        Oregon
-      </option>
-
-      <option value="Hawaii">
-        Hawaii
-      </option>
-
+      <option value="all">All Regions</option>
+      <option value="Oregon">Oregon</option>
+      <option value="Hawaii">Hawaii</option>
     </select>
 
-
-    <!-- STORE -->
-
-    <div class="filter-title">
-      STORE
-    </div>
+    <div class="filter-title">STORE</div>
 
     <select id="storeFilter">
-
-      <option value="all">
-        All Stores
-      </option>
-
+      <option value="all">All Stores</option>
     </select>
 
-
-    <!-- AVAILABLE ONLY -->
-
     <label class="stock-only">
-
-      <input
-        type="checkbox"
-        id="stockOnly"
-      >
+      <input type="checkbox" id="stockOnly">
 
       <span class="status available">
-
         <span class="status-dot"></span>
-
         Show available products only
-
       </span>
-
     </label>
 
   </div>
-
-
-  <!-- ============================
-       PRODUCTS
-  ============================= -->
 
   <div id="products">
     Loading availability...
   </div>
 
+  <div class="price-information">
 
-  <!-- ============================
-       FOOTER
-  ============================= -->
+    <strong>Price information</strong><br>
 
-  <div id="exchangeInfo">
-    Loading exchange rate...
+    Oregon: No general sales tax (0%)<br>
+
+    Hawaii (Honolulu):
+    4.712% estimated GET pass-on<br>
+
+    <span id="exchangeInfo">
+      Loading USD/JPY exchange rate...
+    </span><br>
+
+    JPY prices are approximate.
+    Actual checkout totals and card exchange rates may vary.
+
   </div>
 
   <div id="updated"></div>
 
 </div>
 
-
 <script>
 
-/* ================================
-   BASIC DATA
-================================ */
+/* ========================================
+   DATA
+======================================== */
 
 let stockData = null;
-
 let usdJpyRate = null;
-
 let exchangeRateDate = null;
 
+const STORAGE_KEY = "stockBuddyFilters";
 
-const STORAGE_KEY =
-  "stockBuddyFilters";
+const HAWAII_RATE = 0.04712;
 
 
-/* ================================
+/* ========================================
    US PRICES
-================================ */
+======================================== */
 
 const US_PRICES = {
 
   pro: {
-
     "256GB": 1199,
-
     "512GB": 1399,
-
     "1TB": 1799,
-
     "2TB": 2399
-
   },
 
-
   promax: {
-
     "256GB": 1299,
-
     "512GB": 1499,
-
     "1TB": 1899,
-
     "2TB": 2499
-
   }
 
 };
 
 
-/* ================================
+/* ========================================
    STORES
-================================ */
+======================================== */
 
 const storesByRegion = {
 
   Oregon: [
-
     "Pioneer Place",
-
     "Washington Square",
-
     "Bridgeport Village"
-
   ],
 
-
   Hawaii: [
-
     "Ala Moana",
-
     "Kahala"
-
   ]
 
 };
 
 
-/* ================================
+/* ========================================
    STORE FILTER
-================================ */
+======================================== */
 
-function updateStoreFilter(
-  selectedStore = "all"
-) {
+function updateStoreFilter(selectedStore = "all") {
 
   const region =
-    document.getElementById(
-      "regionFilter"
-    ).value;
-
+    document.getElementById("regionFilter").value;
 
   const storeFilter =
-    document.getElementById(
-      "storeFilter"
-    );
-
+    document.getElementById("storeFilter");
 
   storeFilter.innerHTML =
     '<option value="all">All Stores</option>';
@@ -691,51 +452,27 @@ function updateStoreFilter(
 
   if (region === "all") {
 
-    Object.entries(
-      storesByRegion
-    ).forEach(
+    Object.entries(storesByRegion).forEach(
       ([regionName, stores]) => {
 
-
         const group =
-          document.createElement(
-            "optgroup"
-          );
+          document.createElement("optgroup");
 
+        group.label = regionName;
 
-        group.label =
-          regionName;
+        stores.forEach(store => {
 
+          const option =
+            document.createElement("option");
 
-        stores.forEach(
-          store => {
+          option.value = store;
+          option.textContent = store;
 
+          group.appendChild(option);
 
-            const option =
-              document.createElement(
-                "option"
-              );
+        });
 
-
-            option.value =
-              store;
-
-
-            option.textContent =
-              store;
-
-
-            group.appendChild(
-              option
-            );
-
-          }
-        );
-
-
-        storeFilter.appendChild(
-          group
-        );
+        storeFilter.appendChild(group);
 
       }
     );
@@ -747,44 +484,23 @@ function updateStoreFilter(
     const stores =
       storesByRegion[region] || [];
 
+    stores.forEach(store => {
 
-    stores.forEach(
-      store => {
+      const option =
+        document.createElement("option");
 
+      option.value = store;
+      option.textContent = store;
 
-        const option =
-          document.createElement(
-            "option"
-          );
+      storeFilter.appendChild(option);
 
-
-        option.value =
-          store;
-
-
-        option.textContent =
-          store;
-
-
-        storeFilter.appendChild(
-          option
-        );
-
-      }
-    );
+    });
 
   }
 
 
-  /*
-  前回の店舗が
-  現在のRegion内に存在する場合だけ復元
-  */
-
   const validOption =
-    Array.from(
-      storeFilter.options
-    ).some(
+    Array.from(storeFilter.options).some(
       option =>
         option.value === selectedStore
     );
@@ -798,43 +514,31 @@ function updateStoreFilter(
 }
 
 
-/* ================================
-   SAVE FILTERS
-================================ */
+/* ========================================
+   FILTER STORAGE
+======================================== */
 
 function saveFilters() {
 
   const settings = {
 
     model:
-      document.getElementById(
-        "modelFilter"
-      ).value,
+      document.getElementById("modelFilter").value,
 
     storage:
-      document.getElementById(
-        "storageFilter"
-      ).value,
+      document.getElementById("storageFilter").value,
 
     color:
-      document.getElementById(
-        "colorFilter"
-      ).value,
+      document.getElementById("colorFilter").value,
 
     region:
-      document.getElementById(
-        "regionFilter"
-      ).value,
+      document.getElementById("regionFilter").value,
 
     store:
-      document.getElementById(
-        "storeFilter"
-      ).value,
+      document.getElementById("storeFilter").value,
 
     stockOnly:
-      document.getElementById(
-        "stockOnly"
-      ).checked
+      document.getElementById("stockOnly").checked
 
   };
 
@@ -850,19 +554,12 @@ function saveFilters() {
 
   catch(error) {
 
-    console.error(
-      "Unable to save filters:",
-      error
-    );
+    console.error(error);
 
   }
 
 }
 
-
-/* ================================
-   LOAD SAVED FILTERS
-================================ */
 
 function loadSavedFilters() {
 
@@ -872,26 +569,17 @@ function loadSavedFilters() {
   try {
 
     const saved =
-      localStorage.getItem(
-        STORAGE_KEY
-      );
-
+      localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
-
-      settings =
-        JSON.parse(saved);
-
+      settings = JSON.parse(saved);
     }
 
   }
 
   catch(error) {
 
-    console.error(
-      "Unable to load filters:",
-      error
-    );
+    console.error(error);
 
   }
 
@@ -905,33 +593,19 @@ function loadSavedFilters() {
   }
 
 
-  document.getElementById(
-    "modelFilter"
-  ).value =
+  document.getElementById("modelFilter").value =
     settings.model || "all";
 
-
-  document.getElementById(
-    "storageFilter"
-  ).value =
+  document.getElementById("storageFilter").value =
     settings.storage || "all";
 
-
-  document.getElementById(
-    "colorFilter"
-  ).value =
+  document.getElementById("colorFilter").value =
     settings.color || "all";
 
-
-  document.getElementById(
-    "regionFilter"
-  ).value =
+  document.getElementById("regionFilter").value =
     settings.region || "all";
 
-
-  document.getElementById(
-    "stockOnly"
-  ).checked =
+  document.getElementById("stockOnly").checked =
     settings.stockOnly === true;
 
 
@@ -942,66 +616,38 @@ function loadSavedFilters() {
 }
 
 
-/* ================================
-   RESET FILTERS
-================================ */
+/* ========================================
+   RESET
+======================================== */
 
 function resetFilters() {
 
-  document.getElementById(
-    "modelFilter"
-  ).value =
+  document.getElementById("modelFilter").value =
     "all";
 
-
-  document.getElementById(
-    "storageFilter"
-  ).value =
+  document.getElementById("storageFilter").value =
     "all";
 
-
-  document.getElementById(
-    "colorFilter"
-  ).value =
+  document.getElementById("colorFilter").value =
     "all";
 
-
-  document.getElementById(
-    "regionFilter"
-  ).value =
+  document.getElementById("regionFilter").value =
     "all";
 
-
-  document.getElementById(
-    "stockOnly"
-  ).checked =
+  document.getElementById("stockOnly").checked =
     false;
-
 
   updateStoreFilter();
 
-
-  document.getElementById(
-    "storeFilter"
-  ).value =
+  document.getElementById("storeFilter").value =
     "all";
 
 
   try {
-
-    localStorage.removeItem(
-      STORAGE_KEY
-    );
-
+    localStorage.removeItem(STORAGE_KEY);
   }
-
   catch(error) {
-
-    console.error(
-      "Unable to reset filters:",
-      error
-    );
-
+    console.error(error);
   }
 
 
@@ -1010,16 +656,14 @@ function resetFilters() {
 }
 
 
-/* ================================
+/* ========================================
    EXCHANGE RATE
-================================ */
+======================================== */
 
 async function loadExchangeRate() {
 
   const exchangeInfo =
-    document.getElementById(
-      "exchangeInfo"
-    );
+    document.getElementById("exchangeInfo");
 
 
   try {
@@ -1031,11 +675,9 @@ async function loadExchangeRate() {
 
 
     if (!response.ok) {
-
       throw new Error(
         "Unable to load exchange rate"
       );
-
     }
 
 
@@ -1046,43 +688,35 @@ async function loadExchangeRate() {
     usdJpyRate =
       Number(data.rate);
 
-
     exchangeRateDate =
       data.date;
 
 
     exchangeInfo.textContent =
-      `USD/JPY: ¥${usdJpyRate.toFixed(2)} · Rate date: ${exchangeRateDate}`;
+      `USD/JPY: ¥${usdJpyRate.toFixed(2)} ` +
+      `· Rate date: ${exchangeRateDate}`;
 
   }
 
   catch(error) {
 
-    usdJpyRate =
-      null;
-
+    usdJpyRate = null;
 
     exchangeInfo.textContent =
-      "Live USD/JPY rate unavailable";
+      "USD/JPY exchange rate unavailable";
 
-
-    console.error(
-      "Exchange rate error:",
-      error
-    );
+    console.error(error);
 
   }
 
 }
 
 
-/* ================================
+/* ========================================
    PRODUCT PRICE
-================================ */
+======================================== */
 
-function getPriceInfo(
-  productName
-) {
+function getBasePrice(productName) {
 
   const isProMax =
     productName.startsWith(
@@ -1099,91 +733,101 @@ function getPriceInfo(
   let storage = null;
 
 
-  if (
-    productName.includes(
-      "256GB"
-    )
-  ) {
-
-    storage =
-      "256GB";
-
+  if (productName.includes("256GB")) {
+    storage = "256GB";
   }
 
-  else if (
-    productName.includes(
-      "512GB"
-    )
-  ) {
-
-    storage =
-      "512GB";
-
+  else if (productName.includes("512GB")) {
+    storage = "512GB";
   }
 
-  else if (
-    productName.includes(
-      "1TB"
-    )
-  ) {
-
-    storage =
-      "1TB";
-
+  else if (productName.includes("1TB")) {
+    storage = "1TB";
   }
 
-  else if (
-    productName.includes(
-      "2TB"
-    )
-  ) {
-
-    storage =
-      "2TB";
-
+  else if (productName.includes("2TB")) {
+    storage = "2TB";
   }
 
 
   if (!storage) {
-
-    return "";
-
+    return null;
   }
 
 
-  const usd =
-    US_PRICES[model][storage];
+  return US_PRICES[model][storage];
+
+}
 
 
-  if (!usd) {
+/* ========================================
+   FORMAT USD
+======================================== */
 
+function formatUSD(value) {
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits:
+        Number.isInteger(value) ? 0 : 2,
+      maximumFractionDigits: 2
+    }
+  ).format(value);
+
+}
+
+
+/* ========================================
+   STORE PRICE
+======================================== */
+
+function getStorePrice(
+  productName,
+  regionName
+) {
+
+  const basePrice =
+    getBasePrice(productName);
+
+
+  if (!basePrice) {
     return "";
-
   }
-
-
-  const usdText =
-    new Intl.NumberFormat(
-      "en-US",
-      {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 0
-      }
-    ).format(
-      usd
-    );
 
 
   /*
-  為替取得に失敗した場合は
-  US価格だけ表示
+  Oregon = 0%
+
+  Hawaii =
+  estimated 4.712% GET pass-on
+  */
+
+  const rate =
+    regionName === "Hawaii"
+      ? HAWAII_RATE
+      : 0;
+
+
+  const totalUSD =
+    basePrice * (1 + rate);
+
+
+  const usdText =
+    formatUSD(totalUSD);
+
+
+  /*
+  為替取得失敗時
+  USDだけ表示
   */
 
   if (!usdJpyRate) {
 
     return `
-      <div class="price">
+      <div class="store-price">
         ${usdText}
       </div>
     `;
@@ -1196,13 +840,9 @@ function getPriceInfo(
   1,000円単位に丸める
   */
 
-  const rawYen =
-    usd * usdJpyRate;
-
-
-  const roundedYen =
+  const yen =
     Math.round(
-      rawYen / 1000
+      (totalUSD * usdJpyRate) / 1000
     ) * 1000;
 
 
@@ -1214,21 +854,17 @@ function getPriceInfo(
         currency: "JPY",
         maximumFractionDigits: 0
       }
-    ).format(
-      roundedYen
-    );
+    ).format(yen);
 
 
   return `
 
-    <div class="price">
+    <div class="store-price">
 
       ${usdText}
 
       <span class="yen-price">
-
         · 約 ${yenText}
-
       </span>
 
     </div>
@@ -1238,9 +874,9 @@ function getPriceInfo(
 }
 
 
-/* ================================
+/* ========================================
    LOAD STOCK
-================================ */
+======================================== */
 
 async function loadStock() {
 
@@ -1269,9 +905,7 @@ async function loadStock() {
     renderProducts();
 
 
-    document.getElementById(
-      "updated"
-    ).innerText =
+    document.getElementById("updated").innerText =
       "Last checked: " +
       stockData.updated;
 
@@ -1279,93 +913,60 @@ async function loadStock() {
 
   catch(error) {
 
-    document.getElementById(
-      "products"
-    ).innerHTML = `
+    document.getElementById("products").innerHTML = `
 
       <div class="empty">
-
         Stock data is currently unavailable.
-
       </div>
 
     `;
 
-
-    console.error(
-      error
-    );
+    console.error(error);
 
   }
 
 }
 
 
-/* ================================
-   RENDER PRODUCTS
-================================ */
+/* ========================================
+   RENDER
+======================================== */
 
 function renderProducts() {
 
   if (!stockData) {
-
     return;
-
   }
 
 
   const model =
-    document.getElementById(
-      "modelFilter"
-    ).value;
-
+    document.getElementById("modelFilter").value;
 
   const storage =
-    document.getElementById(
-      "storageFilter"
-    ).value;
-
+    document.getElementById("storageFilter").value;
 
   const color =
-    document.getElementById(
-      "colorFilter"
-    ).value;
-
+    document.getElementById("colorFilter").value;
 
   const selectedRegion =
-    document.getElementById(
-      "regionFilter"
-    ).value;
-
+    document.getElementById("regionFilter").value;
 
   const selectedStore =
-    document.getElementById(
-      "storeFilter"
-    ).value;
-
+    document.getElementById("storeFilter").value;
 
   const stockOnly =
-    document.getElementById(
-      "stockOnly"
-    ).checked;
+    document.getElementById("stockOnly").checked;
 
 
   const container =
-    document.getElementById(
-      "products"
-    );
+    document.getElementById("products");
+
+  container.innerHTML = "";
 
 
-  container.innerHTML =
-    "";
+  let displayed = 0;
 
-
-  let displayed =
-    0;
-
-
-  let availableCount =
-    0;
+  let availableCount = 0;
 
 
   stockData.products.forEach(
@@ -1376,9 +977,7 @@ function renderProducts() {
         product.name;
 
 
-      /* ============================
-         MODEL
-      ============================ */
+      /* MODEL */
 
       const isProMax =
         name.startsWith(
@@ -1397,9 +996,7 @@ function renderProducts() {
         model === "pro" &&
         !isPro
       ) {
-
         return;
-
       }
 
 
@@ -1407,101 +1004,65 @@ function renderProducts() {
         model === "promax" &&
         !isProMax
       ) {
-
         return;
-
       }
 
 
-      /* ============================
-         STORAGE
-      ============================ */
+      /* STORAGE */
 
       if (
         storage !== "all" &&
-        !name.includes(
-          storage
-        )
+        !name.includes(storage)
       ) {
-
         return;
-
       }
 
 
-      /* ============================
-         COLOR
-      ============================ */
+      /* COLOR */
 
       if (
         color !== "all" &&
-        !name.endsWith(
-          color
-        )
+        !name.endsWith(color)
       ) {
-
         return;
-
       }
 
 
-      let regionsHTML =
-        "";
+      let regionsHTML = "";
 
-
-      let productHasStock =
-        false;
+      let productHasStock = false;
 
 
       product.regions.forEach(
         region => {
 
 
-          /* ========================
-             REGION
-          ======================== */
-
           if (
             selectedRegion !== "all" &&
-            region.name !==
-              selectedRegion
+            region.name !== selectedRegion
           ) {
-
             return;
-
           }
 
 
-          let storesHTML =
-            "";
+          let storesHTML = "";
 
 
           region.stores.forEach(
             store => {
 
 
-              /* ====================
-                 STORE
-              ==================== */
-
               if (
                 selectedStore !== "all" &&
-                store.name !==
-                  selectedStore
+                store.name !== selectedStore
               ) {
-
                 return;
-
               }
 
 
-              if (
-                store.available
-              ) {
+              if (store.available) {
 
-                productHasStock =
-                  true;
-
+                productHasStock = true;
 
                 availableCount++;
 
@@ -1520,28 +1081,38 @@ function renderProducts() {
                   : "Unavailable";
 
 
+              const priceHTML =
+                getStorePrice(
+                  product.name,
+                  region.name
+                );
+
+
               storesHTML += `
 
                 <div class="store">
 
-                  <div class="store-name">
+                  <div class="store-top">
 
-                    ${store.name}
+                    <div class="store-name">
+                      ${store.name}
+                    </div>
+
+                    <div
+                      class="status ${statusClass}"
+                    >
+
+                      <span
+                        class="status-dot"
+                      ></span>
+
+                      ${statusText}
+
+                    </div>
 
                   </div>
 
-
-                  <div
-                    class="status ${statusClass}"
-                  >
-
-                    <span
-                      class="status-dot"
-                    ></span>
-
-                    ${statusText}
-
-                  </div>
+                  ${priceHTML}
 
                 </div>
 
@@ -1558,9 +1129,7 @@ function renderProducts() {
               <div class="region">
 
                 <div class="region-name">
-
                   ${region.name}
-
                 </div>
 
                 ${storesHTML}
@@ -1575,25 +1144,34 @@ function renderProducts() {
       );
 
 
-      /* ============================
-         AVAILABLE ONLY
-      ============================ */
-
       if (
         stockOnly &&
         !productHasStock
       ) {
-
         return;
-
       }
 
 
       if (!regionsHTML) {
-
         return;
-
       }
+
+
+      const basePrice =
+        getBasePrice(
+          product.name
+        );
+
+
+      const basePriceHTML =
+        basePrice
+          ? `
+            <div class="base-price">
+              US Price:
+              ${formatUSD(basePrice)}
+            </div>
+          `
+          : "";
 
 
       const card =
@@ -1609,33 +1187,21 @@ function renderProducts() {
       card.innerHTML = `
 
         <div class="product-name">
-
           ${product.name}
-
         </div>
-
 
         <div class="part-number">
-
           ${product.partNumber}
-
         </div>
 
-
-        ${getPriceInfo(
-          product.name
-        )}
-
+        ${basePriceHTML}
 
         ${regionsHTML}
 
       `;
 
 
-      container.appendChild(
-        card
-      );
-
+      container.appendChild(card);
 
       displayed++;
 
@@ -1643,19 +1209,13 @@ function renderProducts() {
   );
 
 
-  /* ================================
-     SUMMARY
-  ================================ */
-
   document.getElementById(
     "availableCount"
   ).textContent =
     `${availableCount} Available`;
 
 
-  if (
-    availableCount === 0
-  ) {
+  if (availableCount === 0) {
 
     document.getElementById(
       "summaryText"
@@ -1664,9 +1224,7 @@ function renderProducts() {
 
   }
 
-  else if (
-    availableCount === 1
-  ) {
+  else if (availableCount === 1) {
 
     document.getElementById(
       "summaryText"
@@ -1685,20 +1243,12 @@ function renderProducts() {
   }
 
 
-  /* ================================
-     NO PRODUCTS
-  ================================ */
-
-  if (
-    displayed === 0
-  ) {
+  if (displayed === 0) {
 
     container.innerHTML = `
 
       <div class="empty">
-
         No matching products found.
-
       </div>
 
     `;
@@ -1708,9 +1258,9 @@ function renderProducts() {
 }
 
 
-/* ================================
-   FILTER CHANGE
-================================ */
+/* ========================================
+   FILTER EVENTS
+======================================== */
 
 function filterChanged() {
 
@@ -1721,48 +1271,32 @@ function filterChanged() {
 }
 
 
-/* MODEL */
-
 document
-.getElementById(
-  "modelFilter"
-)
+.getElementById("modelFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* STORAGE */
-
 document
-.getElementById(
-  "storageFilter"
-)
+.getElementById("storageFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* COLOR */
-
 document
-.getElementById(
-  "colorFilter"
-)
+.getElementById("colorFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* REGION */
-
 document
-.getElementById(
-  "regionFilter"
-)
+.getElementById("regionFilter")
 .addEventListener(
   "change",
   function() {
@@ -1777,57 +1311,36 @@ document
 );
 
 
-/* STORE */
-
 document
-.getElementById(
-  "storeFilter"
-)
+.getElementById("storeFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* AVAILABLE ONLY */
-
 document
-.getElementById(
-  "stockOnly"
-)
+.getElementById("stockOnly")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* RESET */
-
 document
-.getElementById(
-  "resetFilters"
-)
+.getElementById("resetFilters")
 .addEventListener(
   "click",
   resetFilters
 );
 
 
-/* ================================
+/* ========================================
    START
-================================ */
-
-/*
-前回選択したフィルターを復元
-*/
+======================================== */
 
 loadSavedFilters();
 
-
-/*
-為替を取得してから
-在庫情報を表示
-*/
 
 async function startApp() {
 
@@ -1842,8 +1355,8 @@ startApp();
 
 
 /*
-ページを開いている間は
-60秒ごとに在庫情報を更新
+画面を開いている間は
+60秒ごとにstock.jsonを再取得
 */
 
 setInterval(
