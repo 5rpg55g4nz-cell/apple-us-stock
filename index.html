@@ -33,9 +33,7 @@ body {
 }
 
 
-/* =========================
-HEADER
-========================= */
+/* HEADER */
 
 h1 {
   margin: 0;
@@ -50,9 +48,7 @@ h1 {
 }
 
 
-/* =========================
-SUMMARY
-========================= */
+/* SUMMARY */
 
 .summary {
   background: white;
@@ -84,9 +80,7 @@ SUMMARY
 }
 
 
-/* =========================
-FILTERS
-========================= */
+/* FILTERS */
 
 .filters {
   background: white;
@@ -133,9 +127,7 @@ select {
 }
 
 
-/* =========================
-DISCOUNT SELECTOR
-========================= */
+/* DISCOUNT SELECTOR */
 
 .discount-options {
   display: grid;
@@ -157,15 +149,11 @@ DISCOUNT SELECTOR
   display: block;
   padding: 11px 6px;
   border-radius: 11px;
-
   background: #f5f5f7;
   color: #6e6e73;
-
   text-align: center;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
 }
 
@@ -175,17 +163,13 @@ DISCOUNT SELECTOR
 }
 
 
-/* =========================
-STOCK ONLY
-========================= */
+/* STOCK ONLY */
 
 .stock-only {
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-size: 15px;
-
   margin-top: 18px;
 }
 
@@ -195,9 +179,7 @@ STOCK ONLY
 }
 
 
-/* =========================
-PRODUCT
-========================= */
+/* PRODUCT */
 
 .product {
   background: white;
@@ -213,22 +195,19 @@ PRODUCT
 }
 
 
-/* =========================
-US / JP PRODUCT INFO
-========================= */
+/* US / JP INFO */
 
 .product-info {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   gap: 5px;
 
   margin-top: 6px;
 
   color: #86868b;
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .market-info {
@@ -243,23 +222,16 @@ US / JP PRODUCT INFO
   font-weight: 600;
 }
 
-.jp-market .market-part,
-.jp-market .market-label {
-  color: #6e6e73;
-}
-
 .product-separator {
   color: #c7c7cc;
   margin: 0 2px;
 }
 
 
-/* =========================
-REGION
-========================= */
+/* REGION */
 
 .region {
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .region-header {
@@ -267,40 +239,39 @@ REGION
   justify-content: space-between;
   align-items: center;
 
-  gap: 10px;
+  gap: 8px;
 
-  padding-bottom: 8px;
+  padding-bottom: 7px;
 
   border-bottom: 1px solid #e5e5e7;
 }
 
 .region-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 
-/* =========================
-REGION PRICE
-========================= */
+/* REGION PRICE — ALWAYS ONE LINE */
 
 .region-price {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  flex-wrap: wrap;
+  gap: 4px;
 
-  gap: 6px;
+  min-width: 0;
+
+  white-space: nowrap;
 
   text-align: right;
 }
 
 
-/* =========================
-DISCOUNT BADGE
-========================= */
+/* DISCOUNT BADGE */
 
 .discount-badge {
   display: inline-flex;
@@ -310,16 +281,18 @@ DISCOUNT BADGE
   background: #1d1d1f;
   color: white;
 
-  border-radius: 7px;
+  border-radius: 6px;
 
-  padding: 4px 7px;
+  padding: 3px 5px;
 
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 700;
 
   line-height: 1;
 
   white-space: nowrap;
+
+  flex-shrink: 0;
 }
 
 .discount-badge.regular {
@@ -328,56 +301,43 @@ DISCOUNT BADGE
 }
 
 
-/* =========================
-PURCHASE PRICE
-========================= */
+/* PURCHASE PRICE */
 
 .region-main-price {
   color: #1d1d1f;
 
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
 
   white-space: nowrap;
+
+  flex-shrink: 0;
 }
 
 .region-detail {
   color: #86868b;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 400;
 
   white-space: nowrap;
-}
 
-.hawaii-detail {
-  width: 100%;
-
-  text-align: right;
-
-  color: #86868b;
-
-  font-size: 10px;
-  font-weight: 400;
-
-  margin-top: -1px;
+  flex-shrink: 0;
 }
 
 
-/* =========================
-STORE
-========================= */
+/* STORES — COMPACT */
 
 .store {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  padding: 10px 0;
+  padding: 7px 0;
 
-  border-bottom: 1px solid #e5e5e7;
+  border-bottom: 1px solid #eeeeef;
 }
 
 .store:last-child {
@@ -385,31 +345,34 @@ STORE
 }
 
 .store-name {
-  font-size: 13px;
-  font-weight: 500;
   color: #1d1d1f;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 1.2;
 }
 
 
-/* =========================
-STATUS
-========================= */
+/* STATUS */
 
 .status {
   display: flex;
   align-items: center;
 
-  gap: 6px;
+  gap: 5px;
 
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1.2;
 
   white-space: nowrap;
 }
 
 .status-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 
   border-radius: 50%;
 
@@ -433,38 +396,25 @@ STATUS
 }
 
 
-/* =========================
-EMPTY
-========================= */
+/* EMPTY */
 
 .empty {
   background: white;
-
   border-radius: 20px;
-
   padding: 30px 20px;
-
   text-align: center;
-
   color: #6e6e73;
 }
 
 
-/* =========================
-FOOTER PRICE INFO
-========================= */
+/* FOOTER */
 
 .price-information {
   margin-top: 28px;
-
   padding: 18px;
-
   background: white;
-
   border-radius: 18px;
-
   color: #6e6e73;
-
   font-size: 12px;
   line-height: 1.65;
 }
@@ -475,40 +425,43 @@ FOOTER PRICE INFO
 
 #updated {
   text-align: center;
-
   color: #86868b;
-
   font-size: 12px;
-
   margin-top: 14px;
 }
 
 
-/* =========================
-MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 480px) {
 
   .product {
-    padding: 20px;
+    padding: 18px;
   }
 
   .region-header {
-    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .region-name {
+    font-size: 13px;
   }
 
   .region-price {
-    gap: 5px;
+    gap: 3px;
   }
 
   .region-main-price {
-    font-size: 13px;
+    font-size: 11px;
   }
 
-  .store-name,
-  .status {
-    font-size: 13px;
+  .region-detail {
+    font-size: 8px;
+  }
+
+  .discount-badge {
+    font-size: 8px;
+    padding: 3px 5px;
   }
 
 }
@@ -521,19 +474,14 @@ MOBILE
 
 <div class="container">
 
-
-<h1>
-  Stock Buddy
-</h1>
+<h1>Stock Buddy</h1>
 
 <div class="subtitle">
   I’ll keep an eye on it for you.
 </div>
 
 
-<!-- =========================
-SUMMARY
-========================= -->
+<!-- SUMMARY -->
 
 <div class="summary">
 
@@ -557,9 +505,7 @@ SUMMARY
 </div>
 
 
-<!-- =========================
-FILTERS
-========================= -->
+<!-- FILTERS -->
 
 <div class="filters">
 
@@ -578,8 +524,6 @@ FILTERS
 
   </div>
 
-
-  <!-- MODEL -->
 
   <div class="filter-title">
     MODEL
@@ -601,8 +545,6 @@ FILTERS
 
   </select>
 
-
-  <!-- STORAGE -->
 
   <div class="filter-title">
     STORAGE
@@ -633,8 +575,6 @@ FILTERS
   </select>
 
 
-  <!-- COLOR -->
-
   <div class="filter-title">
     COLOR
   </div>
@@ -664,8 +604,6 @@ FILTERS
   </select>
 
 
-  <!-- REGION -->
-
   <div class="filter-title">
     REGION
   </div>
@@ -687,8 +625,6 @@ FILTERS
   </select>
 
 
-  <!-- STORE -->
-
   <div class="filter-title">
     STORE
   </div>
@@ -702,14 +638,12 @@ FILTERS
   </select>
 
 
-  <!-- DISCOUNT -->
-
   <div class="filter-title">
     DISCOUNT
   </div>
 
-  <div class="discount-options">
 
+  <div class="discount-options">
 
     <div class="discount-option">
 
@@ -759,11 +693,8 @@ FILTERS
 
     </div>
 
-
   </div>
 
-
-  <!-- STOCK ONLY -->
 
   <label class="stock-only">
 
@@ -782,22 +713,17 @@ FILTERS
 
   </label>
 
-
 </div>
 
 
-<!-- =========================
-PRODUCTS
-========================= -->
+<!-- PRODUCTS -->
 
 <div id="products">
   Loading availability...
 </div>
 
 
-<!-- =========================
-PRICE INFORMATION
-========================= -->
+<!-- PRICE INFO -->
 
 <div class="price-information">
 
@@ -837,228 +763,167 @@ PRICE INFORMATION
 
 <div id="updated"></div>
 
-
 </div>
 
 
 <script>
 
-
-/* =========================
+/* ===============================
 DATA
-========================= */
+=============================== */
 
 let stockData = null;
-
 let usdJpyRate = null;
-
 let exchangeRateDate = null;
-
 
 const STORAGE_KEY =
   "stockBuddyFilters";
-
 
 const HAWAII_RATE =
   0.04712;
 
 
-/* =========================
-US RETAIL PRICES
-========================= */
+/* ===============================
+US PRICES
+=============================== */
 
 const US_PRICES = {
 
   pro: {
-
     "256GB": 1199,
-
     "512GB": 1399,
-
     "1TB": 1799,
-
     "2TB": 2399
-
   },
 
-
   promax: {
-
     "256GB": 1299,
-
     "512GB": 1499,
-
     "1TB": 1899,
-
     "2TB": 2499
-
   }
 
 };
 
 
-/* =========================
-JAPAN RETAIL PRICES
-========================= */
+/* ===============================
+JP PRICES
+=============================== */
 
 const JP_PRICES = {
 
   pro: {
-
     "256GB": 219800,
-
     "512GB": 254800,
-
     "1TB": 324800,
-
     "2TB": 429800
-
   },
 
-
   promax: {
-
     "256GB": 239800,
-
     "512GB": 274800,
-
     "1TB": 344800,
-
     "2TB": 449800
-
   }
 
 };
 
 
-/* =========================
-JAPAN PART NUMBERS
-========================= */
+/* ===============================
+JP PART NUMBERS
+=============================== */
 
 const JP_PART_NUMBERS = {
 
-
-  /* iPhone 18 Pro 256GB */
+  /* Pro 256GB */
 
   "MJQ34LL/A": "MJR54J/A",
-
   "MJQ44LL/A": "MJR64J/A",
-
   "MJQ54LL/A": "MJR74J/A",
-
   "MJQ64LL/A": "MJR84J/A",
 
 
-  /* iPhone 18 Pro 512GB */
+  /* Pro 512GB */
 
   "MJQ74LL/A": "MJR94J/A",
-
   "MJQ84LL/A": "MJRC4J/A",
-
   "MJQ94LL/A": "MJRD4J/A",
-
   "MJQA4LL/A": "MJRE4J/A",
 
 
-  /* iPhone 18 Pro 1TB */
+  /* Pro 1TB */
 
   "MJQC4LL/A": "MJRF4J/A",
-
   "MJQD4LL/A": "MJRG4J/A",
-
   "MJQE4LL/A": "MJRH4J/A",
-
   "MJQF4LL/A": "MJRJ4J/A",
 
 
-  /* iPhone 18 Pro 2TB */
+  /* Pro 2TB */
 
   "MJQG4LL/A": "MJRK4J/A",
-
   "MJQH4LL/A": "MJRL4J/A",
-
   "MJQJ4LL/A": "MJRM4J/A",
-
   "MJQK4LL/A": "MJRN4J/A",
 
 
-  /* iPhone 18 Pro Max 256GB */
+  /* Pro Max 256GB */
 
   "MJW44LL/A": "MJX54J/A",
-
   "MJW54LL/A": "MJX64J/A",
-
   "MJW64LL/A": "MJX74J/A",
-
   "MJW74LL/A": "MJX84J/A",
 
 
-  /* iPhone 18 Pro Max 512GB */
+  /* Pro Max 512GB */
 
   "MJW84LL/A": "MJX94J/A",
-
   "MJW94LL/A": "MJXA4J/A",
-
   "MJWA4LL/A": "MJXC4J/A",
-
   "MJWC4LL/A": "MJXD4J/A",
 
 
-  /* iPhone 18 Pro Max 1TB */
+  /* Pro Max 1TB */
 
   "MJWD4LL/A": "MJXE4J/A",
-
   "MJWE4LL/A": "MJXF4J/A",
-
   "MJWF4LL/A": "MJXG4J/A",
-
   "MJWG4LL/A": "MJXH4J/A",
 
 
-  /* iPhone 18 Pro Max 2TB */
+  /* Pro Max 2TB */
 
   "MJWH4LL/A": "MJXJ4J/A",
-
   "MJWJ4LL/A": "MJXK4J/A",
-
   "MJWK4LL/A": "MJXL4J/A",
-
   "MJWL4LL/A": "MJXM4J/A"
 
 };
 
 
-/* =========================
+/* ===============================
 STORES
-========================= */
+=============================== */
 
 const storesByRegion = {
 
   Oregon: [
-
     "Pioneer Place",
-
     "Washington Square",
-
     "Bridgeport Village"
-
   ],
 
-
   Hawaii: [
-
     "Ala Moana",
-
     "Kahala"
-
   ]
 
 };
 
 
-/* =========================
+/* ===============================
 DISCOUNT
-========================= */
+=============================== */
 
 function getSelectedDiscount() {
 
@@ -1067,7 +932,6 @@ function getSelectedDiscount() {
       'input[name="discount"]:checked'
     );
 
-
   return selected
     ? Number(selected.value)
     : 0;
@@ -1075,38 +939,31 @@ function getSelectedDiscount() {
 }
 
 
-function setDiscount(
-  discount
-) {
+function setDiscount(discount) {
 
   const option =
     document.querySelector(
       `input[name="discount"][value="${discount}"]`
     );
 
-
   if (option) {
 
-    option.checked =
-      true;
+    option.checked = true;
 
-  }
-
-  else {
+  } else {
 
     document.getElementById(
       "discountRegular"
-    ).checked =
-      true;
+    ).checked = true;
 
   }
 
 }
 
 
-/* =========================
+/* ===============================
 STORE FILTER
-========================= */
+=============================== */
 
 function updateStoreFilter(
   selectedStore = "all"
@@ -1117,12 +974,10 @@ function updateStoreFilter(
       "regionFilter"
     ).value;
 
-
   const storeFilter =
     document.getElementById(
       "storeFilter"
     );
-
 
   storeFilter.innerHTML =
     '<option value="all">All Stores</option>';
@@ -1135,12 +990,10 @@ function updateStoreFilter(
     ).forEach(
       ([regionName, stores]) => {
 
-
         const group =
           document.createElement(
             "optgroup"
           );
-
 
         group.label =
           regionName;
@@ -1149,20 +1002,16 @@ function updateStoreFilter(
         stores.forEach(
           store => {
 
-
             const option =
               document.createElement(
                 "option"
               );
 
-
             option.value =
               store;
 
-
             option.textContent =
               store;
-
 
             group.appendChild(
               option
@@ -1179,10 +1028,7 @@ function updateStoreFilter(
       }
     );
 
-  }
-
-
-  else {
+  } else {
 
     const stores =
       storesByRegion[region] || [];
@@ -1191,20 +1037,16 @@ function updateStoreFilter(
     stores.forEach(
       store => {
 
-
         const option =
           document.createElement(
             "option"
           );
 
-
         option.value =
           store;
 
-
         option.textContent =
           store;
-
 
         storeFilter.appendChild(
           option
@@ -1233,9 +1075,9 @@ function updateStoreFilter(
 }
 
 
-/* =========================
+/* ===============================
 SAVE FILTERS
-========================= */
+=============================== */
 
 function saveFilters() {
 
@@ -1246,34 +1088,28 @@ function saveFilters() {
         "modelFilter"
       ).value,
 
-
     storage:
       document.getElementById(
         "storageFilter"
       ).value,
-
 
     color:
       document.getElementById(
         "colorFilter"
       ).value,
 
-
     region:
       document.getElementById(
         "regionFilter"
       ).value,
-
 
     store:
       document.getElementById(
         "storeFilter"
       ).value,
 
-
     discount:
       getSelectedDiscount(),
-
 
     stockOnly:
       document.getElementById(
@@ -1291,9 +1127,9 @@ function saveFilters() {
 }
 
 
-/* =========================
+/* ===============================
 LOAD SAVED FILTERS
-========================= */
+=============================== */
 
 function loadSavedFilters() {
 
@@ -1307,7 +1143,6 @@ function loadSavedFilters() {
         STORAGE_KEY
       );
 
-
     if (saved) {
 
       settings =
@@ -1315,9 +1150,7 @@ function loadSavedFilters() {
 
     }
 
-  }
-
-  catch(error) {
+  } catch(error) {
 
     console.error(error);
 
@@ -1366,1120 +1199,4 @@ function loadSavedFilters() {
 
 
   setDiscount(
-    settings.discount ?? 0
-  );
-
-
-  updateStoreFilter(
-    settings.store || "all"
-  );
-
-}
-
-
-/* =========================
-RESET FILTERS
-========================= */
-
-function resetFilters() {
-
-  document.getElementById(
-    "modelFilter"
-  ).value =
-    "all";
-
-
-  document.getElementById(
-    "storageFilter"
-  ).value =
-    "all";
-
-
-  document.getElementById(
-    "colorFilter"
-  ).value =
-    "all";
-
-
-  document.getElementById(
-    "regionFilter"
-  ).value =
-    "all";
-
-
-  document.getElementById(
-    "stockOnly"
-  ).checked =
-    false;
-
-
-  setDiscount(0);
-
-
-  updateStoreFilter();
-
-
-  localStorage.removeItem(
-    STORAGE_KEY
-  );
-
-
-  renderProducts();
-
-}
-
-
-/* =========================
-EXCHANGE RATE
-========================= */
-
-async function loadExchangeRate() {
-
-  const exchangeInfo =
-    document.getElementById(
-      "exchangeInfo"
-    );
-
-
-  try {
-
-    const response =
-      await fetch(
-        "https://api.frankfurter.dev/v2/rate/usd/jpy"
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Exchange rate request failed"
-      );
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    usdJpyRate =
-      Number(data.rate);
-
-
-    exchangeRateDate =
-      data.date;
-
-
-    exchangeInfo.textContent =
-      `$1 = ¥${usdJpyRate.toFixed(2)} · ${exchangeRateDate}`;
-
-  }
-
-
-  catch(error) {
-
-    console.error(error);
-
-
-    usdJpyRate =
-      null;
-
-
-    exchangeInfo.textContent =
-      "Exchange rate unavailable";
-
-  }
-
-}
-
-
-/* =========================
-PRODUCT PRICE INFO
-========================= */
-
-function getProductPriceInfo(
-  productName
-) {
-
-  const isProMax =
-    productName.startsWith(
-      "iPhone 18 Pro Max "
-    );
-
-
-  const model =
-    isProMax
-      ? "promax"
-      : "pro";
-
-
-  let storage = null;
-
-
-  if (
-    productName.includes(
-      "256GB"
-    )
-  ) {
-
-    storage =
-      "256GB";
-
-  }
-
-
-  else if (
-    productName.includes(
-      "512GB"
-    )
-  ) {
-
-    storage =
-      "512GB";
-
-  }
-
-
-  else if (
-    productName.includes(
-      "1TB"
-    )
-  ) {
-
-    storage =
-      "1TB";
-
-  }
-
-
-  else if (
-    productName.includes(
-      "2TB"
-    )
-  ) {
-
-    storage =
-      "2TB";
-
-  }
-
-
-  if (!storage) {
-
-    return null;
-
-  }
-
-
-  return {
-
-    usd:
-      US_PRICES[model][storage],
-
-
-    jpy:
-      JP_PRICES[model][storage]
-
-  };
-
-}
-
-
-/* =========================
-CURRENCY FORMAT
-========================= */
-
-function formatJPY(
-  value
-) {
-
-  return new Intl.NumberFormat(
-    "ja-JP",
-    {
-
-      style: "currency",
-
-      currency: "JPY",
-
-      maximumFractionDigits: 0
-
-    }
-  ).format(value);
-
-}
-
-
-function formatUSD(
-  value
-) {
-
-  return new Intl.NumberFormat(
-    "en-US",
-    {
-
-      style: "currency",
-
-      currency: "USD",
-
-      maximumFractionDigits: 0
-
-    }
-  ).format(value);
-
-}
-
-
-/* =========================
-REGION PURCHASE PRICE
-========================= */
-
-function getRegionPrice(
-  productName,
-  regionName
-) {
-
-  const priceInfo =
-    getProductPriceInfo(
-      productName
-    );
-
-
-  if (
-    !priceInfo ||
-    !usdJpyRate
-  ) {
-
-    return "";
-
-  }
-
-
-  const discount =
-    getSelectedDiscount();
-
-
-  const discountedBaseUSD =
-    priceInfo.usd *
-    (1 - discount);
-
-
-  const isHawaii =
-    regionName ===
-    "Hawaii";
-
-
-  const taxUSD =
-    isHawaii
-
-      ? discountedBaseUSD *
-        HAWAII_RATE
-
-      : 0;
-
-
-  const totalUSD =
-    discountedBaseUSD +
-    taxUSD;
-
-
-  const totalJPY =
-    Math.round(
-      (
-        totalUSD *
-        usdJpyRate
-      ) / 1000
-    ) * 1000;
-
-
-  const taxJPY =
-    Math.round(
-      taxUSD *
-      usdJpyRate
-    );
-
-
-  const discountLabel =
-    discount === 0
-
-      ? "Regular"
-
-      : `${Math.round(
-          discount * 100
-        )}%`;
-
-
-  const badgeClass =
-    discount === 0
-
-      ? "discount-badge regular"
-
-      : "discount-badge";
-
-
-  const rateLabel =
-    `$1 = ¥${usdJpyRate.toFixed(2)}`;
-
-
-  if (isHawaii) {
-
-    return `
-
-      <div class="region-price">
-
-
-        <span class="${badgeClass}">
-
-          ${discountLabel}
-
-        </span>
-
-
-        <span class="region-main-price">
-
-          約 ${formatJPY(
-            totalJPY
-          )}
-
-        </span>
-
-
-        <div class="hawaii-detail">
-
-          Tax 約 ${formatJPY(
-            taxJPY
-          )}
-          ·
-          ${rateLabel}
-
-        </div>
-
-
-      </div>
-
-    `;
-
-  }
-
-
-  return `
-
-    <div class="region-price">
-
-
-      <span class="${badgeClass}">
-
-        ${discountLabel}
-
-      </span>
-
-
-      <span class="region-main-price">
-
-        約 ${formatJPY(
-          totalJPY
-        )}
-
-      </span>
-
-
-      <span class="region-detail">
-
-        ${rateLabel}
-
-      </span>
-
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-LOAD STOCK
-========================= */
-
-async function loadStock() {
-
-  try {
-
-    const response =
-      await fetch(
-        "stock.json?t=" +
-        Date.now()
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Stock request failed"
-      );
-
-    }
-
-
-    stockData =
-      await response.json();
-
-
-    renderProducts();
-
-
-    document.getElementById(
-      "updated"
-    ).textContent =
-      "Last checked: " +
-      stockData.updated;
-
-  }
-
-
-  catch(error) {
-
-    console.error(error);
-
-
-    document.getElementById(
-      "products"
-    ).innerHTML = `
-
-      <div class="empty">
-
-        Stock data is currently unavailable.
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* =========================
-RENDER PRODUCTS
-========================= */
-
-function renderProducts() {
-
-  if (!stockData) {
-
-    return;
-
-  }
-
-
-  const model =
-    document.getElementById(
-      "modelFilter"
-    ).value;
-
-
-  const storage =
-    document.getElementById(
-      "storageFilter"
-    ).value;
-
-
-  const color =
-    document.getElementById(
-      "colorFilter"
-    ).value;
-
-
-  const selectedRegion =
-    document.getElementById(
-      "regionFilter"
-    ).value;
-
-
-  const selectedStore =
-    document.getElementById(
-      "storeFilter"
-    ).value;
-
-
-  const stockOnly =
-    document.getElementById(
-      "stockOnly"
-    ).checked;
-
-
-  const container =
-    document.getElementById(
-      "products"
-    );
-
-
-  container.innerHTML =
-    "";
-
-
-  let displayed =
-    0;
-
-
-  let availableCount =
-    0;
-
-
-  stockData.products.forEach(
-    product => {
-
-
-      const name =
-        product.name;
-
-
-      const isProMax =
-        name.startsWith(
-          "iPhone 18 Pro Max "
-        );
-
-
-      const isPro =
-        name.startsWith(
-          "iPhone 18 Pro "
-        ) &&
-        !isProMax;
-
-
-      /* MODEL */
-
-      if (
-        model === "pro" &&
-        !isPro
-      ) {
-
-        return;
-
-      }
-
-
-      if (
-        model === "promax" &&
-        !isProMax
-      ) {
-
-        return;
-
-      }
-
-
-      /* STORAGE */
-
-      if (
-        storage !== "all" &&
-        !name.includes(
-          storage
-        )
-      ) {
-
-        return;
-
-      }
-
-
-      /* COLOR */
-
-      if (
-        color !== "all" &&
-        !name.endsWith(
-          color
-        )
-      ) {
-
-        return;
-
-      }
-
-
-      let regionsHTML =
-        "";
-
-
-      let productHasStock =
-        false;
-
-
-      product.regions.forEach(
-        region => {
-
-
-          /* REGION FILTER */
-
-          if (
-            selectedRegion !== "all" &&
-            region.name !== selectedRegion
-          ) {
-
-            return;
-
-          }
-
-
-          let storesHTML =
-            "";
-
-
-          region.stores.forEach(
-            store => {
-
-
-              /* STORE FILTER */
-
-              if (
-                selectedStore !== "all" &&
-                store.name !== selectedStore
-              ) {
-
-                return;
-
-              }
-
-
-              if (
-                store.available
-              ) {
-
-                productHasStock =
-                  true;
-
-
-                availableCount++;
-
-              }
-
-
-              const statusClass =
-                store.available
-
-                  ? "available"
-
-                  : "unavailable";
-
-
-              const statusText =
-                store.available
-
-                  ? "Available"
-
-                  : "Unavailable";
-
-
-              storesHTML += `
-
-                <div class="store">
-
-
-                  <div class="store-name">
-
-                    ${store.name}
-
-                  </div>
-
-
-                  <div
-                    class="status ${statusClass}"
-                  >
-
-                    <span
-                      class="status-dot"
-                    ></span>
-
-                    ${statusText}
-
-                  </div>
-
-
-                </div>
-
-              `;
-
-            }
-          );
-
-
-          if (storesHTML) {
-
-
-            const regionPrice =
-              getRegionPrice(
-                product.name,
-                region.name
-              );
-
-
-            regionsHTML += `
-
-              <div class="region">
-
-
-                <div class="region-header">
-
-
-                  <div class="region-name">
-
-                    ${region.name}
-
-                  </div>
-
-
-                  ${regionPrice}
-
-
-                </div>
-
-
-                ${storesHTML}
-
-
-              </div>
-
-            `;
-
-          }
-
-        }
-      );
-
-
-      /* STOCK ONLY */
-
-      if (
-        stockOnly &&
-        !productHasStock
-      ) {
-
-        return;
-
-      }
-
-
-      if (!regionsHTML) {
-
-        return;
-
-      }
-
-
-      /* PRODUCT RETAIL PRICE */
-
-      const priceInfo =
-        getProductPriceInfo(
-          product.name
-        );
-
-
-      const jpPartNumber =
-        JP_PART_NUMBERS[
-          product.partNumber
-        ] || "—";
-
-
-      let productInfoHTML =
-        "";
-
-
-      if (priceInfo) {
-
-        productInfoHTML = `
-
-
-          <span class="market-info us-market">
-
-            <span class="market-part">
-
-              ${product.partNumber}
-
-            </span>
-
-            <span class="market-label">
-
-              US
-
-            </span>
-
-            ${formatUSD(
-              priceInfo.usd
-            )}
-
-          </span>
-
-
-          <span class="product-separator">
-
-            |
-
-          </span>
-
-
-          <span class="market-info jp-market">
-
-            <span class="market-part">
-
-              ${jpPartNumber}
-
-            </span>
-
-            <span class="market-label">
-
-              JP
-
-            </span>
-
-            ${formatJPY(
-              priceInfo.jpy
-            )}
-
-          </span>
-
-
-        `;
-
-      }
-
-
-      /* PRODUCT CARD */
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      card.className =
-        "product";
-
-
-      card.innerHTML = `
-
-
-        <div class="product-name">
-
-          ${product.name}
-
-        </div>
-
-
-        <div class="product-info">
-
-          ${productInfoHTML}
-
-        </div>
-
-
-        ${regionsHTML}
-
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-
-      displayed++;
-
-    }
-  );
-
-
-  /* SUMMARY */
-
-  document.getElementById(
-    "availableCount"
-  ).textContent =
-    `${availableCount} Available`;
-
-
-  if (
-    availableCount === 0
-  ) {
-
-    document.getElementById(
-      "summaryText"
-    ).textContent =
-      "No pickup availability for the current filters.";
-
-  }
-
-
-  else {
-
-    document.getElementById(
-      "summaryText"
-    ).textContent =
-      `${availableCount} available store / product combinations.`;
-
-  }
-
-
-  /* EMPTY */
-
-  if (
-    displayed === 0
-  ) {
-
-    container.innerHTML = `
-
-      <div class="empty">
-
-        No matching products found.
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* =========================
-FILTER EVENTS
-========================= */
-
-function filterChanged() {
-
-  saveFilters();
-
-  renderProducts();
-
-}
-
-
-document
-  .getElementById(
-    "modelFilter"
-  )
-  .addEventListener(
-    "change",
-    filterChanged
-  );
-
-
-document
-  .getElementById(
-    "storageFilter"
-  )
-  .addEventListener(
-    "change",
-    filterChanged
-  );
-
-
-document
-  .getElementById(
-    "colorFilter"
-  )
-  .addEventListener(
-    "change",
-    filterChanged
-  );
-
-
-document
-  .getElementById(
-    "regionFilter"
-  )
-  .addEventListener(
-    "change",
-    function() {
-
-
-      updateStoreFilter();
-
-
-      saveFilters();
-
-
-      renderProducts();
-
-    }
-  );
-
-
-document
-  .getElementById(
-    "storeFilter"
-  )
-  .addEventListener(
-    "change",
-    filterChanged
-  );
-
-
-document
-  .getElementById(
-    "stockOnly"
-  )
-  .addEventListener(
-    "change",
-    filterChanged
-  );
-
-
-document
-  .querySelectorAll(
-    'input[name="discount"]'
-  )
-  .forEach(
-    input => {
-
-
-      input.addEventListener(
-        "change",
-        filterChanged
-      );
-
-    }
-  );
-
-
-document
-  .getElementById(
-    "resetFilters"
-  )
-  .addEventListener(
-    "click",
-    resetFilters
-  );
-
-
-/* =========================
-START
-========================= */
-
-loadSavedFilters();
-
-
-async function startApp() {
-
-  await loadExchangeRate();
-
-  await loadStock();
-
-}
-
-
-startApp();
-
-
-/* =========================
-AUTO REFRESH
-========================= */
-
-setInterval(
-  loadStock,
-  60000
-);
-
-
-</script>
-
-</body>
-</html>
+   
