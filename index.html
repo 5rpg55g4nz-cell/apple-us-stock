@@ -162,7 +162,7 @@ select {
 }
 
 
-/* AVAILABLE ONLY */
+/* STOCK ONLY */
 
 .stock-only {
   display: flex;
@@ -193,10 +193,31 @@ select {
   line-height: 1.25;
 }
 
-.part-number {
+
+/* PRODUCT INFO */
+
+.product-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
   color: #86868b;
   font-size: 13px;
-  margin-top: 4px;
+
+  margin-top: 5px;
+}
+
+.part-number {
+  color: #86868b;
+}
+
+.product-price {
+  color: #86868b;
+}
+
+.product-separator {
+  color: #d2d2d7;
 }
 
 
@@ -228,23 +249,24 @@ select {
 
 .region-price {
   display: flex;
-  align-items: baseline;
   justify-content: flex-end;
-  gap: 6px;
+  align-items: baseline;
   flex-wrap: wrap;
+  gap: 5px;
+
   text-align: right;
 }
 
-.discount-price {
+.region-main-price {
   color: #1d1d1f;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.regular-price {
+.region-price-info {
   color: #86868b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -289,9 +311,7 @@ select {
 .status-dot {
   width: 8px;
   height: 8px;
-
   border-radius: 50%;
-
   flex-shrink: 0;
 }
 
@@ -323,20 +343,18 @@ select {
 }
 
 
-/* PRICE INFORMATION */
+/* PRICE INFO */
 
 .price-information {
   margin-top: 28px;
   padding: 18px;
 
   background: white;
-
   border-radius: 18px;
 
   color: #6e6e73;
 
   font-size: 12px;
-
   line-height: 1.65;
 }
 
@@ -352,6 +370,29 @@ select {
   margin-top: 14px;
 }
 
+
+/* SMALL SCREEN */
+
+@media (max-width: 480px) {
+
+  .region-header {
+    align-items: flex-start;
+  }
+
+  .region-price {
+    max-width: 75%;
+  }
+
+  .region-main-price {
+    font-size: 13px;
+  }
+
+  .region-price-info {
+    font-size: 10px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -359,6 +400,9 @@ select {
 <body>
 
 <div class="container">
+
+
+  <!-- HEADER -->
 
   <h1>
     Stock Buddy
@@ -545,6 +589,7 @@ select {
 
     <div class="discount-options">
 
+
       <div class="discount-option">
 
         <input
@@ -593,6 +638,7 @@ select {
 
       </div>
 
+
     </div>
 
 
@@ -615,6 +661,7 @@ select {
 
     </label>
 
+
   </div>
 
 
@@ -625,7 +672,7 @@ select {
   </div>
 
 
-  <!-- PRICE INFO -->
+  <!-- PRICE INFORMATION -->
 
   <div class="price-information">
 
@@ -635,13 +682,23 @@ select {
 
     <br>
 
-    Oregon:
-    No general sales tax (0%)
+    US price:
+    Apple US retail price
 
     <br>
 
-    Hawaii (Honolulu):
-    4.712% estimated GET pass-on
+    JP price:
+    Apple Japan retail price
+
+    <br>
+
+    Oregon:
+    No general sales tax
+
+    <br>
+
+    Hawaii:
+    Estimated Honolulu GET pass-on included
 
     <br>
 
@@ -651,13 +708,14 @@ select {
 
     <br>
 
-    JPY prices are approximate.
+    JPY purchase prices are estimates.
     Actual checkout totals and card exchange rates may vary.
 
   </div>
 
 
   <div id="updated"></div>
+
 
 </div>
 
@@ -679,12 +737,17 @@ const STORAGE_KEY =
   "stockBuddyFilters";
 
 
+/*
+Hawaii Honolulu
+estimated GET pass-on
+*/
+
 const HAWAII_RATE =
   0.04712;
 
 
 /* ========================================
-   US PRICES
+   US RETAIL PRICES
 ======================================== */
 
 const US_PRICES = {
@@ -711,6 +774,40 @@ const US_PRICES = {
     "1TB": 1899,
 
     "2TB": 2499
+
+  }
+
+};
+
+
+/* ========================================
+   JAPAN RETAIL PRICES
+======================================== */
+
+const JP_PRICES = {
+
+  pro: {
+
+    "256GB": 219800,
+
+    "512GB": 254800,
+
+    "1TB": 324800,
+
+    "2TB": 429800
+
+  },
+
+
+  promax: {
+
+    "256GB": 239800,
+
+    "512GB": 274800,
+
+    "1TB": 344800,
+
+    "2TB": 449800
 
   }
 
@@ -822,7 +919,9 @@ function updateStoreFilter(
     '<option value="all">All Stores</option>';
 
 
-  if (region === "all") {
+  if (
+    region === "all"
+  ) {
 
     Object.entries(
       storesByRegion
@@ -1075,7 +1174,7 @@ function loadSavedFilters() {
 
 
 /* ========================================
-   RESET
+   RESET FILTERS
 ======================================== */
 
 function resetFilters() {
@@ -1186,8 +1285,8 @@ async function loadExchangeRate() {
 
 
     exchangeInfo.textContent =
-      `USD/JPY: ¥${usdJpyRate.toFixed(2)} ` +
-      `· Rate date: ${exchangeRateDate}`;
+      `USD/JPY: $1 = ¥${usdJpyRate.toFixed(2)} ` +
+      `· ${exchangeRateDate}`;
 
   }
 
@@ -1209,10 +1308,10 @@ async function loadExchangeRate() {
 
 
 /* ========================================
-   BASE PRICE
+   PRODUCT PRICE INFO
 ======================================== */
 
-function getBasePrice(
+function getProductPriceInfo(
   productName
 ) {
 
@@ -1282,13 +1381,42 @@ function getBasePrice(
   }
 
 
-  return US_PRICES[model][storage];
+  return {
+
+    usd:
+      US_PRICES[model][storage],
+
+    jpy:
+      JP_PRICES[model][storage]
+
+  };
 
 }
 
 
 /* ========================================
-   JPY FORMAT
+   BASE PRICE
+======================================== */
+
+function getBasePrice(
+  productName
+) {
+
+  const priceInfo =
+    getProductPriceInfo(
+      productName
+    );
+
+
+  return priceInfo
+    ? priceInfo.usd
+    : null;
+
+}
+
+
+/* ========================================
+   FORMAT
 ======================================== */
 
 function formatJPY(
@@ -1300,6 +1428,24 @@ function formatJPY(
     {
       style: "currency",
       currency: "JPY",
+      maximumFractionDigits: 0
+    }
+  ).format(
+    value
+  );
+
+}
+
+
+function formatUSD(
+  value
+) {
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      style: "currency",
+      currency: "USD",
       maximumFractionDigits: 0
     }
   ).format(
@@ -1338,71 +1484,112 @@ function getRegionPrice(
     getSelectedDiscount();
 
 
-  const taxRate =
-    regionName === "Hawaii"
-      ? HAWAII_RATE
+  /*
+  割引後のUS価格
+  */
+
+  const discountedBaseUSD =
+    basePrice *
+    (1 - discount);
+
+
+  /*
+  HawaiiのみGET相当額を追加
+  */
+
+  const isHawaii =
+    regionName === "Hawaii";
+
+
+  const taxUSD =
+    isHawaii
+      ? discountedBaseUSD *
+        HAWAII_RATE
       : 0;
 
 
   /*
-  通常価格 + 地域税
+  最終支払額
   */
 
-  const regularTotalUSD =
-    basePrice *
-    (1 + taxRate);
+  const totalUSD =
+    discountedBaseUSD +
+    taxUSD;
 
 
   /*
-  社割適用後 + 地域税
+  日本円換算
   */
 
-  const discountedTotalUSD =
-    basePrice *
-    (1 - discount) *
-    (1 + taxRate);
-
-
-  /*
-  円換算して
-  1,000円単位に丸める
-  */
-
-  const regularJPY =
+  const totalJPY =
     Math.round(
       (
-        regularTotalUSD *
-        usdJpyRate
-      ) / 1000
-    ) * 1000;
-
-
-  const discountedJPY =
-    Math.round(
-      (
-        discountedTotalUSD *
+        totalUSD *
         usdJpyRate
       ) / 1000
     ) * 1000;
 
 
   /*
-  Regular選択時
+  Hawaiiの税金だけ
+  日本円換算
+  */
+
+  const taxJPY =
+    Math.round(
+      taxUSD *
+      usdJpyRate
+    );
+
+
+  /*
+  割引ラベル
+  */
+
+  const discountLabel =
+    discount === 0
+      ? "Regular"
+      : `${Math.round(
+          discount * 100
+        )}%`;
+
+
+  /*
+  為替レート
+  */
+
+  const rateLabel =
+    `$1 = ¥${usdJpyRate.toFixed(2)}`;
+
+
+  /*
+  Hawaii
   */
 
   if (
-    discount === 0
+    isHawaii
   ) {
 
     return `
 
       <div class="region-price">
 
-        <span class="discount-price">
+        <span class="region-main-price">
 
+          ${discountLabel}
           約 ${formatJPY(
-            regularJPY
+            totalJPY
           )}
+
+        </span>
+
+
+        <span class="region-price-info">
+
+          （Tax 約 ${formatJPY(
+            taxJPY
+          )}
+          / ${rateLabel}）
 
         </span>
 
@@ -1414,30 +1601,26 @@ function getRegionPrice(
 
 
   /*
-  15% / 25% 選択時
-
-  社割価格 → 前
-  定価 → カッコ
+  Oregon
   */
 
   return `
 
     <div class="region-price">
 
-      <span class="discount-price">
+      <span class="region-main-price">
 
+        ${discountLabel}
         約 ${formatJPY(
-          discountedJPY
+          totalJPY
         )}
 
       </span>
 
 
-      <span class="regular-price">
+      <span class="region-price-info">
 
-        （${formatJPY(
-          regularJPY
-        )}）
+        （${rateLabel}）
 
       </span>
 
@@ -1582,7 +1765,9 @@ function renderProducts() {
         product.name;
 
 
-      /* MODEL */
+      /*
+      MODEL
+      */
 
       const isProMax =
         name.startsWith(
@@ -1613,7 +1798,9 @@ function renderProducts() {
       }
 
 
-      /* STORAGE */
+      /*
+      STORAGE
+      */
 
       if (
         storage !== "all" &&
@@ -1625,7 +1812,9 @@ function renderProducts() {
       }
 
 
-      /* COLOR */
+      /*
+      COLOR
+      */
 
       if (
         color !== "all" &&
@@ -1649,6 +1838,10 @@ function renderProducts() {
         region => {
 
 
+          /*
+          REGION FILTER
+          */
+
           if (
             selectedRegion !== "all" &&
             region.name !==
@@ -1666,6 +1859,10 @@ function renderProducts() {
             store => {
 
 
+              /*
+              STORE FILTER
+              */
+
               if (
                 selectedStore !== "all" &&
                 store.name !==
@@ -1674,6 +1871,10 @@ function renderProducts() {
                 return;
               }
 
+
+              /*
+              AVAILABLE COUNT
+              */
 
               if (
                 store.available
@@ -1699,6 +1900,10 @@ function renderProducts() {
                   ? "Available"
                   : "Unavailable";
 
+
+              /*
+              STORE ROW
+              */
 
               storesHTML += `
 
@@ -1731,7 +1936,13 @@ function renderProducts() {
           );
 
 
-          if (storesHTML) {
+          /*
+          REGION
+          */
+
+          if (
+            storesHTML
+          ) {
 
             const regionPrice =
               getRegionPrice(
@@ -1756,6 +1967,7 @@ function renderProducts() {
 
                   ${regionPrice}
 
+
                 </div>
 
 
@@ -1772,6 +1984,10 @@ function renderProducts() {
       );
 
 
+      /*
+      AVAILABLE ONLY
+      */
+
       if (
         stockOnly &&
         !productHasStock
@@ -1786,6 +2002,50 @@ function renderProducts() {
         return;
       }
 
+
+      /*
+      PRODUCT RETAIL PRICES
+      */
+
+      const priceInfo =
+        getProductPriceInfo(
+          product.name
+        );
+
+
+      const retailPriceHTML =
+        priceInfo
+          ? `
+
+            <span class="product-price">
+
+              US ${formatUSD(
+                priceInfo.usd
+              )}
+
+            </span>
+
+
+            <span class="product-separator">
+              |
+            </span>
+
+
+            <span class="product-price">
+
+              JP ${formatJPY(
+                priceInfo.jpy
+              )}
+
+            </span>
+
+          `
+          : "";
+
+
+      /*
+      PRODUCT CARD
+      */
 
       const card =
         document.createElement(
@@ -1806,9 +2066,17 @@ function renderProducts() {
         </div>
 
 
-        <div class="part-number">
+        <div class="product-info">
 
-          ${product.partNumber}
+          <span class="part-number">
+
+            ${product.partNumber}
+
+          </span>
+
+
+          ${retailPriceHTML}
+
 
         </div>
 
@@ -1829,7 +2097,9 @@ function renderProducts() {
   );
 
 
-  /* SUMMARY */
+  /*
+  SUMMARY
+  */
 
   document.getElementById(
     "availableCount"
@@ -1969,7 +2239,7 @@ document
 );
 
 
-/* AVAILABLE ONLY */
+/* STOCK ONLY */
 
 document
 .getElementById(
@@ -2032,7 +2302,7 @@ startApp();
 
 /*
 ページを開いている間は
-60秒ごとに在庫情報を更新
+60秒ごとに在庫更新
 */
 
 setInterval(
