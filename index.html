@@ -32,6 +32,7 @@ body {
   margin: auto;
 }
 
+
 /* HEADER */
 
 h1 {
@@ -45,6 +46,7 @@ h1 {
   margin: 6px 0 22px;
   font-size: 16px;
 }
+
 
 /* SUMMARY */
 
@@ -76,6 +78,7 @@ h1 {
   font-size: 14px;
   margin-top: 6px;
 }
+
 
 /* FILTERS */
 
@@ -122,6 +125,7 @@ select {
   background: white;
 }
 
+
 /* DISCOUNT */
 
 .discount-options {
@@ -150,13 +154,15 @@ select {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.15s ease;
 }
 
 .discount-option input:checked + label {
   background: #1d1d1f;
   color: white;
 }
+
+
+/* AVAILABLE ONLY */
 
 .stock-only {
   display: flex;
@@ -170,6 +176,7 @@ select {
   width: 20px;
   height: 20px;
 }
+
 
 /* PRODUCT */
 
@@ -192,36 +199,73 @@ select {
   margin-top: 4px;
 }
 
-.base-price {
-  color: #86868b;
-  font-size: 13px;
-  margin-top: 7px;
-}
 
 /* REGION */
 
 .region {
-  margin-top: 20px;
+  margin-top: 22px;
+}
+
+.region-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid #e5e5e7;
 }
 
 .region-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
-  margin-bottom: 3px;
+  white-space: nowrap;
 }
+
+
+/* REGION PRICE */
+
+.region-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+.discount-price {
+  color: #1d1d1f;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.regular-price {
+  color: #86868b;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 
 /* STORE */
 
 .store {
-  padding: 13px 0;
-  border-top: 1px solid #e5e5e7;
-}
-
-.store-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 12px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #e5e5e7;
+}
+
+.store:last-child {
+  border-bottom: none;
 }
 
 .store-name {
@@ -229,18 +273,25 @@ select {
   font-weight: 500;
 }
 
+
+/* STATUS */
+
 .status {
   display: flex;
   align-items: center;
   gap: 7px;
+
   font-weight: 600;
+
   white-space: nowrap;
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
+
   flex-shrink: 0;
 }
 
@@ -260,27 +311,6 @@ select {
   background: #ff3b30;
 }
 
-/* PRICE */
-
-.store-price {
-  margin-top: 7px;
-  display: flex;
-  align-items: baseline;
-  gap: 7px;
-  flex-wrap: wrap;
-}
-
-.discount-price {
-  font-size: 17px;
-  font-weight: 700;
-  color: #1d1d1f;
-}
-
-.regular-price {
-  font-size: 13px;
-  font-weight: 400;
-  color: #86868b;
-}
 
 /* EMPTY */
 
@@ -292,15 +322,21 @@ select {
   color: #6e6e73;
 }
 
+
 /* PRICE INFORMATION */
 
 .price-information {
   margin-top: 28px;
   padding: 18px;
+
   background: white;
+
   border-radius: 18px;
+
   color: #6e6e73;
+
   font-size: 12px;
+
   line-height: 1.65;
 }
 
@@ -324,12 +360,16 @@ select {
 
 <div class="container">
 
-  <h1>Stock Buddy</h1>
+  <h1>
+    Stock Buddy
+  </h1>
 
   <div class="subtitle">
     I’ll keep an eye on it for you.
   </div>
 
+
+  <!-- SUMMARY -->
 
   <div class="summary">
 
@@ -353,6 +393,8 @@ select {
   </div>
 
 
+  <!-- FILTERS -->
+
   <div class="filters">
 
     <div class="filters-header">
@@ -371,6 +413,8 @@ select {
 
     </div>
 
+
+    <!-- MODEL -->
 
     <div class="filter-title">
       MODEL
@@ -392,6 +436,8 @@ select {
 
     </select>
 
+
+    <!-- STORAGE -->
 
     <div class="filter-title">
       STORAGE
@@ -422,6 +468,8 @@ select {
     </select>
 
 
+    <!-- COLOR -->
+
     <div class="filter-title">
       COLOR
     </div>
@@ -451,6 +499,8 @@ select {
     </select>
 
 
+    <!-- REGION -->
+
     <div class="filter-title">
       REGION
     </div>
@@ -471,6 +521,8 @@ select {
 
     </select>
 
+
+    <!-- STORE -->
 
     <div class="filter-title">
       STORE
@@ -544,6 +596,8 @@ select {
     </div>
 
 
+    <!-- AVAILABLE ONLY -->
+
     <label class="stock-only">
 
       <input
@@ -564,10 +618,14 @@ select {
   </div>
 
 
+  <!-- PRODUCTS -->
+
   <div id="products">
     Loading availability...
   </div>
 
+
+  <!-- PRICE INFO -->
 
   <div class="price-information">
 
@@ -923,10 +981,7 @@ function saveFilters() {
 
   catch(error) {
 
-    console.error(
-      "Unable to save filters:",
-      error
-    );
+    console.error(error);
 
   }
 
@@ -961,10 +1016,7 @@ function loadSavedFilters() {
 
   catch(error) {
 
-    console.error(
-      "Unable to load filters:",
-      error
-    );
+    console.error(error);
 
   }
 
@@ -1023,7 +1075,7 @@ function loadSavedFilters() {
 
 
 /* ========================================
-   RESET FILTERS
+   RESET
 ======================================== */
 
 function resetFilters() {
@@ -1124,7 +1176,9 @@ async function loadExchangeRate() {
 
 
     usdJpyRate =
-      Number(data.rate);
+      Number(
+        data.rate
+      );
 
 
     exchangeRateDate =
@@ -1234,28 +1288,6 @@ function getBasePrice(
 
 
 /* ========================================
-   USD FORMAT
-======================================== */
-
-function formatUSD(
-  value
-) {
-
-  return new Intl.NumberFormat(
-    "en-US",
-    {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0
-    }
-  ).format(
-    value
-  );
-
-}
-
-
-/* ========================================
    JPY FORMAT
 ======================================== */
 
@@ -1278,10 +1310,10 @@ function formatJPY(
 
 
 /* ========================================
-   STORE PRICE
+   REGION PRICE
 ======================================== */
 
-function getStorePrice(
+function getRegionPrice(
   productName,
   regionName
 ) {
@@ -1313,8 +1345,7 @@ function getStorePrice(
 
 
   /*
-  定価で購入した場合の
-  現地支払総額
+  通常価格 + 地域税
   */
 
   const regularTotalUSD =
@@ -1323,22 +1354,18 @@ function getStorePrice(
 
 
   /*
-  社割適用後に
-  現地税率を適用
+  社割適用後 + 地域税
   */
 
-  const discountedBaseUSD =
-    basePrice *
-    (1 - discount);
-
-
   const discountedTotalUSD =
-    discountedBaseUSD *
+    basePrice *
+    (1 - discount) *
     (1 + taxRate);
 
 
   /*
-  日本円換算
+  円換算して
+  1,000円単位に丸める
   */
 
   const regularJPY =
@@ -1360,15 +1387,16 @@ function getStorePrice(
 
 
   /*
-  Regularの場合は
-  定価だけ表示
+  Regular選択時
   */
 
-  if (discount === 0) {
+  if (
+    discount === 0
+  ) {
 
     return `
 
-      <div class="store-price">
+      <div class="region-price">
 
         <span class="discount-price">
 
@@ -1386,15 +1414,15 @@ function getStorePrice(
 
 
   /*
-  社割の場合
+  15% / 25% 選択時
 
-  社割価格を前
-  定価をカッコ内
+  社割価格 → 前
+  定価 → カッコ
   */
 
   return `
 
-    <div class="store-price">
+    <div class="region-price">
 
       <span class="discount-price">
 
@@ -1482,7 +1510,7 @@ async function loadStock() {
 
 
 /* ========================================
-   RENDER
+   RENDER PRODUCTS
 ======================================== */
 
 function renderProducts() {
@@ -1672,42 +1700,28 @@ function renderProducts() {
                   : "Unavailable";
 
 
-              const priceHTML =
-                getStorePrice(
-                  product.name,
-                  region.name
-                );
-
-
               storesHTML += `
 
                 <div class="store">
 
-                  <div class="store-top">
+                  <div class="store-name">
 
-                    <div class="store-name">
-
-                      ${store.name}
-
-                    </div>
-
-
-                    <div
-                      class="status ${statusClass}"
-                    >
-
-                      <span
-                        class="status-dot"
-                      ></span>
-
-                      ${statusText}
-
-                    </div>
+                    ${store.name}
 
                   </div>
 
 
-                  ${priceHTML}
+                  <div
+                    class="status ${statusClass}"
+                  >
+
+                    <span
+                      class="status-dot"
+                    ></span>
+
+                    ${statusText}
+
+                  </div>
 
                 </div>
 
@@ -1719,18 +1733,34 @@ function renderProducts() {
 
           if (storesHTML) {
 
+            const regionPrice =
+              getRegionPrice(
+                product.name,
+                region.name
+              );
+
+
             regionsHTML += `
 
               <div class="region">
 
-                <div class="region-name">
 
-                  ${region.name}
+                <div class="region-header">
+
+                  <div class="region-name">
+
+                    ${region.name}
+
+                  </div>
+
+
+                  ${regionPrice}
 
                 </div>
 
 
                 ${storesHTML}
+
 
               </div>
 
@@ -1750,32 +1780,11 @@ function renderProducts() {
       }
 
 
-      if (!regionsHTML) {
+      if (
+        !regionsHTML
+      ) {
         return;
       }
-
-
-      const basePrice =
-        getBasePrice(
-          product.name
-        );
-
-
-      const basePriceHTML =
-        basePrice
-          ? `
-
-            <div class="base-price">
-
-              US Price:
-              ${formatUSD(
-                basePrice
-              )}
-
-            </div>
-
-          `
-          : "";
 
 
       const card =
@@ -1802,9 +1811,6 @@ function renderProducts() {
           ${product.partNumber}
 
         </div>
-
-
-        ${basePriceHTML}
 
 
         ${regionsHTML}
@@ -1895,6 +1901,8 @@ function filterChanged() {
 }
 
 
+/* MODEL */
+
 document
 .getElementById(
   "modelFilter"
@@ -1904,6 +1912,8 @@ document
   filterChanged
 );
 
+
+/* STORAGE */
 
 document
 .getElementById(
@@ -1915,6 +1925,8 @@ document
 );
 
 
+/* COLOR */
+
 document
 .getElementById(
   "colorFilter"
@@ -1924,6 +1936,8 @@ document
   filterChanged
 );
 
+
+/* REGION */
 
 document
 .getElementById(
@@ -1943,6 +1957,8 @@ document
 );
 
 
+/* STORE */
+
 document
 .getElementById(
   "storeFilter"
@@ -1952,6 +1968,8 @@ document
   filterChanged
 );
 
+
+/* AVAILABLE ONLY */
 
 document
 .getElementById(
