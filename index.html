@@ -2,1201 +2,627 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Stock Buddy</title>
 
 <style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:24px 16px 60px;background:#f5f5f7;color:#1d1d1f;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif
+}
+.container{max-width:720px;margin:auto}
+h1{margin:0;font-size:34px;letter-spacing:-.7px}
+.subtitle{margin:6px 0 22px;color:#6e6e73;font-size:16px}
 
-* {
-  box-sizing: border-box;
+.summary,.filters,.product,.price-information{
+  background:#fff;border-radius:22px
+}
+.summary{padding:20px;margin-bottom:18px}
+.summary-number{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:700}
+.green-dot{width:13px;height:13px;border-radius:50%;background:#30d158}
+.summary-text{margin-top:6px;color:#6e6e73;font-size:14px}
+
+.filters{padding:18px;margin-bottom:22px}
+.filters-header{display:flex;justify-content:space-between;align-items:center}
+.filters-heading{font-size:17px;font-weight:700}
+.reset-button{border:0;background:none;color:#0071e3;font-size:14px}
+.filter-title{margin:14px 0 8px;color:#86868b;font-size:12px;font-weight:600}
+select{
+  width:100%;padding:12px;border:1px solid #d2d2d7;border-radius:12px;
+  background:#fff;color:#1d1d1f;font-size:16px
 }
 
-body {
-  margin: 0;
-  padding: 24px 16px 60px;
-  background: #f5f5f7;
-  color: #1d1d1f;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Text",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+.discount-options{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.discount-option{position:relative}
+.discount-option input{position:absolute;opacity:0;pointer-events:none}
+.discount-option label{
+  display:block;padding:11px 6px;border-radius:11px;background:#f5f5f7;
+  color:#6e6e73;text-align:center;font-size:14px;font-weight:600
 }
+.discount-option input:checked+label{background:#1d1d1f;color:#fff}
 
-.container {
-  max-width: 720px;
-  margin: auto;
+.stock-only{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:14px}
+.stock-only input{width:19px;height:19px}
+
+.product{padding:18px 20px;margin-bottom:16px}
+.product-name{font-size:20px;font-weight:700;line-height:1.25}
+.product-info{
+  display:flex;align-items:center;flex-wrap:wrap;gap:5px;
+  margin-top:5px;color:#86868b;font-size:12px
 }
+.market-part,.market-label{font-weight:600}
+.product-separator{color:#d2d2d7}
 
-
-/* HEADER */
-
-h1 {
-  margin: 0;
-  font-size: 34px;
-  letter-spacing: -0.7px;
+.region{margin-top:18px}
+.region-header{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  padding-bottom:6px;border-bottom:1px solid #e5e5e7
 }
+.region-name{font-size:13px;font-weight:700;white-space:nowrap}
 
-.subtitle {
-  color: #6e6e73;
-  margin: 6px 0 22px;
-  font-size: 16px;
+.region-price{
+  display:flex;align-items:center;justify-content:flex-end;
+  gap:4px;white-space:nowrap;min-width:0
 }
-
-
-/* SUMMARY */
-
-.summary {
-  background: white;
-  border-radius: 22px;
-  padding: 20px;
-  margin-bottom: 18px;
+.discount-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 5px;border-radius:6px;background:#1d1d1f;color:#fff;
+  font-size:8px;font-weight:700;line-height:1;white-space:nowrap
 }
+.discount-badge.regular{background:#f0f0f2;color:#6e6e73}
+.region-main-price{font-size:11px;font-weight:700;white-space:nowrap}
+.region-detail{color:#86868b;font-size:8px;white-space:nowrap}
 
-.summary-number {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px;
-  font-weight: 700;
+.store{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:8px;padding:6px 0;border-bottom:1px solid #eeeeef
 }
-
-.green-dot {
-  width: 13px;
-  height: 13px;
-  background: #30d158;
-  border-radius: 50%;
-  flex-shrink: 0;
+.store:last-child{border-bottom:0}
+.store-name{font-size:11px;font-weight:400}
+.status{
+  display:flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:500;white-space:nowrap
 }
+.status-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.available{color:#248a3d}
+.available .status-dot{background:#30d158}
+.unavailable{color:#d70015}
+.unavailable .status-dot{background:#ff3b30}
 
-.summary-text {
-  color: #6e6e73;
-  font-size: 14px;
-  margin-top: 6px;
+.empty{
+  padding:30px 20px;background:#fff;border-radius:20px;
+  text-align:center;color:#6e6e73
 }
-
-
-/* FILTERS */
-
-.filters {
-  background: white;
-  padding: 18px;
-  border-radius: 22px;
-  margin-bottom: 22px;
+.price-information{
+  margin-top:28px;padding:18px;color:#6e6e73;font-size:12px;line-height:1.65
 }
+.price-information strong{color:#1d1d1f}
+#updated{text-align:center;color:#86868b;font-size:11px;margin-top:14px}
 
-.filters-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media(max-width:480px){
+  .product{padding:17px}
+  .region-name{font-size:12px}
+  .region-price{gap:3px}
+  .region-main-price{font-size:10px}
+  .region-detail{font-size:7.5px}
+  .discount-badge{font-size:7.5px;padding:3px 4px}
 }
-
-.filters-heading {
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.reset-button {
-  border: none;
-  background: none;
-  color: #0071e3;
-  font-size: 14px;
-  padding: 6px 0 6px 12px;
-  cursor: pointer;
-}
-
-.filter-title {
-  font-size: 12px;
-  color: #86868b;
-  font-weight: 600;
-  margin: 14px 0 8px;
-}
-
-select {
-  width: 100%;
-  font-size: 16px;
-  padding: 12px;
-  border: 1px solid #d2d2d7;
-  border-radius: 12px;
-  background: white;
-  color: #1d1d1f;
-}
-
-
-/* DISCOUNT SELECTOR */
-
-.discount-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 7px;
-}
-
-.discount-option {
-  position: relative;
-}
-
-.discount-option input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.discount-option label {
-  display: block;
-  padding: 11px 6px;
-  border-radius: 11px;
-  background: #f5f5f7;
-  color: #6e6e73;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.discount-option input:checked + label {
-  background: #1d1d1f;
-  color: white;
-}
-
-
-/* STOCK ONLY */
-
-.stock-only {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  margin-top: 18px;
-}
-
-.stock-only input {
-  width: 20px;
-  height: 20px;
-}
-
-
-/* PRODUCT */
-
-.product {
-  background: white;
-  border-radius: 22px;
-  padding: 20px;
-  margin-bottom: 18px;
-}
-
-.product-name {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-
-/* US / JP INFO */
-
-.product-info {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-
-  margin-top: 6px;
-
-  color: #86868b;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.market-info {
-  white-space: nowrap;
-}
-
-.market-part {
-  font-weight: 600;
-}
-
-.market-label {
-  font-weight: 600;
-}
-
-.product-separator {
-  color: #c7c7cc;
-  margin: 0 2px;
-}
-
-
-/* REGION */
-
-.region {
-  margin-top: 20px;
-}
-
-.region-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 8px;
-
-  padding-bottom: 7px;
-
-  border-bottom: 1px solid #e5e5e7;
-}
-
-.region-name {
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-
-/* REGION PRICE — ALWAYS ONE LINE */
-
-.region-price {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 4px;
-
-  min-width: 0;
-
-  white-space: nowrap;
-
-  text-align: right;
-}
-
-
-/* DISCOUNT BADGE */
-
-.discount-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #1d1d1f;
-  color: white;
-
-  border-radius: 6px;
-
-  padding: 3px 5px;
-
-  font-size: 9px;
-  font-weight: 700;
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  flex-shrink: 0;
-}
-
-.discount-badge.regular {
-  background: #f0f0f2;
-  color: #6e6e73;
-}
-
-
-/* PURCHASE PRICE */
-
-.region-main-price {
-  color: #1d1d1f;
-
-  font-size: 12px;
-  font-weight: 700;
-
-  white-space: nowrap;
-
-  flex-shrink: 0;
-}
-
-.region-detail {
-  color: #86868b;
-
-  font-size: 9px;
-  font-weight: 400;
-
-  white-space: nowrap;
-
-  flex-shrink: 0;
-}
-
-
-/* STORES — COMPACT */
-
-.store {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 7px 0;
-
-  border-bottom: 1px solid #eeeeef;
-}
-
-.store:last-child {
-  border-bottom: none;
-}
-
-.store-name {
-  color: #1d1d1f;
-
-  font-size: 12px;
-  font-weight: 400;
-
-  line-height: 1.2;
-}
-
-
-/* STATUS */
-
-.status {
-  display: flex;
-  align-items: center;
-
-  gap: 5px;
-
-  font-size: 12px;
-  font-weight: 500;
-
-  line-height: 1.2;
-
-  white-space: nowrap;
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  flex-shrink: 0;
-}
-
-.available {
-  color: #248a3d;
-}
-
-.available .status-dot {
-  background: #30d158;
-}
-
-.unavailable {
-  color: #d70015;
-}
-
-.unavailable .status-dot {
-  background: #ff3b30;
-}
-
-
-/* EMPTY */
-
-.empty {
-  background: white;
-  border-radius: 20px;
-  padding: 30px 20px;
-  text-align: center;
-  color: #6e6e73;
-}
-
-
-/* FOOTER */
-
-.price-information {
-  margin-top: 28px;
-  padding: 18px;
-  background: white;
-  border-radius: 18px;
-  color: #6e6e73;
-  font-size: 12px;
-  line-height: 1.65;
-}
-
-.price-information strong {
-  color: #1d1d1f;
-}
-
-#updated {
-  text-align: center;
-  color: #86868b;
-  font-size: 12px;
-  margin-top: 14px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 480px) {
-
-  .product {
-    padding: 18px;
-  }
-
-  .region-header {
-    gap: 6px;
-  }
-
-  .region-name {
-    font-size: 13px;
-  }
-
-  .region-price {
-    gap: 3px;
-  }
-
-  .region-main-price {
-    font-size: 11px;
-  }
-
-  .region-detail {
-    font-size: 8px;
-  }
-
-  .discount-badge {
-    font-size: 8px;
-    padding: 3px 5px;
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
 <div class="container">
 
 <h1>Stock Buddy</h1>
-
-<div class="subtitle">
-  I’ll keep an eye on it for you.
-</div>
-
-
-<!-- SUMMARY -->
+<div class="subtitle">I’ll keep an eye on it for you.</div>
 
 <div class="summary">
-
   <div class="summary-number">
-
     <span class="green-dot"></span>
-
-    <span id="availableCount">
-      — Available
-    </span>
-
+    <span id="availableCount">— Available</span>
   </div>
-
-  <div
-    class="summary-text"
-    id="summaryText"
-  >
-    Loading current availability...
-  </div>
-
+  <div class="summary-text" id="summaryText">Loading current availability...</div>
 </div>
-
-
-<!-- FILTERS -->
 
 <div class="filters">
 
   <div class="filters-header">
-
-    <div class="filters-heading">
-      Filters
-    </div>
-
-    <button
-      class="reset-button"
-      id="resetFilters"
-    >
-      Reset Filters
-    </button>
-
+    <div class="filters-heading">Filters</div>
+    <button class="reset-button" id="resetFilters">Reset Filters</button>
   </div>
 
-
-  <div class="filter-title">
-    MODEL
-  </div>
-
+  <div class="filter-title">MODEL</div>
   <select id="modelFilter">
-
-    <option value="all">
-      All Models
-    </option>
-
-    <option value="pro">
-      iPhone 18 Pro
-    </option>
-
-    <option value="promax">
-      iPhone 18 Pro Max
-    </option>
-
+    <option value="all">All Models</option>
+    <option value="pro">iPhone 18 Pro</option>
+    <option value="promax">iPhone 18 Pro Max</option>
   </select>
 
-
-  <div class="filter-title">
-    STORAGE
-  </div>
-
+  <div class="filter-title">STORAGE</div>
   <select id="storageFilter">
-
-    <option value="all">
-      All Storage
-    </option>
-
-    <option value="256GB">
-      256GB
-    </option>
-
-    <option value="512GB">
-      512GB
-    </option>
-
-    <option value="1TB">
-      1TB
-    </option>
-
-    <option value="2TB">
-      2TB
-    </option>
-
+    <option value="all">All Storage</option>
+    <option value="256GB">256GB</option>
+    <option value="512GB">512GB</option>
+    <option value="1TB">1TB</option>
+    <option value="2TB">2TB</option>
   </select>
 
-
-  <div class="filter-title">
-    COLOR
-  </div>
-
+  <div class="filter-title">COLOR</div>
   <select id="colorFilter">
-
-    <option value="all">
-      All Colors
-    </option>
-
-    <option value="Black">
-      Black
-    </option>
-
-    <option value="Silver">
-      Silver
-    </option>
-
-    <option value="Burgundy">
-      Burgundy
-    </option>
-
-    <option value="Glacier">
-      Glacier
-    </option>
-
+    <option value="all">All Colors</option>
+    <option value="Black">Black</option>
+    <option value="Silver">Silver</option>
+    <option value="Burgundy">Burgundy</option>
+    <option value="Glacier">Glacier</option>
   </select>
 
-
-  <div class="filter-title">
-    REGION
-  </div>
-
+  <div class="filter-title">REGION</div>
   <select id="regionFilter">
-
-    <option value="all">
-      All Regions
-    </option>
-
-    <option value="Oregon">
-      Oregon
-    </option>
-
-    <option value="Hawaii">
-      Hawaii
-    </option>
-
+    <option value="all">All Regions</option>
+    <option value="Oregon">Oregon</option>
+    <option value="Hawaii">Hawaii</option>
   </select>
 
-
-  <div class="filter-title">
-    STORE
-  </div>
-
+  <div class="filter-title">STORE</div>
   <select id="storeFilter">
-
-    <option value="all">
-      All Stores
-    </option>
-
+    <option value="all">All Stores</option>
   </select>
 
-
-  <div class="filter-title">
-    DISCOUNT
-  </div>
-
+  <div class="filter-title">DISCOUNT</div>
 
   <div class="discount-options">
-
     <div class="discount-option">
-
-      <input
-        type="radio"
-        name="discount"
-        id="discountRegular"
-        value="0"
-        checked
-      >
-
-      <label for="discountRegular">
-        Regular
-      </label>
-
+      <input type="radio" name="discount" id="d0" value="0" checked>
+      <label for="d0">Regular</label>
     </div>
 
-
     <div class="discount-option">
-
-      <input
-        type="radio"
-        name="discount"
-        id="discount15"
-        value="0.15"
-      >
-
-      <label for="discount15">
-        15% Off
-      </label>
-
+      <input type="radio" name="discount" id="d15" value="0.15">
+      <label for="d15">15% Off</label>
     </div>
 
-
     <div class="discount-option">
-
-      <input
-        type="radio"
-        name="discount"
-        id="discount25"
-        value="0.25"
-      >
-
-      <label for="discount25">
-        25% Off
-      </label>
-
+      <input type="radio" name="discount" id="d25" value="0.25">
+      <label for="d25">25% Off</label>
     </div>
-
   </div>
 
-
   <label class="stock-only">
-
-    <input
-      type="checkbox"
-      id="stockOnly"
-    >
-
+    <input type="checkbox" id="stockOnly">
     <span class="status available">
-
       <span class="status-dot"></span>
-
       Show available products only
-
     </span>
-
   </label>
 
 </div>
 
-
-<!-- PRODUCTS -->
-
-<div id="products">
-  Loading availability...
-</div>
-
-
-<!-- PRICE INFO -->
+<div id="products">Loading availability...</div>
 
 <div class="price-information">
-
-  <strong>
-    Price information
-  </strong>
-
-  <br>
-
-  US = Apple US retail price
-
-  <br>
-
-  JP = Apple Japan retail price
-
-  <br>
-
-  Oregon = No general sales tax
-
-  <br>
-
-  Hawaii = Estimated Honolulu GET pass-on included
-
-  <br>
-
-  <span id="exchangeInfo">
-    Loading USD/JPY exchange rate...
-  </span>
-
-  <br>
-
-  JPY purchase prices are estimates.
-  Actual checkout and card exchange rates may vary.
-
+  <strong>Price information</strong><br>
+  US = Apple US retail price<br>
+  JP = Apple Japan retail price<br>
+  Oregon = No general sales tax<br>
+  Hawaii = Estimated Honolulu GET pass-on included<br>
+  <span id="exchangeInfo">Loading USD/JPY exchange rate...</span><br>
+  JPY purchase prices are estimates. Actual checkout and card exchange rates may vary.
 </div>
-
 
 <div id="updated"></div>
 
 </div>
 
-
 <script>
+let stockData=null;
+let usdJpyRate=null;
 
-/* ===============================
-DATA
-=============================== */
+const STORAGE_KEY="stockBuddyFilters";
+const HAWAII_RATE=0.04712;
 
-let stockData = null;
-let usdJpyRate = null;
-let exchangeRateDate = null;
-
-const STORAGE_KEY =
-  "stockBuddyFilters";
-
-const HAWAII_RATE =
-  0.04712;
-
-
-/* ===============================
-US PRICES
-=============================== */
-
-const US_PRICES = {
-
-  pro: {
-    "256GB": 1199,
-    "512GB": 1399,
-    "1TB": 1799,
-    "2TB": 2399
-  },
-
-  promax: {
-    "256GB": 1299,
-    "512GB": 1499,
-    "1TB": 1899,
-    "2TB": 2499
-  }
-
+const US_PRICES={
+  pro:{"256GB":1199,"512GB":1399,"1TB":1799,"2TB":2399},
+  promax:{"256GB":1299,"512GB":1499,"1TB":1899,"2TB":2499}
 };
 
-
-/* ===============================
-JP PRICES
-=============================== */
-
-const JP_PRICES = {
-
-  pro: {
-    "256GB": 219800,
-    "512GB": 254800,
-    "1TB": 324800,
-    "2TB": 429800
-  },
-
-  promax: {
-    "256GB": 239800,
-    "512GB": 274800,
-    "1TB": 344800,
-    "2TB": 449800
-  }
-
+const JP_PRICES={
+  pro:{"256GB":219800,"512GB":254800,"1TB":324800,"2TB":429800},
+  promax:{"256GB":239800,"512GB":274800,"1TB":344800,"2TB":449800}
 };
 
+const JP_PART_NUMBERS={
+  "MJQ34LL/A":"MJR54J/A",
+  "MJQ44LL/A":"MJR64J/A",
+  "MJQ54LL/A":"MJR74J/A",
+  "MJQ64LL/A":"MJR84J/A",
 
-/* ===============================
-JP PART NUMBERS
-=============================== */
+  "MJQ74LL/A":"MJR94J/A",
+  "MJQ84LL/A":"MJRC4J/A",
+  "MJQ94LL/A":"MJRD4J/A",
+  "MJQA4LL/A":"MJRE4J/A",
 
-const JP_PART_NUMBERS = {
+  "MJQC4LL/A":"MJRF4J/A",
+  "MJQD4LL/A":"MJRG4J/A",
+  "MJQE4LL/A":"MJRH4J/A",
+  "MJQF4LL/A":"MJRJ4J/A",
 
-  /* Pro 256GB */
+  "MJQG4LL/A":"MJRK4J/A",
+  "MJQH4LL/A":"MJRL4J/A",
+  "MJQJ4LL/A":"MJRM4J/A",
+  "MJQK4LL/A":"MJRN4J/A",
 
-  "MJQ34LL/A": "MJR54J/A",
-  "MJQ44LL/A": "MJR64J/A",
-  "MJQ54LL/A": "MJR74J/A",
-  "MJQ64LL/A": "MJR84J/A",
+  "MJW44LL/A":"MJX54J/A",
+  "MJW54LL/A":"MJX64J/A",
+  "MJW64LL/A":"MJX74J/A",
+  "MJW74LL/A":"MJX84J/A",
 
+  "MJW84LL/A":"MJX94J/A",
+  "MJW94LL/A":"MJXA4J/A",
+  "MJWA4LL/A":"MJXC4J/A",
+  "MJWC4LL/A":"MJXD4J/A",
 
-  /* Pro 512GB */
+  "MJWD4LL/A":"MJXE4J/A",
+  "MJWE4LL/A":"MJXF4J/A",
+  "MJWF4LL/A":"MJXG4J/A",
+  "MJWG4LL/A":"MJXH4J/A",
 
-  "MJQ74LL/A": "MJR94J/A",
-  "MJQ84LL/A": "MJRC4J/A",
-  "MJQ94LL/A": "MJRD4J/A",
-  "MJQA4LL/A": "MJRE4J/A",
-
-
-  /* Pro 1TB */
-
-  "MJQC4LL/A": "MJRF4J/A",
-  "MJQD4LL/A": "MJRG4J/A",
-  "MJQE4LL/A": "MJRH4J/A",
-  "MJQF4LL/A": "MJRJ4J/A",
-
-
-  /* Pro 2TB */
-
-  "MJQG4LL/A": "MJRK4J/A",
-  "MJQH4LL/A": "MJRL4J/A",
-  "MJQJ4LL/A": "MJRM4J/A",
-  "MJQK4LL/A": "MJRN4J/A",
-
-
-  /* Pro Max 256GB */
-
-  "MJW44LL/A": "MJX54J/A",
-  "MJW54LL/A": "MJX64J/A",
-  "MJW64LL/A": "MJX74J/A",
-  "MJW74LL/A": "MJX84J/A",
-
-
-  /* Pro Max 512GB */
-
-  "MJW84LL/A": "MJX94J/A",
-  "MJW94LL/A": "MJXA4J/A",
-  "MJWA4LL/A": "MJXC4J/A",
-  "MJWC4LL/A": "MJXD4J/A",
-
-
-  /* Pro Max 1TB */
-
-  "MJWD4LL/A": "MJXE4J/A",
-  "MJWE4LL/A": "MJXF4J/A",
-  "MJWF4LL/A": "MJXG4J/A",
-  "MJWG4LL/A": "MJXH4J/A",
-
-
-  /* Pro Max 2TB */
-
-  "MJWH4LL/A": "MJXJ4J/A",
-  "MJWJ4LL/A": "MJXK4J/A",
-  "MJWK4LL/A": "MJXL4J/A",
-  "MJWL4LL/A": "MJXM4J/A"
-
+  "MJWH4LL/A":"MJXJ4J/A",
+  "MJWJ4LL/A":"MJXK4J/A",
+  "MJWK4LL/A":"MJXL4J/A",
+  "MJWL4LL/A":"MJXM4J/A"
 };
 
-
-/* ===============================
-STORES
-=============================== */
-
-const storesByRegion = {
-
-  Oregon: [
-    "Pioneer Place",
-    "Washington Square",
-    "Bridgeport Village"
-  ],
-
-  Hawaii: [
-    "Ala Moana",
-    "Kahala"
-  ]
-
+const storesByRegion={
+  Oregon:["Pioneer Place","Washington Square","Bridgeport Village"],
+  Hawaii:["Ala Moana","Kahala"]
 };
 
+const $=id=>document.getElementById(id);
 
-/* ===============================
-DISCOUNT
-=============================== */
-
-function getSelectedDiscount() {
-
-  const selected =
-    document.querySelector(
-      'input[name="discount"]:checked'
-    );
-
-  return selected
-    ? Number(selected.value)
-    : 0;
-
+function selectedDiscount(){
+  return Number(document.querySelector('input[name="discount"]:checked')?.value||0);
 }
 
-
-function setDiscount(discount) {
-
-  const option =
-    document.querySelector(
-      `input[name="discount"][value="${discount}"]`
-    );
-
-  if (option) {
-
-    option.checked = true;
-
-  } else {
-
-    document.getElementById(
-      "discountRegular"
-    ).checked = true;
-
-  }
-
+function setDiscount(value){
+  const el=document.querySelector(`input[name="discount"][value="${value}"]`);
+  (el||$("d0")).checked=true;
 }
 
+function updateStores(selected="all"){
+  const region=$("regionFilter").value;
+  const select=$("storeFilter");
 
-/* ===============================
-STORE FILTER
-=============================== */
+  select.innerHTML='<option value="all">All Stores</option>';
 
-function updateStoreFilter(
-  selectedStore = "all"
-) {
-
-  const region =
-    document.getElementById(
-      "regionFilter"
-    ).value;
-
-  const storeFilter =
-    document.getElementById(
-      "storeFilter"
-    );
-
-  storeFilter.innerHTML =
-    '<option value="all">All Stores</option>';
-
-
-  if (region === "all") {
-
-    Object.entries(
-      storesByRegion
-    ).forEach(
-      ([regionName, stores]) => {
-
-        const group =
-          document.createElement(
-            "optgroup"
-          );
-
-        group.label =
-          regionName;
-
-
-        stores.forEach(
-          store => {
-
-            const option =
-              document.createElement(
-                "option"
-              );
-
-            option.value =
-              store;
-
-            option.textContent =
-              store;
-
-            group.appendChild(
-              option
-            );
-
-          }
-        );
-
-
-        storeFilter.appendChild(
-          group
-        );
-
-      }
-    );
-
-  } else {
-
-    const stores =
-      storesByRegion[region] || [];
-
-
-    stores.forEach(
-      store => {
-
-        const option =
-          document.createElement(
-            "option"
-          );
-
-        option.value =
-          store;
-
-        option.textContent =
-          store;
-
-        storeFilter.appendChild(
-          option
-        );
-
-      }
-    );
-
-  }
-
-
-  const valid =
-    Array.from(
-      storeFilter.options
-    ).some(
-      option =>
-        option.value === selectedStore
-    );
-
-
-  storeFilter.value =
-    valid
-      ? selectedStore
-      : "all";
-
-}
-
-
-/* ===============================
-SAVE FILTERS
-=============================== */
-
-function saveFilters() {
-
-  const settings = {
-
-    model:
-      document.getElementById(
-        "modelFilter"
-      ).value,
-
-    storage:
-      document.getElementById(
-        "storageFilter"
-      ).value,
-
-    color:
-      document.getElementById(
-        "colorFilter"
-      ).value,
-
-    region:
-      document.getElementById(
-        "regionFilter"
-      ).value,
-
-    store:
-      document.getElementById(
-        "storeFilter"
-      ).value,
-
-    discount:
-      getSelectedDiscount(),
-
-    stockOnly:
-      document.getElementById(
-        "stockOnly"
-      ).checked
-
+  const add=(name)=>{
+    const option=document.createElement("option");
+    option.value=name;
+    option.textContent=name;
+    select.appendChild(option);
   };
 
+  if(region==="all"){
+    Object.entries(storesByRegion).forEach(([regionName,stores])=>{
+      const group=document.createElement("optgroup");
+      group.label=regionName;
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(settings)
-  );
+      stores.forEach(name=>{
+        const option=document.createElement("option");
+        option.value=name;
+        option.textContent=name;
+        group.appendChild(option);
+      });
 
+      select.appendChild(group);
+    });
+  }else{
+    (storesByRegion[region]||[]).forEach(add);
+  }
+
+  const exists=[...select.querySelectorAll("option")].some(o=>o.value===selected);
+  select.value=exists?selected:"all";
 }
 
+function saveFilters(){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify({
+    model:$("modelFilter").value,
+    storage:$("storageFilter").value,
+    color:$("colorFilter").value,
+    region:$("regionFilter").value,
+    store:$("storeFilter").value,
+    discount:selectedDiscount(),
+    stockOnly:$("stockOnly").checked
+  }));
+}
 
-/* ===============================
-LOAD SAVED FILTERS
-=============================== */
+function loadFilters(){
+  let s={};
 
-function loadSavedFilters() {
+  try{
+    s=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
+  }catch(e){}
 
-  let settings = null;
+  $("modelFilter").value=s.model||"all";
+  $("storageFilter").value=s.storage||"all";
+  $("colorFilter").value=s.color||"all";
+  $("regionFilter").value=s.region||"all";
+  $("stockOnly").checked=s.stockOnly===true;
 
+  setDiscount(s.discount??0);
+  updateStores(s.store||"all");
+}
 
-  try {
+function resetFilters(){
+  $("modelFilter").value="all";
+  $("storageFilter").value="all";
+  $("colorFilter").value="all";
+  $("regionFilter").value="all";
+  $("stockOnly").checked=false;
 
-    const saved =
-      localStorage.getItem(
-        STORAGE_KEY
-      );
+  setDiscount(0);
+  updateStores();
+  localStorage.removeItem(STORAGE_KEY);
+  render();
+}
 
-    if (saved) {
+function priceInfo(name){
+  const model=name.startsWith("iPhone 18 Pro Max ")?"promax":"pro";
 
-      settings =
-        JSON.parse(saved);
+  let storage=null;
 
-    }
+  if(name.includes("256GB")) storage="256GB";
+  else if(name.includes("512GB")) storage="512GB";
+  else if(name.includes("1TB")) storage="1TB";
+  else if(name.includes("2TB")) storage="2TB";
 
-  } catch(error) {
+  if(!storage) return null;
 
-    console.error(error);
+  return{
+    usd:US_PRICES[model][storage],
+    jpy:JP_PRICES[model][storage]
+  };
+}
 
+function yen(v){
+  return new Intl.NumberFormat("ja-JP",{
+    style:"currency",
+    currency:"JPY",
+    maximumFractionDigits:0
+  }).format(v);
+}
+
+function usd(v){
+  return new Intl.NumberFormat("en-US",{
+    style:"currency",
+    currency:"USD",
+    maximumFractionDigits:0
+  }).format(v);
+}
+
+function regionPrice(name,region){
+  const p=priceInfo(name);
+
+  if(!p||!usdJpyRate) return "";
+
+  const discount=selectedDiscount();
+  const base=p.usd*(1-discount);
+  const tax=region==="Hawaii"?base*HAWAII_RATE:0;
+  const total=base+tax;
+
+  const totalJPY=Math.round(total*usdJpyRate/1000)*1000;
+  const taxJPY=Math.round(tax*usdJpyRate);
+
+  const label=discount===0
+    ?"Regular"
+    :`${Math.round(discount*100)}%`;
+
+  const badge=discount===0
+    ?"discount-badge regular"
+    :"discount-badge";
+
+  const detail=region==="Hawaii"
+    ?`Tax ${yen(taxJPY)} · $1=¥${usdJpyRate.toFixed(2)}`
+    :`$1=¥${usdJpyRate.toFixed(2)}`;
+
+  return `
+    <div class="region-price">
+      <span class="${badge}">${label}</span>
+      <span class="region-main-price">約${yen(totalJPY)}</span>
+      <span class="region-detail">${detail}</span>
+    </div>
+  `;
+}
+
+async function loadRate(){
+  try{
+    const r=await fetch("https://api.frankfurter.dev/v2/rate/usd/jpy");
+
+    if(!r.ok) throw new Error();
+
+    const data=await r.json();
+
+    usdJpyRate=Number(data.rate);
+
+    $("exchangeInfo").textContent=
+      `$1 = ¥${usdJpyRate.toFixed(2)} · ${data.date}`;
+
+  }catch(e){
+    usdJpyRate=null;
+    $("exchangeInfo").textContent="Exchange rate unavailable";
   }
+}
 
+async function loadStock(){
+  try{
+    const r=await fetch(`stock.json?t=${Date.now()}`);
 
-  if (!settings) {
+    if(!r.ok) throw new Error();
 
-    updateStoreFilter();
+    stockData=await r.json();
 
-    setDiscount(0);
+    render();
 
-    return;
+    $("updated").textContent=
+      `Last checked: ${stockData.updated||"—"}`;
 
+  }catch(e){
+    $("products").innerHTML=
+      '<div class="empty">Stock data is currently unavailable.</div>';
   }
+}
 
+function render(){
+  if(!stockData) return;
 
-  document.getElementById(
-    "modelFilter"
-  ).value =
-    settings.model || "all";
+  const model=$("modelFilter").value;
+  const storage=$("storageFilter").value;
+  const color=$("colorFilter").value;
+  const selectedRegion=$("regionFilter").value;
+  const selectedStore=$("storeFilter").value;
+  const stockOnly=$("stockOnly").checked;
 
+  const container=$("products");
+  container.innerHTML="";
 
-  document.getElementById(
-    "storageFilter"
-  ).value =
-    settings.storage || "all";
+  let displayed=0;
+  let availableCount=0;
 
+  stockData.products.forEach(product=>{
+    const name=product.name;
 
-  document.getElementById(
-    "colorFilter"
-  ).value =
-    settings.color || "all";
+    const isProMax=name.startsWith("iPhone 18 Pro Max ");
+    const isPro=name.startsWith("iPhone 18 Pro ")&&!isProMax;
 
+    if(model==="pro"&&!isPro) return;
+    if(model==="promax"&&!isProMax) return;
+    if(storage!=="all"&&!name.includes(storage)) return;
+    if(color!=="all"&&!name.endsWith(color)) return;
 
-  document.getElementById(
-    "regionFilter"
-  ).value =
-    settings.region || "all";
+    let regionsHTML="";
+    let productHasStock=false;
 
+    (product.regions||[]).forEach(region=>{
+      if(selectedRegion!=="all"&&region.name!==selectedRegion) return;
 
-  document.getElementById(
-    "stockOnly"
-  ).checked =
-    settings.stockOnly === true;
+      let storesHTML="";
 
+      (region.stores||[]).forEach(store=>{
+        if(selectedStore!=="all"&&store.name!==selectedStore) return;
 
-  setDiscount(
-   
+        if(store.available){
+          productHasStock=true;
+          availableCount++;
+        }
+
+        const cls=store.available?"available":"unavailable";
+        const text=store.available?"Available":"Unavailable";
+
+        storesHTML+=`
+          <div class="store">
+            <div class="store-name">${store.name}</div>
+            <div class="status ${cls}">
+              <span class="status-dot"></span>${text}
+            </div>
+          </div>
+        `;
+      });
+
+      if(storesHTML){
+        regionsHTML+=`
+          <div class="region">
+            <div class="region-header">
+              <div class="region-name">${region.name}</div>
+              ${regionPrice(name,region.name)}
+            </div>
+            ${storesHTML}
+          </div>
+        `;
+      }
+    });
+
+    if(stockOnly&&!productHasStock) return;
+    if(!regionsHTML) return;
+
+    const p=priceInfo(name);
+    const jpPart=JP_PART_NUMBERS[product.partNumber]||"—";
+
+    const productInfo=p?`
+      <span>
+        <span class="market-part">${product.partNumber}</span>
+        <span class="market-label">US</span>
+        ${usd(p.usd)}
+      </span>
+
+      <span class="product-separator">|</span>
+
+      <span>
+        <span class="market-part">${jpPart}</span>
+        <span class="market-label">JP</span>
+        ${yen(p.jpy)}
+      </span>
+    `:"";
+
+    const card=document.createElement("div");
+    card.className="product";
+
+    card.innerHTML=`
+      <div class="product-name">${name}</div>
+      <div class="product-info">${productInfo}</div>
+      ${regionsHTML}
+    `;
+
+    container.appendChild(card);
+    displayed++;
+  });
+
+  $("availableCount").textContent=
+    `${availableCount} Available`;
+
+  $("summaryText").textContent=
+    availableCount
+      ?`${availableCount} available store / product combinations.`
+      :"No pickup availability for the current filters.";
+
+  if(!displayed){
+    container.innerHTML=
+      '<div class="empty">No matching products found.</div>';
+  }
+}
+
+function changed(){
+  saveFilters();
+  render();
+}
+
+["modelFilter","storageFilter","colorFilter","storeFilter","stockOnly"]
+.forEach(id=>{
+  $(id).addEventListener("change",changed);
+});
+
+$("regionFilter").addEventListener("change",()=>{
+  updateStores();
+  saveFilters();
+  render();
+});
+
+document.querySelectorAll('input[name="discount"]').forEach(el=>{
+  el.addEventListener("change",changed);
+});
+
+$("resetFilters").addEventListener("click",resetFilters);
+
+loadFilters();
+
+async function start(){
+  await loadRate();
+  await loadStock();
+}
+
+start();
+
+setInterval(loadStock,60000);
+
+</script>
+</body>
+</html>
