@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T21:05:47.423594+00:00",
+  "updated": "2026-10-04T21:35:47.631418+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -69,6 +69,14 @@
       "timestamp": "2026-10-04T21:05:47.423594+00:00",
       "partNumber": "MJQH4LL/A",
       "productName": "iPhone 18 Pro 2TB Silver",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-04T21:35:47.631418+00:00",
+      "partNumber": "MJQC4LL/A",
+      "productName": "iPhone 18 Pro 1TB Black",
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
