@@ -3,626 +3,2244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Stock Buddy</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box
+}
+
 body{
-  margin:0;padding:24px 16px 60px;background:#f5f5f7;color:#1d1d1f;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif
+  margin:0;
+  padding:24px 16px 60px;
+  background:#f5f5f7;
+  color:#1d1d1f;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif
 }
-.container{max-width:720px;margin:auto}
-h1{margin:0;font-size:34px;letter-spacing:-.7px}
-.subtitle{margin:6px 0 22px;color:#6e6e73;font-size:16px}
 
-.summary,.filters,.product,.price-information{
-  background:#fff;border-radius:22px
+.container{
+  max-width:720px;
+  margin:auto
 }
-.summary{padding:20px;margin-bottom:18px}
-.summary-number{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:700}
-.green-dot{width:13px;height:13px;border-radius:50%;background:#30d158}
-.summary-text{margin-top:6px;color:#6e6e73;font-size:14px}
 
-.filters{padding:18px;margin-bottom:22px}
-.filters-header{display:flex;justify-content:space-between;align-items:center}
-.filters-heading{font-size:17px;font-weight:700}
-.reset-button{border:0;background:none;color:#0071e3;font-size:14px}
-.filter-title{margin:14px 0 8px;color:#86868b;font-size:12px;font-weight:600}
+h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:-.7px
+}
+
+.subtitle{
+  margin:6px 0 22px;
+  color:#6e6e73;
+  font-size:16px
+}
+
+.card,
+.summary,
+.filters,
+.product,
+.price-information{
+  background:#fff;
+  border-radius:22px
+}
+
+.summary{
+  padding:20px;
+  margin-bottom:18px
+}
+
+.summary-number{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:28px;
+  font-weight:700
+}
+
+.green-dot{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#30d158
+}
+
+.summary-text{
+  margin-top:6px;
+  color:#6e6e73;
+  font-size:14px
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:16px
+}
+
+.stat{
+  padding:13px;
+  background:#f5f5f7;
+  border-radius:14px
+}
+
+.stat-value{
+  font-size:18px;
+  font-weight:700
+}
+
+.stat-label{
+  margin-top:3px;
+  color:#86868b;
+  font-size:11px
+}
+
+.filters{
+  padding:18px;
+  margin-bottom:22px
+}
+
+.filters-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
+.filters-heading{
+  font-size:17px;
+  font-weight:700
+}
+
+.reset-button{
+  border:0;
+  background:none;
+  color:#0071e3;
+  font-size:14px
+}
+
+.filter-title{
+  margin:14px 0 8px;
+  color:#86868b;
+  font-size:12px;
+  font-weight:600
+}
+
 select{
-  width:100%;padding:12px;border:1px solid #d2d2d7;border-radius:12px;
-  background:#fff;color:#1d1d1f;font-size:16px
+  width:100%;
+  padding:12px;
+  border:1px solid #d2d2d7;
+  border-radius:12px;
+  background:#fff;
+  color:#1d1d1f;
+  font-size:16px
 }
 
-.discount-options{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.discount-option{position:relative}
-.discount-option input{position:absolute;opacity:0;pointer-events:none}
+.discount-options{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px
+}
+
+.discount-option{
+  position:relative
+}
+
+.discount-option input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none
+}
+
 .discount-option label{
-  display:block;padding:11px 6px;border-radius:11px;background:#f5f5f7;
-  color:#6e6e73;text-align:center;font-size:14px;font-weight:600
+  display:block;
+  padding:11px 6px;
+  border-radius:11px;
+  background:#f5f5f7;
+  color:#6e6e73;
+  text-align:center;
+  font-size:14px;
+  font-weight:600
 }
-.discount-option input:checked+label{background:#1d1d1f;color:#fff}
 
-.stock-only{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:14px}
-.stock-only input{width:19px;height:19px}
+.discount-option input:checked+label{
+  background:#1d1d1f;
+  color:#fff
+}
 
-.product{padding:18px 20px;margin-bottom:16px}
-.product-name{font-size:20px;font-weight:700;line-height:1.25}
+.toggle-row{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:16px;
+  font-size:14px
+}
+
+.toggle-row input{
+  width:19px;
+  height:19px
+}
+
+.product{
+  padding:18px 20px;
+  margin-bottom:16px
+}
+
+.product-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px
+}
+
+.product-name{
+  font-size:20px;
+  font-weight:700;
+  line-height:1.25
+}
+
+.watch-button{
+  flex-shrink:0;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#f5f5f7;
+  font-size:22px;
+  line-height:38px;
+  text-align:center
+}
+
+.watch-button.active{
+  background:#fff3cd
+}
+
 .product-info{
-  display:flex;align-items:center;flex-wrap:wrap;gap:5px;
-  margin-top:5px;color:#86868b;font-size:12px
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:5px;
+  color:#86868b;
+  font-size:12px
 }
-.market-part,.market-label{font-weight:600}
-.product-separator{color:#d2d2d7}
 
-.region{margin-top:18px}
-.region-header{
-  display:flex;justify-content:space-between;align-items:center;gap:6px;
-  padding-bottom:6px;border-bottom:1px solid #e5e5e7
+.market-part,
+.market-label{
+  font-weight:600
 }
-.region-name{font-size:13px;font-weight:700;white-space:nowrap}
+
+.product-separator{
+  color:#d2d2d7
+}
+
+.hot{
+  display:inline-flex;
+  margin-top:9px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#fff2e8;
+  color:#c2410c;
+  font-size:10px;
+  font-weight:700
+}
+
+.region{
+  margin-top:18px
+}
+
+.region-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:6px;
+  padding-bottom:6px;
+  border-bottom:1px solid #e5e5e7
+}
+
+.region-name{
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap
+}
 
 .region-price{
-  display:flex;align-items:center;justify-content:flex-end;
-  gap:4px;white-space:nowrap;min-width:0
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:4px;
+  white-space:nowrap;
+  min-width:0
 }
+
 .discount-badge{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:3px 5px;border-radius:6px;background:#1d1d1f;color:#fff;
-  font-size:8px;font-weight:700;line-height:1;white-space:nowrap
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:3px 5px;
+  border-radius:6px;
+  background:#1d1d1f;
+  color:#fff;
+  font-size:8px;
+  font-weight:700
 }
-.discount-badge.regular{background:#f0f0f2;color:#6e6e73}
-.region-main-price{font-size:11px;font-weight:700;white-space:nowrap}
-.region-detail{color:#86868b;font-size:8px;white-space:nowrap}
+
+.discount-badge.regular{
+  background:#f0f0f2;
+  color:#6e6e73
+}
+
+.region-main-price{
+  font-size:11px;
+  font-weight:700
+}
+
+.region-detail{
+  color:#86868b;
+  font-size:8px
+}
 
 .store{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:8px;padding:6px 0;border-bottom:1px solid #eeeeef
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:7px 0;
+  border-bottom:1px solid #eeeeef
 }
-.store:last-child{border-bottom:0}
-.store-name{font-size:11px;font-weight:400}
+
+.store:last-child{
+  border-bottom:0
+}
+
+.store-left{
+  min-width:0
+}
+
+.store-name{
+  font-size:11px
+}
+
+.last-seen{
+  margin-top:2px;
+  color:#86868b;
+  font-size:9px
+}
+
 .status{
-  display:flex;align-items:center;gap:4px;
-  font-size:11px;font-weight:500;white-space:nowrap
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font-size:11px;
+  font-weight:500;
+  white-space:nowrap
 }
-.status-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.available{color:#248a3d}
-.available .status-dot{background:#30d158}
-.unavailable{color:#d70015}
-.unavailable .status-dot{background:#ff3b30}
+
+.status-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  flex-shrink:0
+}
+
+.available{
+  color:#248a3d
+}
+
+.available .status-dot{
+  background:#30d158
+}
+
+.unavailable{
+  color:#d70015
+}
+
+.unavailable .status-dot{
+  background:#ff3b30
+}
+
+.section{
+  margin-top:28px
+}
+
+.section-title{
+  margin:0 0 10px 4px;
+  font-size:20px;
+  font-weight:700
+}
+
+.card{
+  padding:18px;
+  margin-bottom:14px
+}
+
+.insight-main{
+  font-size:15px;
+  font-weight:600
+}
+
+.insight-sub{
+  margin-top:5px;
+  color:#86868b;
+  font-size:12px;
+  line-height:1.45
+}
+
+.activity{
+  padding:10px 0;
+  border-bottom:1px solid #eeeeef
+}
+
+.activity:last-child{
+  border-bottom:0
+}
+
+.activity-title{
+  font-size:12px;
+  font-weight:600
+}
+
+.activity-detail{
+  margin-top:3px;
+  color:#86868b;
+  font-size:10px
+}
 
 .empty{
-  padding:30px 20px;background:#fff;border-radius:20px;
-  text-align:center;color:#6e6e73
+  padding:30px 20px;
+  background:#fff;
+  border-radius:20px;
+  text-align:center;
+  color:#6e6e73
 }
+
 .price-information{
-  margin-top:28px;padding:18px;color:#6e6e73;font-size:12px;line-height:1.65
+  margin-top:28px;
+  padding:18px;
+  color:#6e6e73;
+  font-size:12px;
+  line-height:1.65
 }
-.price-information strong{color:#1d1d1f}
-#updated{text-align:center;color:#86868b;font-size:11px;margin-top:14px}
+
+.price-information strong{
+  color:#1d1d1f
+}
+
+#updated{
+  text-align:center;
+  color:#86868b;
+  font-size:11px;
+  margin-top:14px
+}
 
 @media(max-width:480px){
-  .product{padding:17px}
-  .region-name{font-size:12px}
-  .region-price{gap:3px}
-  .region-main-price{font-size:10px}
-  .region-detail{font-size:7.5px}
-  .discount-badge{font-size:7.5px;padding:3px 4px}
+
+  .product{
+    padding:17px
+  }
+
+  .region-name{
+    font-size:12px
+  }
+
+  .region-price{
+    gap:3px
+  }
+
+  .region-main-price{
+    font-size:10px
+  }
+
+  .region-detail{
+    font-size:7.5px
+  }
+
+  .discount-badge{
+    font-size:7.5px;
+    padding:3px 4px
+  }
+
 }
+
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <h1>Stock Buddy</h1>
-<div class="subtitle">I’ll keep an eye on it for you.</div>
+
+<div class="subtitle">
+I’ll keep an eye on it for you.
+</div>
+
 
 <div class="summary">
-  <div class="summary-number">
-    <span class="green-dot"></span>
-    <span id="availableCount">— Available</span>
-  </div>
-  <div class="summary-text" id="summaryText">Loading current availability...</div>
+
+<div class="summary-number">
+<span class="green-dot"></span>
+<span id="availableCount">— Available</span>
 </div>
+
+<div
+class="summary-text"
+id="summaryText">
+Loading current availability...
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<div
+class="stat-value"
+id="hotCount">
+—
+</div>
+<div class="stat-label">
+Restocks · last 24h
+</div>
+</div>
+
+<div class="stat">
+<div
+class="stat-value"
+id="watchCount">
+0
+</div>
+<div class="stat-label">
+Watchlist
+</div>
+</div>
+
+</div>
+
+</div>
+
 
 <div class="filters">
 
-  <div class="filters-header">
-    <div class="filters-heading">Filters</div>
-    <button class="reset-button" id="resetFilters">Reset Filters</button>
-  </div>
+<div class="filters-header">
 
-  <div class="filter-title">MODEL</div>
-  <select id="modelFilter">
-    <option value="all">All Models</option>
-    <option value="pro">iPhone 18 Pro</option>
-    <option value="promax">iPhone 18 Pro Max</option>
-  </select>
+<div class="filters-heading">
+Filters
+</div>
 
-  <div class="filter-title">STORAGE</div>
-  <select id="storageFilter">
-    <option value="all">All Storage</option>
-    <option value="256GB">256GB</option>
-    <option value="512GB">512GB</option>
-    <option value="1TB">1TB</option>
-    <option value="2TB">2TB</option>
-  </select>
-
-  <div class="filter-title">COLOR</div>
-  <select id="colorFilter">
-    <option value="all">All Colors</option>
-    <option value="Black">Black</option>
-    <option value="Silver">Silver</option>
-    <option value="Burgundy">Burgundy</option>
-    <option value="Glacier">Glacier</option>
-  </select>
-
-  <div class="filter-title">REGION</div>
-  <select id="regionFilter">
-    <option value="all">All Regions</option>
-    <option value="Oregon">Oregon</option>
-    <option value="Hawaii">Hawaii</option>
-  </select>
-
-  <div class="filter-title">STORE</div>
-  <select id="storeFilter">
-    <option value="all">All Stores</option>
-  </select>
-
-  <div class="filter-title">DISCOUNT</div>
-
-  <div class="discount-options">
-    <div class="discount-option">
-      <input type="radio" name="discount" id="d0" value="0" checked>
-      <label for="d0">Regular</label>
-    </div>
-
-    <div class="discount-option">
-      <input type="radio" name="discount" id="d15" value="0.15">
-      <label for="d15">15% Off</label>
-    </div>
-
-    <div class="discount-option">
-      <input type="radio" name="discount" id="d25" value="0.25">
-      <label for="d25">25% Off</label>
-    </div>
-  </div>
-
-  <label class="stock-only">
-    <input type="checkbox" id="stockOnly">
-    <span class="status available">
-      <span class="status-dot"></span>
-      Show available products only
-    </span>
-  </label>
+<button
+class="reset-button"
+id="resetFilters">
+Reset Filters
+</button>
 
 </div>
 
-<div id="products">Loading availability...</div>
+
+<div class="filter-title">
+MODEL
+</div>
+
+<select id="modelFilter">
+<option value="all">All Models</option>
+<option value="pro">iPhone 18 Pro</option>
+<option value="promax">iPhone 18 Pro Max</option>
+</select>
+
+
+<div class="filter-title">
+STORAGE
+</div>
+
+<select id="storageFilter">
+<option value="all">All Storage</option>
+<option value="256GB">256GB</option>
+<option value="512GB">512GB</option>
+<option value="1TB">1TB</option>
+<option value="2TB">2TB</option>
+</select>
+
+
+<div class="filter-title">
+COLOR
+</div>
+
+<select id="colorFilter">
+<option value="all">All Colors</option>
+<option value="Black">Black</option>
+<option value="Silver">Silver</option>
+<option value="Burgundy">Burgundy</option>
+<option value="Glacier">Glacier</option>
+</select>
+
+
+<div class="filter-title">
+REGION
+</div>
+
+<select id="regionFilter">
+<option value="all">All Regions</option>
+<option value="Oregon">Oregon</option>
+<option value="Hawaii">Hawaii</option>
+</select>
+
+
+<div class="filter-title">
+STORE
+</div>
+
+<select id="storeFilter">
+<option value="all">All Stores</option>
+</select>
+
+
+<div class="filter-title">
+DISCOUNT
+</div>
+
+<div class="discount-options">
+
+<div class="discount-option">
+<input
+type="radio"
+name="discount"
+id="d0"
+value="0"
+checked>
+<label for="d0">Regular</label>
+</div>
+
+<div class="discount-option">
+<input
+type="radio"
+name="discount"
+id="d15"
+value="0.15">
+<label for="d15">15% Off</label>
+</div>
+
+<div class="discount-option">
+<input
+type="radio"
+name="discount"
+id="d25"
+value="0.25">
+<label for="d25">25% Off</label>
+</div>
+
+</div>
+
+
+<label class="toggle-row">
+
+<input
+type="checkbox"
+id="stockOnly">
+
+<span class="status available">
+<span class="status-dot"></span>
+Show available products only
+</span>
+
+</label>
+
+
+<label class="toggle-row">
+
+<input
+type="checkbox"
+id="watchOnly">
+
+<span>
+★ My Watchlist only
+</span>
+
+</label>
+
+</div>
+
+
+<div id="products">
+Loading availability...
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+Stock Buddy Insights
+</div>
+
+<div
+class="card"
+id="insights">
+Collecting stock history...
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">
+Recent Activity
+</div>
+
+<div
+class="card"
+id="activity">
+No history yet.
+</div>
+
+</div>
+
 
 <div class="price-information">
-  <strong>Price information</strong><br>
-  US = Apple US retail price<br>
-  JP = Apple Japan retail price<br>
-  Oregon = No general sales tax<br>
-  Hawaii = Estimated Honolulu GET pass-on included<br>
-  <span id="exchangeInfo">Loading USD/JPY exchange rate...</span><br>
-  JPY purchase prices are estimates. Actual checkout and card exchange rates may vary.
+
+<strong>Price information</strong><br>
+
+US = Apple US retail price<br>
+
+JP = Apple Japan retail price<br>
+
+Oregon = No general sales tax<br>
+
+Hawaii = Estimated Honolulu GET pass-on included<br>
+
+<span id="exchangeInfo">
+Loading USD/JPY exchange rate...
+</span><br>
+
+JPY purchase prices are estimates.
+Actual checkout and card exchange rates may vary.
+
 </div>
 
 <div id="updated"></div>
 
 </div>
 
+
 <script>
+
 let stockData=null;
+let historyData={events:[]};
 let usdJpyRate=null;
 
 const STORAGE_KEY="stockBuddyFilters";
+const WATCH_KEY="stockBuddyWatchlist";
+
 const HAWAII_RATE=0.04712;
 
+
 const US_PRICES={
-  pro:{"256GB":1199,"512GB":1399,"1TB":1799,"2TB":2399},
-  promax:{"256GB":1299,"512GB":1499,"1TB":1899,"2TB":2499}
+
+pro:{
+"256GB":1199,
+"512GB":1399,
+"1TB":1799,
+"2TB":2399
+},
+
+promax:{
+"256GB":1299,
+"512GB":1499,
+"1TB":1899,
+"2TB":2499
+}
+
 };
+
 
 const JP_PRICES={
-  pro:{"256GB":219800,"512GB":254800,"1TB":324800,"2TB":429800},
-  promax:{"256GB":239800,"512GB":274800,"1TB":344800,"2TB":449800}
+
+pro:{
+"256GB":219800,
+"512GB":254800,
+"1TB":324800,
+"2TB":429800
+},
+
+promax:{
+"256GB":239800,
+"512GB":274800,
+"1TB":344800,
+"2TB":449800
+}
+
 };
+
 
 const JP_PART_NUMBERS={
-  "MJQ34LL/A":"MJR54J/A",
-  "MJQ44LL/A":"MJR64J/A",
-  "MJQ54LL/A":"MJR74J/A",
-  "MJQ64LL/A":"MJR84J/A",
 
-  "MJQ74LL/A":"MJR94J/A",
-  "MJQ84LL/A":"MJRC4J/A",
-  "MJQ94LL/A":"MJRD4J/A",
-  "MJQA4LL/A":"MJRE4J/A",
+"MJQ34LL/A":"MJR54J/A",
+"MJQ44LL/A":"MJR64J/A",
+"MJQ54LL/A":"MJR74J/A",
+"MJQ64LL/A":"MJR84J/A",
 
-  "MJQC4LL/A":"MJRF4J/A",
-  "MJQD4LL/A":"MJRG4J/A",
-  "MJQE4LL/A":"MJRH4J/A",
-  "MJQF4LL/A":"MJRJ4J/A",
+"MJQ74LL/A":"MJR94J/A",
+"MJQ84LL/A":"MJRC4J/A",
+"MJQ94LL/A":"MJRD4J/A",
+"MJQA4LL/A":"MJRE4J/A",
 
-  "MJQG4LL/A":"MJRK4J/A",
-  "MJQH4LL/A":"MJRL4J/A",
-  "MJQJ4LL/A":"MJRM4J/A",
-  "MJQK4LL/A":"MJRN4J/A",
+"MJQC4LL/A":"MJRF4J/A",
+"MJQD4LL/A":"MJRG4J/A",
+"MJQE4LL/A":"MJRH4J/A",
+"MJQF4LL/A":"MJRJ4J/A",
 
-  "MJW44LL/A":"MJX54J/A",
-  "MJW54LL/A":"MJX64J/A",
-  "MJW64LL/A":"MJX74J/A",
-  "MJW74LL/A":"MJX84J/A",
+"MJQG4LL/A":"MJRK4J/A",
+"MJQH4LL/A":"MJRL4J/A",
+"MJQJ4LL/A":"MJRM4J/A",
+"MJQK4LL/A":"MJRN4J/A",
 
-  "MJW84LL/A":"MJX94J/A",
-  "MJW94LL/A":"MJXA4J/A",
-  "MJWA4LL/A":"MJXC4J/A",
-  "MJWC4LL/A":"MJXD4J/A",
+"MJW44LL/A":"MJX54J/A",
+"MJW54LL/A":"MJX64J/A",
+"MJW64LL/A":"MJX74J/A",
+"MJW74LL/A":"MJX84J/A",
 
-  "MJWD4LL/A":"MJXE4J/A",
-  "MJWE4LL/A":"MJXF4J/A",
-  "MJWF4LL/A":"MJXG4J/A",
-  "MJWG4LL/A":"MJXH4J/A",
+"MJW84LL/A":"MJX94J/A",
+"MJW94LL/A":"MJXA4J/A",
+"MJWA4LL/A":"MJXC4J/A",
+"MJWC4LL/A":"MJXD4J/A",
 
-  "MJWH4LL/A":"MJXJ4J/A",
-  "MJWJ4LL/A":"MJXK4J/A",
-  "MJWK4LL/A":"MJXL4J/A",
-  "MJWL4LL/A":"MJXM4J/A"
+"MJWD4LL/A":"MJXE4J/A",
+"MJWE4LL/A":"MJXF4J/A",
+"MJWF4LL/A":"MJXG4J/A",
+"MJWG4LL/A":"MJXH4J/A",
+
+"MJWH4LL/A":"MJXJ4J/A",
+"MJWJ4LL/A":"MJXK4J/A",
+"MJWK4LL/A":"MJXL4J/A",
+"MJWL4LL/A":"MJXM4J/A"
+
 };
+
 
 const storesByRegion={
-  Oregon:["Pioneer Place","Washington Square","Bridgeport Village"],
-  Hawaii:["Ala Moana","Kahala"]
+
+Oregon:[
+"Pioneer Place",
+"Washington Square",
+"Bridgeport Village"
+],
+
+Hawaii:[
+"Ala Moana",
+"Kahala"
+]
+
 };
 
-const $=id=>document.getElementById(id);
+
+const $=id=>
+document.getElementById(id);
+
+
+function getWatchlist(){
+
+try{
+
+const data=JSON.parse(
+localStorage.getItem(WATCH_KEY)||"[]"
+);
+
+return Array.isArray(data)
+?data
+:[];
+
+}catch(e){
+
+return [];
+
+}
+
+}
+
+
+function saveWatchlist(list){
+
+localStorage.setItem(
+WATCH_KEY,
+JSON.stringify(list)
+);
+
+}
+
+
+function isWatched(partNumber){
+
+return getWatchlist().includes(
+partNumber
+);
+
+}
+
+
+function toggleWatch(partNumber){
+
+let list=getWatchlist();
+
+if(list.includes(partNumber)){
+
+list=list.filter(
+item=>item!==partNumber
+);
+
+}else{
+
+list.push(partNumber);
+
+}
+
+saveWatchlist(list);
+
+render();
+
+}
+
 
 function selectedDiscount(){
-  return Number(document.querySelector('input[name="discount"]:checked')?.value||0);
+
+return Number(
+document.querySelector(
+'input[name="discount"]:checked'
+)?.value||0
+);
+
 }
+
 
 function setDiscount(value){
-  const el=document.querySelector(`input[name="discount"][value="${value}"]`);
-  (el||$("d0")).checked=true;
+
+const el=document.querySelector(
+`input[name="discount"][value="${value}"]`
+);
+
+(el||$("d0")).checked=true;
+
 }
+
 
 function updateStores(selected="all"){
-  const region=$("regionFilter").value;
-  const select=$("storeFilter");
 
-  select.innerHTML='<option value="all">All Stores</option>';
+const region=$("regionFilter").value;
+const select=$("storeFilter");
 
-  const add=(name)=>{
-    const option=document.createElement("option");
-    option.value=name;
-    option.textContent=name;
-    select.appendChild(option);
-  };
+select.innerHTML=
+'<option value="all">All Stores</option>';
 
-  if(region==="all"){
-    Object.entries(storesByRegion).forEach(([regionName,stores])=>{
-      const group=document.createElement("optgroup");
-      group.label=regionName;
 
-      stores.forEach(name=>{
-        const option=document.createElement("option");
-        option.value=name;
-        option.textContent=name;
-        group.appendChild(option);
-      });
+if(region==="all"){
 
-      select.appendChild(group);
-    });
-  }else{
-    (storesByRegion[region]||[]).forEach(add);
-  }
+Object.entries(
+storesByRegion
+).forEach(([regionName,stores])=>{
 
-  const exists=[...select.querySelectorAll("option")].some(o=>o.value===selected);
-  select.value=exists?selected:"all";
+const group=
+document.createElement("optgroup");
+
+group.label=regionName;
+
+stores.forEach(name=>{
+
+const option=
+document.createElement("option");
+
+option.value=name;
+option.textContent=name;
+
+group.appendChild(option);
+
+});
+
+select.appendChild(group);
+
+});
+
+}else{
+
+(storesByRegion[region]||[])
+.forEach(name=>{
+
+const option=
+document.createElement("option");
+
+option.value=name;
+option.textContent=name;
+
+select.appendChild(option);
+
+});
+
 }
+
+
+const exists=[
+...select.querySelectorAll("option")
+].some(
+option=>option.value===selected
+);
+
+select.value=
+exists
+?selected
+:"all";
+
+}
+
 
 function saveFilters(){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify({
-    model:$("modelFilter").value,
-    storage:$("storageFilter").value,
-    color:$("colorFilter").value,
-    region:$("regionFilter").value,
-    store:$("storeFilter").value,
-    discount:selectedDiscount(),
-    stockOnly:$("stockOnly").checked
-  }));
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify({
+
+model:$("modelFilter").value,
+
+storage:$("storageFilter").value,
+
+color:$("colorFilter").value,
+
+region:$("regionFilter").value,
+
+store:$("storeFilter").value,
+
+discount:selectedDiscount(),
+
+stockOnly:$("stockOnly").checked,
+
+watchOnly:$("watchOnly").checked
+
+})
+);
+
 }
+
 
 function loadFilters(){
-  let s={};
 
-  try{
-    s=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-  }catch(e){}
+let saved={};
 
-  $("modelFilter").value=s.model||"all";
-  $("storageFilter").value=s.storage||"all";
-  $("colorFilter").value=s.color||"all";
-  $("regionFilter").value=s.region||"all";
-  $("stockOnly").checked=s.stockOnly===true;
+try{
 
-  setDiscount(s.discount??0);
-  updateStores(s.store||"all");
+saved=JSON.parse(
+localStorage.getItem(
+STORAGE_KEY
+)||"{}"
+);
+
+}catch(e){}
+
+
+$("modelFilter").value=
+saved.model||"all";
+
+$("storageFilter").value=
+saved.storage||"all";
+
+$("colorFilter").value=
+saved.color||"all";
+
+$("regionFilter").value=
+saved.region||"all";
+
+$("stockOnly").checked=
+saved.stockOnly===true;
+
+$("watchOnly").checked=
+saved.watchOnly===true;
+
+setDiscount(
+saved.discount??0
+);
+
+updateStores(
+saved.store||"all"
+);
+
 }
+
 
 function resetFilters(){
-  $("modelFilter").value="all";
-  $("storageFilter").value="all";
-  $("colorFilter").value="all";
-  $("regionFilter").value="all";
-  $("stockOnly").checked=false;
 
-  setDiscount(0);
-  updateStores();
-  localStorage.removeItem(STORAGE_KEY);
-  render();
+$("modelFilter").value="all";
+
+$("storageFilter").value="all";
+
+$("colorFilter").value="all";
+
+$("regionFilter").value="all";
+
+$("stockOnly").checked=false;
+
+$("watchOnly").checked=false;
+
+setDiscount(0);
+
+updateStores();
+
+localStorage.removeItem(
+STORAGE_KEY
+);
+
+render();
+
 }
+
 
 function priceInfo(name){
-  const model=name.startsWith("iPhone 18 Pro Max ")?"promax":"pro";
 
-  let storage=null;
+const model=
+name.startsWith(
+"iPhone 18 Pro Max "
+)
+?"promax"
+:"pro";
 
-  if(name.includes("256GB")) storage="256GB";
-  else if(name.includes("512GB")) storage="512GB";
-  else if(name.includes("1TB")) storage="1TB";
-  else if(name.includes("2TB")) storage="2TB";
+let storage=null;
 
-  if(!storage) return null;
+if(name.includes("256GB"))
+storage="256GB";
 
-  return{
-    usd:US_PRICES[model][storage],
-    jpy:JP_PRICES[model][storage]
-  };
+else if(name.includes("512GB"))
+storage="512GB";
+
+else if(name.includes("1TB"))
+storage="1TB";
+
+else if(name.includes("2TB"))
+storage="2TB";
+
+if(!storage)
+return null;
+
+return{
+
+usd:
+US_PRICES[model][storage],
+
+jpy:
+JP_PRICES[model][storage]
+
+};
+
 }
 
-function yen(v){
-  return new Intl.NumberFormat("ja-JP",{
-    style:"currency",
-    currency:"JPY",
-    maximumFractionDigits:0
-  }).format(v);
+
+function yen(value){
+
+return new Intl.NumberFormat(
+"ja-JP",
+{
+style:"currency",
+currency:"JPY",
+maximumFractionDigits:0
+}
+).format(value);
+
 }
 
-function usd(v){
-  return new Intl.NumberFormat("en-US",{
-    style:"currency",
-    currency:"USD",
-    maximumFractionDigits:0
-  }).format(v);
+
+function usd(value){
+
+return new Intl.NumberFormat(
+"en-US",
+{
+style:"currency",
+currency:"USD",
+maximumFractionDigits:0
+}
+).format(value);
+
 }
 
-function regionPrice(name,region){
-  const p=priceInfo(name);
 
-  if(!p||!usdJpyRate) return "";
+function regionPrice(
+name,
+region
+){
 
-  const discount=selectedDiscount();
-  const base=p.usd*(1-discount);
-  const tax=region==="Hawaii"?base*HAWAII_RATE:0;
-  const total=base+tax;
+const price=
+priceInfo(name);
 
-  const totalJPY=Math.round(total*usdJpyRate/1000)*1000;
-  const taxJPY=Math.round(tax*usdJpyRate);
+if(
+!price||
+!usdJpyRate
+)
+return "";
 
-  const label=discount===0
-    ?"Regular"
-    :`${Math.round(discount*100)}%`;
 
-  const badge=discount===0
-    ?"discount-badge regular"
-    :"discount-badge";
+const discount=
+selectedDiscount();
 
-  const detail=region==="Hawaii"
-    ?`Tax ${yen(taxJPY)} · $1=¥${usdJpyRate.toFixed(2)}`
-    :`$1=¥${usdJpyRate.toFixed(2)}`;
+const base=
+price.usd*
+(1-discount);
 
-  return `
-    <div class="region-price">
-      <span class="${badge}">${label}</span>
-      <span class="region-main-price">約${yen(totalJPY)}</span>
-      <span class="region-detail">${detail}</span>
-    </div>
-  `;
+const tax=
+region==="Hawaii"
+?base*HAWAII_RATE
+:0;
+
+const total=
+base+tax;
+
+const totalJPY=
+Math.round(
+total*
+usdJpyRate/
+1000
+)*1000;
+
+const taxJPY=
+Math.round(
+tax*
+usdJpyRate
+);
+
+
+const label=
+discount===0
+?"Regular"
+:`${Math.round(
+discount*100
+)}%`;
+
+
+const badge=
+discount===0
+?"discount-badge regular"
+:"discount-badge";
+
+
+const detail=
+region==="Hawaii"
+?`Tax ${yen(taxJPY)} · $1=¥${usdJpyRate.toFixed(2)}`
+:`$1=¥${usdJpyRate.toFixed(2)}`;
+
+
+return`
+
+<div class="region-price">
+
+<span class="${badge}">
+${label}
+</span>
+
+<span class="region-main-price">
+約${yen(totalJPY)}
+</span>
+
+<span class="region-detail">
+${detail}
+</span>
+
+</div>
+
+`;
+
 }
+
+
+function eventDate(event){
+
+const date=
+new Date(event.timestamp);
+
+return Number.isNaN(
+date.getTime()
+)
+?null
+:date;
+
+}
+
+
+function availableEvents(){
+
+return(
+historyData.events||[]
+).filter(
+event=>
+event.status==="available"
+);
+
+}
+
+
+function eventsFor(
+partNumber,
+region=null,
+store=null
+){
+
+return(
+historyData.events||[]
+).filter(event=>{
+
+if(
+event.partNumber!==partNumber
+)
+return false;
+
+if(
+region&&
+event.region!==region
+)
+return false;
+
+if(
+store&&
+event.store!==store
+)
+return false;
+
+return true;
+
+});
+
+}
+
+
+function lastAvailable(
+partNumber,
+region,
+store
+){
+
+const events=
+eventsFor(
+partNumber,
+region,
+store
+)
+.filter(
+event=>
+event.status==="available"
+)
+.sort(
+(a,b)=>
+new Date(b.timestamp)-
+new Date(a.timestamp)
+);
+
+return events[0]||null;
+
+}
+
+
+function relativeTime(timestamp){
+
+const date=
+new Date(timestamp);
+
+const seconds=
+Math.floor(
+(Date.now()-date.getTime())/
+1000
+);
+
+if(seconds<60)
+return "just now";
+
+const minutes=
+Math.floor(seconds/60);
+
+if(minutes<60)
+return `${minutes}m ago`;
+
+const hours=
+Math.floor(minutes/60);
+
+if(hours<24)
+return `${hours}h ago`;
+
+const days=
+Math.floor(hours/24);
+
+return `${days}d ago`;
+
+}
+
+
+function hotCountFor(
+partNumber
+){
+
+const cutoff=
+Date.now()-
+24*60*60*1000;
+
+return availableEvents()
+.filter(event=>
+
+event.partNumber===
+partNumber
+
+&&
+
+new Date(
+event.timestamp
+).getTime()>=cutoff
+
+).length;
+
+}
+
+
+function totalHotCount(){
+
+const cutoff=
+Date.now()-
+24*60*60*1000;
+
+return availableEvents()
+.filter(event=>
+
+new Date(
+event.timestamp
+).getTime()>=cutoff
+
+).length;
+
+}
+
+
+function formatEventTime(event){
+
+const date=
+eventDate(event);
+
+if(!date)
+return "Unknown time";
+
+const timeZone=
+event.region==="Hawaii"
+?"Pacific/Honolulu"
+:"America/Los_Angeles";
+
+return new Intl.DateTimeFormat(
+"en-US",
+{
+month:"short",
+day:"numeric",
+hour:"numeric",
+minute:"2-digit",
+timeZone
+}
+).format(date);
+
+}
+
+
+function renderActivity(){
+
+const container=
+$("activity");
+
+const events=[
+...(historyData.events||[])
+]
+.sort(
+(a,b)=>
+new Date(b.timestamp)-
+new Date(a.timestamp)
+)
+.slice(0,12);
+
+
+if(!events.length){
+
+container.innerHTML=
+'<div class="insight-sub">No stock changes recorded yet. History will build automatically.</div>';
+
+return;
+
+}
+
+
+container.innerHTML=
+events.map(event=>{
+
+const status=
+event.status==="available"
+?"● Available"
+:"● Sold Out";
+
+return`
+
+<div class="activity">
+
+<div class="activity-title">
+${status} · ${event.productName}
+</div>
+
+<div class="activity-detail">
+${event.store} · ${event.region}
+· ${formatEventTime(event)}
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function renderInsights(){
+
+const container=
+$("insights");
+
+const available=
+availableEvents();
+
+
+if(!available.length){
+
+container.innerHTML=`
+
+<div class="insight-main">
+Still learning…
+</div>
+
+<div class="insight-sub">
+Stock Buddy needs some restock history before it can detect patterns.
+</div>
+
+`;
+
+return;
+
+}
+
+
+const storeCounts={};
+
+const hourCounts={};
+
+const dayCounts={};
+
+
+available.forEach(event=>{
+
+const storeKey=
+`${event.store} · ${event.region}`;
+
+storeCounts[storeKey]=
+(storeCounts[storeKey]||0)+1;
+
+
+const date=
+eventDate(event);
+
+if(!date)
+return;
+
+
+const timeZone=
+event.region==="Hawaii"
+?"Pacific/Honolulu"
+:"America/Los_Angeles";
+
+
+const hour=
+new Intl.DateTimeFormat(
+"en-US",
+{
+hour:"numeric",
+hour12:false,
+timeZone
+}
+).format(date);
+
+
+const day=
+new Intl.DateTimeFormat(
+"en-US",
+{
+weekday:"long",
+timeZone
+}
+).format(date);
+
+
+hourCounts[hour]=
+(hourCounts[hour]||0)+1;
+
+dayCounts[day]=
+(dayCounts[day]||0)+1;
+
+});
+
+
+const topEntry=obj=>
+Object.entries(obj)
+.sort(
+(a,b)=>b[1]-a[1]
+)[0];
+
+
+const topStore=
+topEntry(storeCounts);
+
+const topHour=
+topEntry(hourCounts);
+
+const topDay=
+topEntry(dayCounts);
+
+
+let hourText="—";
+
+if(topHour){
+
+const start=
+Number(topHour[0]);
+
+const end=
+(start+1)%24;
+
+hourText=
+`${String(start).padStart(2,"0")}:00–${String(end).padStart(2,"0")}:00`;
+
+}
+
+
+container.innerHTML=`
+
+<div class="insight-main">
+Most active store: ${topStore?.[0]||"—"}
+</div>
+
+<div class="insight-sub">
+
+${topStore?.[1]||0}
+recorded restocks
+
+<br>
+
+Most active day:
+${topDay?.[0]||"—"}
+
+<br>
+
+Most active hour:
+${hourText}
+
+<br><br>
+
+Based on
+${available.length}
+recorded restock events.
+
+</div>
+
+`;
+
+}
+
 
 async function loadRate(){
-  try{
-    const r=await fetch("https://api.frankfurter.dev/v2/rate/usd/jpy");
 
-    if(!r.ok) throw new Error();
+try{
 
-    const data=await r.json();
+const response=
+await fetch(
+"https://api.frankfurter.dev/v2/rate/usd/jpy"
+);
 
-    usdJpyRate=Number(data.rate);
+if(!response.ok)
+throw new Error();
 
-    $("exchangeInfo").textContent=
-      `$1 = ¥${usdJpyRate.toFixed(2)} · ${data.date}`;
+const data=
+await response.json();
 
-  }catch(e){
-    usdJpyRate=null;
-    $("exchangeInfo").textContent="Exchange rate unavailable";
-  }
+usdJpyRate=
+Number(data.rate);
+
+$("exchangeInfo").textContent=
+`$1 = ¥${usdJpyRate.toFixed(2)} · ${data.date}`;
+
+}catch(e){
+
+usdJpyRate=null;
+
+$("exchangeInfo").textContent=
+"Exchange rate unavailable";
+
 }
+
+}
+
+
+async function loadHistory(){
+
+try{
+
+const response=
+await fetch(
+`history.json?t=${Date.now()}`
+);
+
+if(!response.ok)
+throw new Error();
+
+historyData=
+await response.json();
+
+}catch(e){
+
+historyData={
+events:[]
+};
+
+}
+
+}
+
 
 async function loadStock(){
-  try{
-    const r=await fetch(`stock.json?t=${Date.now()}`);
 
-    if(!r.ok) throw new Error();
+try{
 
-    stockData=await r.json();
+const response=
+await fetch(
+`stock.json?t=${Date.now()}`
+);
 
-    render();
+if(!response.ok)
+throw new Error();
 
-    $("updated").textContent=
-      `Last checked: ${stockData.updated||"—"}`;
+stockData=
+await response.json();
 
-  }catch(e){
-    $("products").innerHTML=
-      '<div class="empty">Stock data is currently unavailable.</div>';
-  }
+render();
+
+$("updated").textContent=
+`Last checked: ${stockData.updated||"—"}`;
+
+}catch(e){
+
+$("products").innerHTML=
+'<div class="empty">Stock data is currently unavailable.</div>';
+
 }
+
+}
+
 
 function render(){
-  if(!stockData) return;
 
-  const model=$("modelFilter").value;
-  const storage=$("storageFilter").value;
-  const color=$("colorFilter").value;
-  const selectedRegion=$("regionFilter").value;
-  const selectedStore=$("storeFilter").value;
-  const stockOnly=$("stockOnly").checked;
+if(!stockData)
+return;
 
-  const container=$("products");
-  container.innerHTML="";
 
-  let displayed=0;
-  let availableCount=0;
+const model=
+$("modelFilter").value;
 
-  stockData.products.forEach(product=>{
-    const name=product.name;
+const storage=
+$("storageFilter").value;
 
-    const isProMax=name.startsWith("iPhone 18 Pro Max ");
-    const isPro=name.startsWith("iPhone 18 Pro ")&&!isProMax;
+const color=
+$("colorFilter").value;
 
-    if(model==="pro"&&!isPro) return;
-    if(model==="promax"&&!isProMax) return;
-    if(storage!=="all"&&!name.includes(storage)) return;
-    if(color!=="all"&&!name.endsWith(color)) return;
+const selectedRegion=
+$("regionFilter").value;
 
-    let regionsHTML="";
-    let productHasStock=false;
+const selectedStore=
+$("storeFilter").value;
 
-    (product.regions||[]).forEach(region=>{
-      if(selectedRegion!=="all"&&region.name!==selectedRegion) return;
+const stockOnly=
+$("stockOnly").checked;
 
-      let storesHTML="";
+const watchOnly=
+$("watchOnly").checked;
 
-      (region.stores||[]).forEach(store=>{
-        if(selectedStore!=="all"&&store.name!==selectedStore) return;
+const watchlist=
+getWatchlist();
 
-        if(store.available){
-          productHasStock=true;
-          availableCount++;
-        }
 
-        const cls=store.available?"available":"unavailable";
-        const text=store.available?"Available":"Unavailable";
+$("watchCount").textContent=
+watchlist.length;
 
-        storesHTML+=`
-          <div class="store">
-            <div class="store-name">${store.name}</div>
-            <div class="status ${cls}">
-              <span class="status-dot"></span>${text}
-            </div>
-          </div>
-        `;
-      });
+$("hotCount").textContent=
+totalHotCount();
 
-      if(storesHTML){
-        regionsHTML+=`
-          <div class="region">
-            <div class="region-header">
-              <div class="region-name">${region.name}</div>
-              ${regionPrice(name,region.name)}
-            </div>
-            ${storesHTML}
-          </div>
-        `;
-      }
-    });
 
-    if(stockOnly&&!productHasStock) return;
-    if(!regionsHTML) return;
+const container=
+$("products");
 
-    const p=priceInfo(name);
-    const jpPart=JP_PART_NUMBERS[product.partNumber]||"—";
+container.innerHTML="";
 
-    const productInfo=p?`
-      <span>
-        <span class="market-part">${product.partNumber}</span>
-        <span class="market-label">US</span>
-        ${usd(p.usd)}
-      </span>
 
-      <span class="product-separator">|</span>
+let displayed=0;
+let availableCount=0;
 
-      <span>
-        <span class="market-part">${jpPart}</span>
-        <span class="market-label">JP</span>
-        ${yen(p.jpy)}
-      </span>
-    `:"";
 
-    const card=document.createElement("div");
-    card.className="product";
+stockData.products.forEach(product=>{
 
-    card.innerHTML=`
-      <div class="product-name">${name}</div>
-      <div class="product-info">${productInfo}</div>
-      ${regionsHTML}
-    `;
+const name=
+product.name;
 
-    container.appendChild(card);
-    displayed++;
-  });
+const isProMax=
+name.startsWith(
+"iPhone 18 Pro Max "
+);
 
-  $("availableCount").textContent=
-    `${availableCount} Available`;
+const isPro=
+name.startsWith(
+"iPhone 18 Pro "
+)&&
+!isProMax;
 
-  $("summaryText").textContent=
-    availableCount
-      ?`${availableCount} available store / product combinations.`
-      :"No pickup availability for the current filters.";
 
-  if(!displayed){
-    container.innerHTML=
-      '<div class="empty">No matching products found.</div>';
-  }
+if(
+model==="pro"&&
+!isPro
+)
+return;
+
+
+if(
+model==="promax"&&
+!isProMax
+)
+return;
+
+
+if(
+storage!=="all"&&
+!name.includes(storage)
+)
+return;
+
+
+if(
+color!=="all"&&
+!name.endsWith(color)
+)
+return;
+
+
+if(
+watchOnly&&
+!watchlist.includes(
+product.partNumber
+)
+)
+return;
+
+
+let regionsHTML="";
+let productHasStock=false;
+
+
+(product.regions||[])
+.forEach(region=>{
+
+
+if(
+selectedRegion!=="all"&&
+region.name!==selectedRegion
+)
+return;
+
+
+let storesHTML="";
+
+
+(region.stores||[])
+.forEach(store=>{
+
+
+if(
+selectedStore!=="all"&&
+store.name!==selectedStore
+)
+return;
+
+
+if(store.available){
+
+productHasStock=true;
+availableCount++;
+
 }
+
+
+const cls=
+store.available
+?"available"
+:"unavailable";
+
+
+const text=
+store.available
+?"Available"
+:"Unavailable";
+
+
+let lastSeenHTML="";
+
+
+if(!store.available){
+
+const last=
+lastAvailable(
+product.partNumber,
+region.name,
+store.name
+);
+
+if(last){
+
+lastSeenHTML=`
+
+<div class="last-seen">
+Last available ${relativeTime(last.timestamp)}
+</div>
+
+`;
+
+}
+
+}
+
+
+storesHTML+=`
+
+<div class="store">
+
+<div class="store-left">
+
+<div class="store-name">
+${store.name}
+</div>
+
+${lastSeenHTML}
+
+</div>
+
+<div class="status ${cls}">
+
+<span class="status-dot"></span>
+
+${text}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+if(storesHTML){
+
+regionsHTML+=`
+
+<div class="region">
+
+<div class="region-header">
+
+<div class="region-name">
+${region.name}
+</div>
+
+${regionPrice(
+name,
+region.name
+)}
+
+</div>
+
+${storesHTML}
+
+</div>
+
+`;
+
+}
+
+});
+
+
+if(
+stockOnly&&
+!productHasStock
+)
+return;
+
+
+if(!regionsHTML)
+return;
+
+
+const price=
+priceInfo(name);
+
+const jpPart=
+JP_PART_NUMBERS[
+product.partNumber
+]||"—";
+
+
+const productInfo=
+price
+?`
+
+<span>
+
+<span class="market-part">
+${product.partNumber}
+</span>
+
+<span class="market-label">
+US
+</span>
+
+${usd(price.usd)}
+
+</span>
+
+<span class="product-separator">
+|
+</span>
+
+<span>
+
+<span class="market-part">
+${jpPart}
+</span>
+
+<span class="market-label">
+JP
+</span>
+
+${yen(price.jpy)}
+
+</span>
+
+`
+:"";
+
+
+const hot=
+hotCountFor(
+product.partNumber
+);
+
+
+const hotHTML=
+hot>0
+?`
+
+<div class="hot">
+🔥 ${hot} restock${hot===1?"":"s"} in last 24h
+</div>
+
+`
+:"";
+
+
+const watched=
+watchlist.includes(
+product.partNumber
+);
+
+
+const card=
+document.createElement("div");
+
+card.className="product";
+
+
+card.innerHTML=`
+
+<div class="product-top">
+
+<div>
+
+<div class="product-name">
+${name}
+</div>
+
+<div class="product-info">
+${productInfo}
+</div>
+
+${hotHTML}
+
+</div>
+
+<button
+class="watch-button ${watched?"active":""}"
+data-part="${product.partNumber}"
+aria-label="Watch product">
+
+${watched?"★":"☆"}
+
+</button>
+
+</div>
+
+${regionsHTML}
+
+`;
+
+
+container.appendChild(
+card
+);
+
+displayed++;
+
+});
+
+
+container
+.querySelectorAll(
+".watch-button"
+)
+.forEach(button=>{
+
+button.addEventListener(
+"click",
+()=>{
+
+toggleWatch(
+button.dataset.part
+);
+
+}
+);
+
+});
+
+
+$("availableCount").textContent=
+`${availableCount} Available`;
+
+
+$("summaryText").textContent=
+availableCount
+?`${availableCount} available store / product combinations.`
+:"No pickup availability for the current filters.";
+
+
+if(!displayed){
+
+container.innerHTML=
+'<div class="empty">No matching products found.</div>';
+
+}
+
+
+renderActivity();
+renderInsights();
+
+}
+
 
 function changed(){
-  saveFilters();
-  render();
+
+saveFilters();
+render();
+
 }
 
-["modelFilter","storageFilter","colorFilter","storeFilter","stockOnly"]
+
+[
+"modelFilter",
+"storageFilter",
+"colorFilter",
+"storeFilter",
+"stockOnly",
+"watchOnly"
+]
 .forEach(id=>{
-  $(id).addEventListener("change",changed);
+
+$(id).addEventListener(
+"change",
+changed
+);
+
 });
 
-$("regionFilter").addEventListener("change",()=>{
-  updateStores();
-  saveFilters();
-  render();
+
+$("regionFilter")
+.addEventListener(
+"change",
+()=>{
+
+updateStores();
+
+saveFilters();
+
+render();
+
+}
+);
+
+
+document
+.querySelectorAll(
+'input[name="discount"]'
+)
+.forEach(el=>{
+
+el.addEventListener(
+"change",
+changed
+);
+
 });
 
-document.querySelectorAll('input[name="discount"]').forEach(el=>{
-  el.addEventListener("change",changed);
-});
 
-$("resetFilters").addEventListener("click",resetFilters);
+$("resetFilters")
+.addEventListener(
+"click",
+resetFilters
+);
+
 
 loadFilters();
 
+
 async function start(){
-  await loadRate();
-  await loadStock();
+
+await Promise.all([
+loadRate(),
+loadHistory()
+]);
+
+await loadStock();
+
 }
+
 
 start();
 
-setInterval(loadStock,60000);
+
+setInterval(
+async()=>{
+
+await loadHistory();
+await loadStock();
+
+},
+60000
+);
 
 </script>
+
 </body>
 </html>
