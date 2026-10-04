@@ -70,7 +70,6 @@ h1 {
   height: 13px;
   background: #30d158;
   border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .summary-text {
@@ -80,7 +79,7 @@ h1 {
 }
 
 
-/* FILTERS */
+/* FILTER */
 
 .filters {
   background: white;
@@ -106,7 +105,6 @@ h1 {
   color: #0071e3;
   font-size: 14px;
   padding: 6px 0 6px 12px;
-  cursor: pointer;
 }
 
 .filter-title {
@@ -126,7 +124,7 @@ select {
 }
 
 
-/* DISCOUNT */
+/* DISCOUNT SELECTOR */
 
 .discount-options {
   display: grid;
@@ -146,13 +144,18 @@ select {
 
 .discount-option label {
   display: block;
-  padding: 10px 6px;
-  border-radius: 10px;
+  padding: 11px 6px;
+
+  border-radius: 11px;
+
   background: #f5f5f7;
   color: #6e6e73;
+
   text-align: center;
+
   font-size: 14px;
   font-weight: 600;
+
   cursor: pointer;
 }
 
@@ -168,7 +171,9 @@ select {
   display: flex;
   align-items: center;
   gap: 10px;
+
   font-size: 15px;
+
   margin-top: 18px;
 }
 
@@ -182,8 +187,11 @@ select {
 
 .product {
   background: white;
+
   border-radius: 22px;
+
   padding: 20px;
+
   margin-bottom: 18px;
 }
 
@@ -194,30 +202,25 @@ select {
 }
 
 
-/* PRODUCT INFO */
+/* PRODUCT PRICE INFO */
 
 .product-info {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+
+  gap: 5px;
 
   color: #86868b;
+
   font-size: 13px;
 
-  margin-top: 5px;
-}
-
-.part-number {
-  color: #86868b;
-}
-
-.product-price {
-  color: #86868b;
+  margin-top: 6px;
 }
 
 .product-separator {
-  color: #d2d2d7;
+  color: #c7c7cc;
+  margin: 0 2px;
 }
 
 
@@ -229,11 +232,14 @@ select {
 
 .region-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
 
-  padding-bottom: 7px;
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 8px;
 
   border-bottom: 1px solid #e5e5e7;
 }
@@ -249,26 +255,87 @@ select {
 
 .region-price {
   display: flex;
+
+  align-items: center;
+
   justify-content: flex-end;
-  align-items: baseline;
+
   flex-wrap: wrap;
-  gap: 5px;
+
+  gap: 6px;
 
   text-align: right;
 }
 
-.region-main-price {
-  color: #1d1d1f;
-  font-size: 14px;
+
+/* DISCOUNT BADGE */
+
+.discount-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #1d1d1f;
+
+  color: white;
+
+  border-radius: 8px;
+
+  padding: 4px 7px;
+
+  font-size: 11px;
+
   font-weight: 700;
+
+  line-height: 1;
+
   white-space: nowrap;
 }
 
-.region-price-info {
-  color: #86868b;
-  font-size: 11px;
-  font-weight: 400;
+.discount-badge.regular {
+  background: #f0f0f2;
+  color: #6e6e73;
+}
+
+
+/* MAIN PRICE */
+
+.region-main-price {
+  color: #1d1d1f;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
   white-space: nowrap;
+}
+
+
+/* RATE / TAX */
+
+.region-detail {
+  color: #86868b;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* HAWAII DETAIL */
+
+.hawaii-detail {
+  width: 100%;
+
+  text-align: right;
+
+  color: #86868b;
+
+  font-size: 10px;
+
+  margin-top: -1px;
 }
 
 
@@ -276,7 +343,9 @@ select {
 
 .store {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
   gap: 12px;
@@ -300,7 +369,9 @@ select {
 
 .status {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 
   font-weight: 600;
@@ -311,8 +382,8 @@ select {
 .status-dot {
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .available {
@@ -336,9 +407,13 @@ select {
 
 .empty {
   background: white;
+
   border-radius: 20px;
+
   padding: 30px 20px;
+
   text-align: center;
+
   color: #6e6e73;
 }
 
@@ -347,48 +422,53 @@ select {
 
 .price-information {
   margin-top: 28px;
+
   padding: 18px;
 
   background: white;
+
   border-radius: 18px;
 
   color: #6e6e73;
 
   font-size: 12px;
+
   line-height: 1.65;
 }
 
 .price-information strong {
   color: #1d1d1f;
-  font-size: 13px;
 }
 
 #updated {
   text-align: center;
+
   color: #86868b;
+
   font-size: 12px;
+
   margin-top: 14px;
 }
 
 
-/* SMALL SCREEN */
+/* MOBILE */
 
 @media (max-width: 480px) {
+
+  .product {
+    padding: 20px;
+  }
 
   .region-header {
     align-items: flex-start;
   }
 
   .region-price {
-    max-width: 75%;
+    gap: 5px;
   }
 
   .region-main-price {
     font-size: 13px;
-  }
-
-  .region-price-info {
-    font-size: 10px;
   }
 
 }
@@ -401,330 +481,299 @@ select {
 
 <div class="container">
 
+<h1>Stock Buddy</h1>
 
-  <!-- HEADER -->
+<div class="subtitle">
+  I’ll keep an eye on it for you.
+</div>
 
-  <h1>
-    Stock Buddy
-  </h1>
 
-  <div class="subtitle">
-    I’ll keep an eye on it for you.
-  </div>
+<!-- SUMMARY -->
 
+<div class="summary">
 
-  <!-- SUMMARY -->
+  <div class="summary-number">
 
-  <div class="summary">
+    <span class="green-dot"></span>
 
-    <div class="summary-number">
-
-      <span class="green-dot"></span>
-
-      <span id="availableCount">
-        — Available
-      </span>
-
-    </div>
-
-    <div
-      class="summary-text"
-      id="summaryText"
-    >
-      Loading current availability...
-    </div>
-
-  </div>
-
-
-  <!-- FILTERS -->
-
-  <div class="filters">
-
-    <div class="filters-header">
-
-      <div class="filters-heading">
-        Filters
-      </div>
-
-      <button
-        class="reset-button"
-        id="resetFilters"
-        type="button"
-      >
-        Reset Filters
-      </button>
-
-    </div>
-
-
-    <!-- MODEL -->
-
-    <div class="filter-title">
-      MODEL
-    </div>
-
-    <select id="modelFilter">
-
-      <option value="all">
-        All Models
-      </option>
-
-      <option value="pro">
-        iPhone 18 Pro
-      </option>
-
-      <option value="promax">
-        iPhone 18 Pro Max
-      </option>
-
-    </select>
-
-
-    <!-- STORAGE -->
-
-    <div class="filter-title">
-      STORAGE
-    </div>
-
-    <select id="storageFilter">
-
-      <option value="all">
-        All Storage
-      </option>
-
-      <option value="256GB">
-        256GB
-      </option>
-
-      <option value="512GB">
-        512GB
-      </option>
-
-      <option value="1TB">
-        1TB
-      </option>
-
-      <option value="2TB">
-        2TB
-      </option>
-
-    </select>
-
-
-    <!-- COLOR -->
-
-    <div class="filter-title">
-      COLOR
-    </div>
-
-    <select id="colorFilter">
-
-      <option value="all">
-        All Colors
-      </option>
-
-      <option value="Black">
-        Black
-      </option>
-
-      <option value="Silver">
-        Silver
-      </option>
-
-      <option value="Burgundy">
-        Burgundy
-      </option>
-
-      <option value="Glacier">
-        Glacier
-      </option>
-
-    </select>
-
-
-    <!-- REGION -->
-
-    <div class="filter-title">
-      REGION
-    </div>
-
-    <select id="regionFilter">
-
-      <option value="all">
-        All Regions
-      </option>
-
-      <option value="Oregon">
-        Oregon
-      </option>
-
-      <option value="Hawaii">
-        Hawaii
-      </option>
-
-    </select>
-
-
-    <!-- STORE -->
-
-    <div class="filter-title">
-      STORE
-    </div>
-
-    <select id="storeFilter">
-
-      <option value="all">
-        All Stores
-      </option>
-
-    </select>
-
-
-    <!-- DISCOUNT -->
-
-    <div class="filter-title">
-      DISCOUNT
-    </div>
-
-    <div class="discount-options">
-
-
-      <div class="discount-option">
-
-        <input
-          type="radio"
-          name="discount"
-          id="discountRegular"
-          value="0"
-          checked
-        >
-
-        <label for="discountRegular">
-          Regular
-        </label>
-
-      </div>
-
-
-      <div class="discount-option">
-
-        <input
-          type="radio"
-          name="discount"
-          id="discount15"
-          value="0.15"
-        >
-
-        <label for="discount15">
-          15% Off
-        </label>
-
-      </div>
-
-
-      <div class="discount-option">
-
-        <input
-          type="radio"
-          name="discount"
-          id="discount25"
-          value="0.25"
-        >
-
-        <label for="discount25">
-          25% Off
-        </label>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- AVAILABLE ONLY -->
-
-    <label class="stock-only">
-
-      <input
-        type="checkbox"
-        id="stockOnly"
-      >
-
-      <span class="status available">
-
-        <span class="status-dot"></span>
-
-        Show available products only
-
-      </span>
-
-    </label>
-
-
-  </div>
-
-
-  <!-- PRODUCTS -->
-
-  <div id="products">
-    Loading availability...
-  </div>
-
-
-  <!-- PRICE INFORMATION -->
-
-  <div class="price-information">
-
-    <strong>
-      Price information
-    </strong>
-
-    <br>
-
-    US price:
-    Apple US retail price
-
-    <br>
-
-    JP price:
-    Apple Japan retail price
-
-    <br>
-
-    Oregon:
-    No general sales tax
-
-    <br>
-
-    Hawaii:
-    Estimated Honolulu GET pass-on included
-
-    <br>
-
-    <span id="exchangeInfo">
-      Loading USD/JPY exchange rate...
+    <span id="availableCount">
+      — Available
     </span>
 
-    <br>
+  </div>
 
-    JPY purchase prices are estimates.
-    Actual checkout totals and card exchange rates may vary.
+  <div
+    class="summary-text"
+    id="summaryText"
+  >
+    Loading current availability...
+  </div>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+  <div class="filters-header">
+
+    <div class="filters-heading">
+      Filters
+    </div>
+
+    <button
+      class="reset-button"
+      id="resetFilters"
+    >
+      Reset Filters
+    </button>
 
   </div>
 
 
-  <div id="updated"></div>
+  <div class="filter-title">
+    MODEL
+  </div>
 
+  <select id="modelFilter">
+
+    <option value="all">
+      All Models
+    </option>
+
+    <option value="pro">
+      iPhone 18 Pro
+    </option>
+
+    <option value="promax">
+      iPhone 18 Pro Max
+    </option>
+
+  </select>
+
+
+  <div class="filter-title">
+    STORAGE
+  </div>
+
+  <select id="storageFilter">
+
+    <option value="all">
+      All Storage
+    </option>
+
+    <option value="256GB">
+      256GB
+    </option>
+
+    <option value="512GB">
+      512GB
+    </option>
+
+    <option value="1TB">
+      1TB
+    </option>
+
+    <option value="2TB">
+      2TB
+    </option>
+
+  </select>
+
+
+  <div class="filter-title">
+    COLOR
+  </div>
+
+  <select id="colorFilter">
+
+    <option value="all">
+      All Colors
+    </option>
+
+    <option value="Black">
+      Black
+    </option>
+
+    <option value="Silver">
+      Silver
+    </option>
+
+    <option value="Burgundy">
+      Burgundy
+    </option>
+
+    <option value="Glacier">
+      Glacier
+    </option>
+
+  </select>
+
+
+  <div class="filter-title">
+    REGION
+  </div>
+
+  <select id="regionFilter">
+
+    <option value="all">
+      All Regions
+    </option>
+
+    <option value="Oregon">
+      Oregon
+    </option>
+
+    <option value="Hawaii">
+      Hawaii
+    </option>
+
+  </select>
+
+
+  <div class="filter-title">
+    STORE
+  </div>
+
+  <select id="storeFilter">
+
+    <option value="all">
+      All Stores
+    </option>
+
+  </select>
+
+
+  <div class="filter-title">
+    DISCOUNT
+  </div>
+
+
+  <div class="discount-options">
+
+    <div class="discount-option">
+
+      <input
+        type="radio"
+        name="discount"
+        id="discountRegular"
+        value="0"
+        checked
+      >
+
+      <label for="discountRegular">
+        Regular
+      </label>
+
+    </div>
+
+
+    <div class="discount-option">
+
+      <input
+        type="radio"
+        name="discount"
+        id="discount15"
+        value="0.15"
+      >
+
+      <label for="discount15">
+        15% Off
+      </label>
+
+    </div>
+
+
+    <div class="discount-option">
+
+      <input
+        type="radio"
+        name="discount"
+        id="discount25"
+        value="0.25"
+      >
+
+      <label for="discount25">
+        25% Off
+      </label>
+
+    </div>
+
+  </div>
+
+
+  <label class="stock-only">
+
+    <input
+      type="checkbox"
+      id="stockOnly"
+    >
+
+    <span class="status available">
+
+      <span class="status-dot"></span>
+
+      Show available products only
+
+    </span>
+
+  </label>
+
+</div>
+
+
+<div id="products">
+  Loading availability...
+</div>
+
+
+<div class="price-information">
+
+  <strong>
+    Price information
+  </strong>
+
+  <br>
+
+  US = Apple US retail price
+
+  <br>
+
+  JP = Apple Japan retail price
+
+  <br>
+
+  Oregon = No general sales tax
+
+  <br>
+
+  Hawaii = Estimated Honolulu GET pass-on included
+
+  <br>
+
+  <span id="exchangeInfo">
+    Loading USD/JPY exchange rate...
+  </span>
+
+  <br>
+
+  JPY purchase prices are estimates.
+  Actual checkout and card exchange rates may vary.
+
+</div>
+
+
+<div id="updated"></div>
 
 </div>
 
 
 <script>
 
-/* ========================================
-   DATA
-======================================== */
+/* ===============================
+DATA
+=============================== */
 
 let stockData = null;
 
@@ -737,114 +786,93 @@ const STORAGE_KEY =
   "stockBuddyFilters";
 
 
-/*
-Hawaii Honolulu
-estimated GET pass-on
-*/
-
 const HAWAII_RATE =
   0.04712;
 
 
-/* ========================================
-   US RETAIL PRICES
-======================================== */
+/* ===============================
+US PRICE
+=============================== */
 
 const US_PRICES = {
 
   pro: {
-
     "256GB": 1199,
-
     "512GB": 1399,
-
     "1TB": 1799,
-
     "2TB": 2399
-
   },
 
-
   promax: {
-
     "256GB": 1299,
-
     "512GB": 1499,
-
     "1TB": 1899,
-
     "2TB": 2499
-
   }
 
 };
 
 
-/* ========================================
-   JAPAN RETAIL PRICES
-======================================== */
+/* ===============================
+JP PRICE
+=============================== */
 
 const JP_PRICES = {
 
   pro: {
-
     "256GB": 219800,
-
     "512GB": 254800,
-
     "1TB": 324800,
-
     "2TB": 429800
-
   },
 
-
   promax: {
-
     "256GB": 239800,
-
     "512GB": 274800,
-
     "1TB": 344800,
-
     "2TB": 449800
-
   }
 
 };
 
 
-/* ========================================
-   STORES
-======================================== */
+/* ===============================
+JP PART NUMBERS
+
+確認済みのものだけ追加
+=============================== */
+
+const JP_PART_NUMBERS = {
+
+  "MJW44LL/A":
+    "MJX74J/A"
+
+};
+
+
+/* ===============================
+STORES
+=============================== */
 
 const storesByRegion = {
 
   Oregon: [
-
     "Pioneer Place",
-
     "Washington Square",
-
     "Bridgeport Village"
-
   ],
 
-
   Hawaii: [
-
     "Ala Moana",
-
     "Kahala"
-
   ]
 
 };
 
 
-/* ========================================
-   DISCOUNT
-======================================== */
+/* ===============================
+DISCOUNT
+=============================== */
 
 function getSelectedDiscount() {
 
@@ -853,15 +881,9 @@ function getSelectedDiscount() {
       'input[name="discount"]:checked'
     );
 
-
-  if (!selected) {
-    return 0;
-  }
-
-
-  return Number(
-    selected.value
-  );
+  return selected
+    ? Number(selected.value)
+    : 0;
 
 }
 
@@ -874,7 +896,6 @@ function setDiscount(
     document.querySelector(
       `input[name="discount"][value="${discount}"]`
     );
-
 
   if (option) {
 
@@ -895,9 +916,9 @@ function setDiscount(
 }
 
 
-/* ========================================
-   STORE FILTER
-======================================== */
+/* ===============================
+STORE FILTER
+=============================== */
 
 function updateStoreFilter(
   selectedStore = "all"
@@ -919,21 +940,17 @@ function updateStoreFilter(
     '<option value="all">All Stores</option>';
 
 
-  if (
-    region === "all"
-  ) {
+  if (region === "all") {
 
     Object.entries(
       storesByRegion
     ).forEach(
       ([regionName, stores]) => {
 
-
         const group =
           document.createElement(
             "optgroup"
           );
-
 
         group.label =
           regionName;
@@ -942,20 +959,16 @@ function updateStoreFilter(
         stores.forEach(
           store => {
 
-
             const option =
               document.createElement(
                 "option"
               );
 
-
             option.value =
               store;
 
-
             option.textContent =
               store;
-
 
             group.appendChild(
               option
@@ -983,20 +996,16 @@ function updateStoreFilter(
     stores.forEach(
       store => {
 
-
         const option =
           document.createElement(
             "option"
           );
 
-
         option.value =
           store;
 
-
         option.textContent =
           store;
-
 
         storeFilter.appendChild(
           option
@@ -1008,7 +1017,7 @@ function updateStoreFilter(
   }
 
 
-  const validOption =
+  const valid =
     Array.from(
       storeFilter.options
     ).some(
@@ -1018,16 +1027,16 @@ function updateStoreFilter(
 
 
   storeFilter.value =
-    validOption
+    valid
       ? selectedStore
       : "all";
 
 }
 
 
-/* ========================================
-   SAVE FILTERS
-======================================== */
+/* ===============================
+SAVE
+=============================== */
 
 function saveFilters() {
 
@@ -1069,27 +1078,17 @@ function saveFilters() {
   };
 
 
-  try {
-
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(settings)
-    );
-
-  }
-
-  catch(error) {
-
-    console.error(error);
-
-  }
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(settings)
+  );
 
 }
 
 
-/* ========================================
-   LOAD SAVED FILTERS
-======================================== */
+/* ===============================
+LOAD SAVED
+=============================== */
 
 function loadSavedFilters() {
 
@@ -1102,7 +1101,6 @@ function loadSavedFilters() {
       localStorage.getItem(
         STORAGE_KEY
       );
-
 
     if (saved) {
 
@@ -1173,9 +1171,9 @@ function loadSavedFilters() {
 }
 
 
-/* ========================================
-   RESET FILTERS
-======================================== */
+/* ===============================
+RESET
+=============================== */
 
 function resetFilters() {
 
@@ -1215,25 +1213,9 @@ function resetFilters() {
   updateStoreFilter();
 
 
-  document.getElementById(
-    "storeFilter"
-  ).value =
-    "all";
-
-
-  try {
-
-    localStorage.removeItem(
-      STORAGE_KEY
-    );
-
-  }
-
-  catch(error) {
-
-    console.error(error);
-
-  }
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
 
 
   renderProducts();
@@ -1241,9 +1223,9 @@ function resetFilters() {
 }
 
 
-/* ========================================
-   EXCHANGE RATE
-======================================== */
+/* ===============================
+FX
+=============================== */
 
 async function loadExchangeRate() {
 
@@ -1263,9 +1245,7 @@ async function loadExchangeRate() {
 
     if (!response.ok) {
 
-      throw new Error(
-        "Unable to load exchange rate"
-      );
+      throw new Error();
 
     }
 
@@ -1275,9 +1255,7 @@ async function loadExchangeRate() {
 
 
     usdJpyRate =
-      Number(
-        data.rate
-      );
+      Number(data.rate);
 
 
     exchangeRateDate =
@@ -1285,8 +1263,7 @@ async function loadExchangeRate() {
 
 
     exchangeInfo.textContent =
-      `USD/JPY: $1 = ¥${usdJpyRate.toFixed(2)} ` +
-      `· ${exchangeRateDate}`;
+      `$1 = ¥${usdJpyRate.toFixed(2)} · ${exchangeRateDate}`;
 
   }
 
@@ -1297,19 +1274,16 @@ async function loadExchangeRate() {
 
 
     exchangeInfo.textContent =
-      "USD/JPY exchange rate unavailable";
-
-
-    console.error(error);
+      "Exchange rate unavailable";
 
   }
 
 }
 
 
-/* ========================================
-   PRODUCT PRICE INFO
-======================================== */
+/* ===============================
+PRODUCT INFO
+=============================== */
 
 function getProductPriceInfo(
   productName
@@ -1327,52 +1301,31 @@ function getProductPriceInfo(
       : "pro";
 
 
-  let storage =
-    null;
+  let storage = null;
 
 
   if (
-    productName.includes(
-      "256GB"
-    )
+    productName.includes("256GB")
   ) {
-
-    storage =
-      "256GB";
-
+    storage = "256GB";
   }
 
   else if (
-    productName.includes(
-      "512GB"
-    )
+    productName.includes("512GB")
   ) {
-
-    storage =
-      "512GB";
-
+    storage = "512GB";
   }
 
   else if (
-    productName.includes(
-      "1TB"
-    )
+    productName.includes("1TB")
   ) {
-
-    storage =
-      "1TB";
-
+    storage = "1TB";
   }
 
   else if (
-    productName.includes(
-      "2TB"
-    )
+    productName.includes("2TB")
   ) {
-
-    storage =
-      "2TB";
-
+    storage = "2TB";
   }
 
 
@@ -1394,30 +1347,9 @@ function getProductPriceInfo(
 }
 
 
-/* ========================================
-   BASE PRICE
-======================================== */
-
-function getBasePrice(
-  productName
-) {
-
-  const priceInfo =
-    getProductPriceInfo(
-      productName
-    );
-
-
-  return priceInfo
-    ? priceInfo.usd
-    : null;
-
-}
-
-
-/* ========================================
-   FORMAT
-======================================== */
+/* ===============================
+FORMAT
+=============================== */
 
 function formatJPY(
   value
@@ -1430,9 +1362,7 @@ function formatJPY(
       currency: "JPY",
       maximumFractionDigits: 0
     }
-  ).format(
-    value
-  );
+  ).format(value);
 
 }
 
@@ -1448,30 +1378,28 @@ function formatUSD(
       currency: "USD",
       maximumFractionDigits: 0
     }
-  ).format(
-    value
-  );
+  ).format(value);
 
 }
 
 
-/* ========================================
-   REGION PRICE
-======================================== */
+/* ===============================
+REGION PRICE
+=============================== */
 
 function getRegionPrice(
   productName,
   regionName
 ) {
 
-  const basePrice =
-    getBasePrice(
+  const priceInfo =
+    getProductPriceInfo(
       productName
     );
 
 
   if (
-    !basePrice ||
+    !priceInfo ||
     !usdJpyRate
   ) {
 
@@ -1484,18 +1412,10 @@ function getRegionPrice(
     getSelectedDiscount();
 
 
-  /*
-  割引後のUS価格
-  */
-
-  const discountedBaseUSD =
-    basePrice *
+  const discountedUSD =
+    priceInfo.usd *
     (1 - discount);
 
-
-  /*
-  HawaiiのみGET相当額を追加
-  */
 
   const isHawaii =
     regionName === "Hawaii";
@@ -1503,23 +1423,15 @@ function getRegionPrice(
 
   const taxUSD =
     isHawaii
-      ? discountedBaseUSD *
+      ? discountedUSD *
         HAWAII_RATE
       : 0;
 
 
-  /*
-  最終支払額
-  */
-
   const totalUSD =
-    discountedBaseUSD +
+    discountedUSD +
     taxUSD;
 
-
-  /*
-  日本円換算
-  */
 
   const totalJPY =
     Math.round(
@@ -1530,11 +1442,6 @@ function getRegionPrice(
     ) * 1000;
 
 
-  /*
-  Hawaiiの税金だけ
-  日本円換算
-  */
-
   const taxJPY =
     Math.round(
       taxUSD *
@@ -1542,11 +1449,7 @@ function getRegionPrice(
     );
 
 
-  /*
-  割引ラベル
-  */
-
-  const discountLabel =
+  const label =
     discount === 0
       ? "Regular"
       : `${Math.round(
@@ -1554,29 +1457,25 @@ function getRegionPrice(
         )}%`;
 
 
-  /*
-  為替レート
-  */
-
-  const rateLabel =
-    `$1 = ¥${usdJpyRate.toFixed(2)}`;
+  const badgeClass =
+    discount === 0
+      ? "discount-badge regular"
+      : "discount-badge";
 
 
-  /*
-  Hawaii
-  */
-
-  if (
-    isHawaii
-  ) {
+  if (isHawaii) {
 
     return `
 
       <div class="region-price">
 
+        <span class="${badgeClass}">
+          ${label}
+        </span>
+
+
         <span class="region-main-price">
 
-          ${discountLabel}
           約 ${formatJPY(
             totalJPY
           )}
@@ -1584,14 +1483,15 @@ function getRegionPrice(
         </span>
 
 
-        <span class="region-price-info">
+        <div class="hawaii-detail">
 
-          （Tax 約 ${formatJPY(
+          Tax 約 ${formatJPY(
             taxJPY
           )}
-          / ${rateLabel}）
+          ·
+          $1 = ¥${usdJpyRate.toFixed(2)}
 
-        </span>
+        </div>
 
       </div>
 
@@ -1600,17 +1500,17 @@ function getRegionPrice(
   }
 
 
-  /*
-  Oregon
-  */
-
   return `
 
     <div class="region-price">
 
+      <span class="${badgeClass}">
+        ${label}
+      </span>
+
+
       <span class="region-main-price">
 
-        ${discountLabel}
         約 ${formatJPY(
           totalJPY
         )}
@@ -1618,9 +1518,9 @@ function getRegionPrice(
       </span>
 
 
-      <span class="region-price-info">
+      <span class="region-detail">
 
-        （${rateLabel}）
+        $1 = ¥${usdJpyRate.toFixed(2)}
 
       </span>
 
@@ -1631,9 +1531,9 @@ function getRegionPrice(
 }
 
 
-/* ========================================
-   LOAD STOCK
-======================================== */
+/* ===============================
+LOAD STOCK
+=============================== */
 
 async function loadStock() {
 
@@ -1647,11 +1547,7 @@ async function loadStock() {
 
 
     if (!response.ok) {
-
-      throw new Error(
-        "Unable to load stock.json"
-      );
-
+      throw new Error();
     }
 
 
@@ -1664,7 +1560,7 @@ async function loadStock() {
 
     document.getElementById(
       "updated"
-    ).innerText =
+    ).textContent =
       "Last checked: " +
       stockData.updated;
 
@@ -1684,17 +1580,14 @@ async function loadStock() {
 
     `;
 
-
-    console.error(error);
-
   }
 
 }
 
 
-/* ========================================
-   RENDER PRODUCTS
-======================================== */
+/* ===============================
+RENDER
+=============================== */
 
 function renderProducts() {
 
@@ -1749,12 +1642,9 @@ function renderProducts() {
     "";
 
 
-  let displayed =
-    0;
+  let displayed = 0;
 
-
-  let availableCount =
-    0;
+  let availableCount = 0;
 
 
   stockData.products.forEach(
@@ -1764,10 +1654,6 @@ function renderProducts() {
       const name =
         product.name;
 
-
-      /*
-      MODEL
-      */
 
       const isProMax =
         name.startsWith(
@@ -1798,91 +1684,59 @@ function renderProducts() {
       }
 
 
-      /*
-      STORAGE
-      */
-
       if (
         storage !== "all" &&
-        !name.includes(
-          storage
-        )
+        !name.includes(storage)
       ) {
         return;
       }
 
-
-      /*
-      COLOR
-      */
 
       if (
         color !== "all" &&
-        !name.endsWith(
-          color
-        )
+        !name.endsWith(color)
       ) {
         return;
       }
 
 
-      let regionsHTML =
-        "";
+      let regionsHTML = "";
 
-
-      let productHasStock =
-        false;
+      let productHasStock = false;
 
 
       product.regions.forEach(
         region => {
 
 
-          /*
-          REGION FILTER
-          */
-
           if (
             selectedRegion !== "all" &&
-            region.name !==
-              selectedRegion
+            region.name !== selectedRegion
           ) {
             return;
           }
 
 
-          let storesHTML =
-            "";
+          let storesHTML = "";
 
 
           region.stores.forEach(
             store => {
 
 
-              /*
-              STORE FILTER
-              */
-
               if (
                 selectedStore !== "all" &&
-                store.name !==
-                  selectedStore
+                store.name !== selectedStore
               ) {
                 return;
               }
 
 
-              /*
-              AVAILABLE COUNT
-              */
-
               if (
                 store.available
               ) {
 
-                productHasStock =
-                  true;
-
+                productHasStock = true;
 
                 availableCount++;
 
@@ -1900,10 +1754,6 @@ function renderProducts() {
                   ? "Available"
                   : "Unavailable";
 
-
-              /*
-              STORE ROW
-              */
 
               storesHTML += `
 
@@ -1936,13 +1786,7 @@ function renderProducts() {
           );
 
 
-          /*
-          REGION
-          */
-
-          if (
-            storesHTML
-          ) {
+          if (storesHTML) {
 
             const regionPrice =
               getRegionPrice(
@@ -1955,7 +1799,6 @@ function renderProducts() {
 
               <div class="region">
 
-
                 <div class="region-header">
 
                   <div class="region-name">
@@ -1967,12 +1810,10 @@ function renderProducts() {
 
                   ${regionPrice}
 
-
                 </div>
 
 
                 ${storesHTML}
-
 
               </div>
 
@@ -1984,10 +1825,6 @@ function renderProducts() {
       );
 
 
-      /*
-      AVAILABLE ONLY
-      */
-
       if (
         stockOnly &&
         !productHasStock
@@ -1996,16 +1833,10 @@ function renderProducts() {
       }
 
 
-      if (
-        !regionsHTML
-      ) {
+      if (!regionsHTML) {
         return;
       }
 
-
-      /*
-      PRODUCT RETAIL PRICES
-      */
 
       const priceInfo =
         getProductPriceInfo(
@@ -2013,39 +1844,55 @@ function renderProducts() {
         );
 
 
-      const retailPriceHTML =
-        priceInfo
-          ? `
-
-            <span class="product-price">
-
-              US ${formatUSD(
-                priceInfo.usd
-              )}
-
-            </span>
+      const jpPartNumber =
+        JP_PART_NUMBERS[
+          product.partNumber
+        ] || "";
 
 
-            <span class="product-separator">
-              |
-            </span>
+      let productInfoHTML = "";
 
 
-            <span class="product-price">
+      if (priceInfo) {
 
-              JP ${formatJPY(
-                priceInfo.jpy
-              )}
+        productInfoHTML = `
 
-            </span>
+          <span>
 
-          `
-          : "";
+            ${product.partNumber}
+
+            &nbsp;US ${formatUSD(
+              priceInfo.usd
+            )}
+
+          </span>
 
 
-      /*
-      PRODUCT CARD
-      */
+          <span class="product-separator">
+
+            |
+
+          </span>
+
+
+          <span>
+
+            ${
+              jpPartNumber
+                ? jpPartNumber + "&nbsp;"
+                : ""
+            }
+
+            JP ${formatJPY(
+              priceInfo.jpy
+            )}
+
+          </span>
+
+        `;
+
+      }
+
 
       const card =
         document.createElement(
@@ -2068,15 +1915,7 @@ function renderProducts() {
 
         <div class="product-info">
 
-          <span class="part-number">
-
-            ${product.partNumber}
-
-          </span>
-
-
-          ${retailPriceHTML}
-
+          ${productInfoHTML}
 
         </div>
 
@@ -2097,35 +1936,18 @@ function renderProducts() {
   );
 
 
-  /*
-  SUMMARY
-  */
-
   document.getElementById(
     "availableCount"
   ).textContent =
     `${availableCount} Available`;
 
 
-  if (
-    availableCount === 0
-  ) {
+  if (availableCount === 0) {
 
     document.getElementById(
       "summaryText"
     ).textContent =
       "No pickup availability for the current filters.";
-
-  }
-
-  else if (
-    availableCount === 1
-  ) {
-
-    document.getElementById(
-      "summaryText"
-    ).textContent =
-      "1 available store / product combination.";
 
   }
 
@@ -2139,9 +1961,7 @@ function renderProducts() {
   }
 
 
-  if (
-    displayed === 0
-  ) {
+  if (displayed === 0) {
 
     container.innerHTML = `
 
@@ -2158,9 +1978,9 @@ function renderProducts() {
 }
 
 
-/* ========================================
-   FILTER EVENTS
-======================================== */
+/* ===============================
+EVENTS
+=============================== */
 
 function filterChanged() {
 
@@ -2171,48 +1991,32 @@ function filterChanged() {
 }
 
 
-/* MODEL */
-
 document
-.getElementById(
-  "modelFilter"
-)
+.getElementById("modelFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* STORAGE */
-
 document
-.getElementById(
-  "storageFilter"
-)
+.getElementById("storageFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* COLOR */
-
 document
-.getElementById(
-  "colorFilter"
-)
+.getElementById("colorFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* REGION */
-
 document
-.getElementById(
-  "regionFilter"
-)
+.getElementById("regionFilter")
 .addEventListener(
   "change",
   function() {
@@ -2227,31 +2031,21 @@ document
 );
 
 
-/* STORE */
-
 document
-.getElementById(
-  "storeFilter"
-)
+.getElementById("storeFilter")
 .addEventListener(
   "change",
   filterChanged
 );
 
 
-/* STOCK ONLY */
-
 document
-.getElementById(
-  "stockOnly"
-)
+.getElementById("stockOnly")
 .addEventListener(
   "change",
   filterChanged
 );
 
-
-/* DISCOUNT */
 
 document
 .querySelectorAll(
@@ -2269,21 +2063,17 @@ document
 );
 
 
-/* RESET */
-
 document
-.getElementById(
-  "resetFilters"
-)
+.getElementById("resetFilters")
 .addEventListener(
   "click",
   resetFilters
 );
 
 
-/* ========================================
-   START
-======================================== */
+/* ===============================
+START
+=============================== */
 
 loadSavedFilters();
 
@@ -2299,11 +2089,6 @@ async function startApp() {
 
 startApp();
 
-
-/*
-ページを開いている間は
-60秒ごとに在庫更新
-*/
 
 setInterval(
   loadStock,
