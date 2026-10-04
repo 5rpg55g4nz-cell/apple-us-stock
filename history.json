@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T22:32:59.521558+00:00",
+  "updated": "2026-10-04T22:46:01.134415+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -85,6 +85,14 @@
       "timestamp": "2026-10-04T21:52:08.914354+00:00",
       "partNumber": "MJQC4LL/A",
       "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-04T22:46:01.134415+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "available"
