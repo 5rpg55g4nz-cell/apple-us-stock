@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05 09:32:20 PT",
+  "updated": "2026-10-05 09:50:33 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -7,20 +7,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -43,20 +30,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -79,20 +53,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -115,20 +76,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -151,20 +99,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -187,20 +122,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -223,20 +145,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -259,20 +168,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -295,20 +191,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -331,20 +214,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -367,20 +237,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -403,20 +260,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -439,20 +283,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -475,20 +306,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -511,20 +329,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": true
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -547,20 +352,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": true
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": true
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -583,20 +375,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -619,20 +398,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -655,20 +421,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -691,20 +444,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -727,20 +467,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -763,20 +490,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -799,20 +513,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -835,20 +536,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -871,20 +559,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -907,20 +582,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -943,20 +605,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -979,20 +628,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -1015,20 +651,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -1051,20 +674,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -1087,20 +697,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
@@ -1123,20 +720,7 @@
       "regions": [
         {
           "name": "Oregon",
-          "stores": [
-            {
-              "name": "Pioneer Place",
-              "available": false
-            },
-            {
-              "name": "Washington Square",
-              "available": false
-            },
-            {
-              "name": "Bridgeport Village",
-              "available": false
-            }
-          ]
+          "stores": []
         },
         {
           "name": "Hawaii",
