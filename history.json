@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T21:37:42.287899+00:00",
+  "updated": "2026-10-05T21:52:18.360742+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -160,6 +160,14 @@
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-05T21:52:18.360742+00:00",
+      "partNumber": "MJQ94LL/A",
+      "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
     }
   ]
 }
