@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T10:01:07.048256+00:00",
+  "updated": "2026-10-05T10:21:02.595328+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -135,6 +135,14 @@
       "productName": "iPhone 18 Pro 1TB Glacier",
       "region": "Oregon",
       "store": "Bridgeport Village",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-05T10:21:02.595328+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "unavailable"
     }
   ]
