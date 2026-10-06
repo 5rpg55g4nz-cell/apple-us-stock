@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T15:47:49.453777+00:00",
+  "updated": "2026-10-06T15:59:59.331498+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -256,6 +256,14 @@
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-06T15:59:59.331498+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
     }
   ]
 }
