@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T22:34:55.305123+00:00",
+  "updated": "2026-10-06T22:47:31.869949+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -365,6 +365,14 @@
       "timestamp": "2026-10-06T22:34:55.305123+00:00",
       "partNumber": "MJQE4LL/A",
       "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-06T22:47:31.869949+00:00",
+      "partNumber": "MJQA4LL/A",
+      "productName": "iPhone 18 Pro 512GB Glacier",
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "available"
