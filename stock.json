@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07 15:00:13 PT",
+  "updated": "2026-10-07 15:14:46 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -342,7 +342,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": false
+              "available": true
             }
           ]
         },
@@ -378,7 +378,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": false
+              "available": true
             }
           ]
         },
