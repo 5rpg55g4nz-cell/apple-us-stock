@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T02:21:59.360364+00:00",
+  "updated": "2026-10-07T02:37:55.876208+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -439,6 +439,14 @@
       "productName": "iPhone 18 Pro 256GB Burgundy",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-07T02:37:55.876208+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
       "status": "unavailable"
     }
   ]
