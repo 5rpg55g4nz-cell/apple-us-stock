@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T04:55:28.069128+00:00",
+  "updated": "2026-10-08T05:08:10.610365+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -632,6 +632,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-08T05:08:10.610365+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
     }
   ]
 }
