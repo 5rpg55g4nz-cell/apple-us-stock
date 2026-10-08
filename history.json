@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T02:49:35.953576+00:00",
+  "updated": "2026-10-08T03:00:59.894108+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -607,6 +607,14 @@
       "productName": "iPhone 18 Pro 1TB Silver",
       "region": "Hawaii",
       "store": "Ala Moana",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-08T03:00:59.894108+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "unavailable"
     }
   ]
