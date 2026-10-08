@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T16:26:26.491541+00:00",
+  "updated": "2026-10-08T16:45:31.853637+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -664,6 +664,14 @@
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-08T16:45:31.853637+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
     }
   ]
 }

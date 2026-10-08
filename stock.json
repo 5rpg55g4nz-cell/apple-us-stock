@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08 09:26:26 PT",
+  "updated": "2026-10-08 09:45:31 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -518,7 +518,7 @@
             },
             {
               "name": "Washington Square",
-              "available": false
+              "available": true
             },
             {
               "name": "Bridgeport Village",
