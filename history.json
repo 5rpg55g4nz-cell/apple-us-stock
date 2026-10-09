@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T20:26:26.277564+00:00",
+  "updated": "2026-10-09T20:43:27.977685+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -848,6 +848,22 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-09T20:43:27.977685+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-09T20:43:27.977685+00:00",
+      "partNumber": "MJQG4LL/A",
+      "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
     }
   ]
 }
