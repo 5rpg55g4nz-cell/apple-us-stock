@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T17:07:55.689547+00:00",
+  "updated": "2026-10-09T17:23:53.365305+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -776,6 +776,14 @@
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-09T17:23:53.365305+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
     }
   ]
 }
