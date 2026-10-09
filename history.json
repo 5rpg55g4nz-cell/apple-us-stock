@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T02:30:26.955237+00:00",
+  "updated": "2026-10-09T02:47:00.807797+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -736,6 +736,14 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-09T02:47:00.807797+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
     }
   ]
 }
