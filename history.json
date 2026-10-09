@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T22:44:56.770813+00:00",
+  "updated": "2026-10-09T22:58:15.468292+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -904,6 +904,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-09T22:58:15.468292+00:00",
+      "partNumber": "MJQ94LL/A",
+      "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
     }
   ]
 }
