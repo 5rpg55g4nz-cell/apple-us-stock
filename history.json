@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T18:25:29.504582+00:00",
+  "updated": "2026-10-09T18:44:43.444182+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -797,6 +797,14 @@
       "timestamp": "2026-10-09T18:25:29.504582+00:00",
       "partNumber": "MJQ94LL/A",
       "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-09T18:44:43.444182+00:00",
+      "partNumber": "MJQD4LL/A",
+      "productName": "iPhone 18 Pro 1TB Silver",
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
