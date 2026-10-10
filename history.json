@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10T04:37:02.681760+00:00",
+  "updated": "2026-10-10T04:53:12.881431+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1096,6 +1096,14 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-10T04:53:12.881431+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "unavailable"
     }
   ]
 }
