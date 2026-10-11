@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T02:21:02.478569+00:00",
+  "updated": "2026-10-11T02:37:50.770581+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1424,6 +1424,14 @@
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-11T02:37:50.770581+00:00",
+      "partNumber": "MJQ44LL/A",
+      "productName": "iPhone 18 Pro 256GB Silver",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
     }
   ]
 }
