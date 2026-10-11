@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T23:17:17.115453+00:00",
+  "updated": "2026-10-11T23:32:45.380253+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1527,6 +1527,14 @@
       "productName": "iPhone 18 Pro 2TB Black",
       "region": "Hawaii",
       "store": "Kahala",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-11T23:32:45.380253+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Pioneer Place",
       "status": "unavailable"
     }
   ]
