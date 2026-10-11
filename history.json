@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T16:09:24.484338+00:00",
+  "updated": "2026-10-11T16:25:48.340984+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1440,6 +1440,14 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-11T16:25:48.340984+00:00",
+      "partNumber": "MJQ94LL/A",
+      "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
     }
   ]
 }
