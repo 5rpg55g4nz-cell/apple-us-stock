@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T20:11:40.203506+00:00",
+  "updated": "2026-10-11T20:27:31.826684+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1511,6 +1511,14 @@
       "productName": "iPhone 18 Pro 512GB Glacier",
       "region": "Oregon",
       "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-11T20:27:31.826684+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
       "status": "unavailable"
     }
   ]
