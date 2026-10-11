@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T01:53:43.323028+00:00",
+  "updated": "2026-10-11T02:04:04.031690+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1415,6 +1415,14 @@
       "productName": "iPhone 18 Pro 1TB Burgundy",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-11T02:04:04.031690+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
       "status": "unavailable"
     }
   ]
