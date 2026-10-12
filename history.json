@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T04:50:28.693351+00:00",
+  "updated": "2026-10-12T05:04:56.059058+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1551,6 +1551,46 @@
       "productName": "iPhone 18 Pro 1TB Burgundy",
       "region": "Oregon",
       "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-12T05:04:56.059058+00:00",
+      "partNumber": "MJQ94LL/A",
+      "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-12T05:04:56.059058+00:00",
+      "partNumber": "MJQ94LL/A",
+      "productName": "iPhone 18 Pro 512GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-12T05:04:56.059058+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-12T05:04:56.059058+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-12T05:04:56.059058+00:00",
+      "partNumber": "MJQ84LL/A",
+      "productName": "iPhone 18 Pro 512GB Silver",
+      "region": "Hawaii",
+      "store": "Ala Moana",
       "status": "unavailable"
     }
   ]
