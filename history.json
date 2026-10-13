@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T01:21:58.370267+00:00",
+  "updated": "2026-10-13T01:41:37.067424+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1848,6 +1848,14 @@
       "region": "Hawaii",
       "store": "Kahala",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-13T01:41:37.067424+00:00",
+      "partNumber": "MJQ74LL/A",
+      "productName": "iPhone 18 Pro 512GB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
     }
   ]
 }
