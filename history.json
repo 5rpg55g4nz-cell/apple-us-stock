@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T17:38:32.868230+00:00",
+  "updated": "2026-10-13T17:54:46.115701+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1901,6 +1901,14 @@
       "timestamp": "2026-10-13T17:19:33.987907+00:00",
       "partNumber": "MJQA4LL/A",
       "productName": "iPhone 18 Pro 512GB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-13T17:54:46.115701+00:00",
+      "partNumber": "MJQ74LL/A",
+      "productName": "iPhone 18 Pro 512GB Black",
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
