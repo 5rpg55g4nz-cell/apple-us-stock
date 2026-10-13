@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T00:03:10.135893+00:00",
+  "updated": "2026-10-13T00:34:13.363868+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -1823,6 +1823,30 @@
       "productName": "iPhone 18 Pro 512GB Black",
       "region": "Oregon",
       "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-13T00:34:13.363868+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-13T00:34:13.363868+00:00",
+      "partNumber": "MJQ74LL/A",
+      "productName": "iPhone 18 Pro 512GB Black",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-13T00:34:13.363868+00:00",
+      "partNumber": "MJQ84LL/A",
+      "productName": "iPhone 18 Pro 512GB Silver",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "available"
     }
   ]
