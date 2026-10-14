@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T19:17:35.250838+00:00",
+  "updated": "2026-10-14T19:49:53.850592+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -2136,6 +2136,14 @@
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-14T19:49:53.850592+00:00",
+      "partNumber": "MJQ64LL/A",
+      "productName": "iPhone 18 Pro 256GB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
     }
   ]
 }
