@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T17:00:18.621124+00:00",
+  "updated": "2026-10-15T17:28:44.608925+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -2367,6 +2367,30 @@
       "productName": "iPhone 18 Pro 512GB Glacier",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-15T17:28:44.608925+00:00",
+      "partNumber": "MJQ84LL/A",
+      "productName": "iPhone 18 Pro 512GB Silver",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-15T17:28:44.608925+00:00",
+      "partNumber": "MJQA4LL/A",
+      "productName": "iPhone 18 Pro 512GB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-15T17:28:44.608925+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "available"
     }
   ]
