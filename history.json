@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T21:06:33.750991+00:00",
+  "updated": "2026-10-17T21:30:33.152316+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -2672,6 +2672,38 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-17T21:30:33.152316+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-17T21:30:33.152316+00:00",
+      "partNumber": "MJQC4LL/A",
+      "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-17T21:30:33.152316+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-17T21:30:33.152316+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
     }
   ]
 }
