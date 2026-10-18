@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18 11:37:05 PT",
+  "updated": "2026-10-18 12:02:38 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -126,7 +126,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": false
+              "available": true
             }
           ]
         },
@@ -675,11 +675,11 @@
           "stores": [
             {
               "name": "Ala Moana",
-              "available": true
+              "available": false
             },
             {
               "name": "Kahala",
-              "available": true
+              "available": false
             }
           ]
         }
