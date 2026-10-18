@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T01:13:15.682881+00:00",
+  "updated": "2026-10-18T01:40:39.736193+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -2783,6 +2783,14 @@
       "productName": "iPhone 18 Pro 256GB Black",
       "region": "Oregon",
       "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-18T01:40:39.736193+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "available"
     }
   ]
