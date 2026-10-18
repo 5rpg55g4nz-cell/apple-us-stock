@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T03:01:08.475147+00:00",
+  "updated": "2026-10-18T03:26:34.488416+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -2808,6 +2808,38 @@
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-18T03:26:34.488416+00:00",
+      "partNumber": "MJQC4LL/A",
+      "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-18T03:26:34.488416+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-18T03:26:34.488416+00:00",
+      "partNumber": "MJQG4LL/A",
+      "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-18T03:26:34.488416+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
     }
   ]
 }
