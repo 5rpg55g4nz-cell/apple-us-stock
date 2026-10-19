@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T22:37:59.051340+00:00",
+  "updated": "2026-10-19T23:04:03.837068+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -3352,6 +3352,54 @@
       "region": "Hawaii",
       "store": "Kahala",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJQC4LL/A",
+      "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-19T23:04:03.837068+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "unavailable"
     }
   ]
 }
