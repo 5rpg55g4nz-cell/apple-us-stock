@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19 11:38:43 PT",
+  "updated": "2026-10-19 12:15:16 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -10,7 +10,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": true
+              "available": false
             },
             {
               "name": "Washington Square",
@@ -675,11 +675,11 @@
           "stores": [
             {
               "name": "Ala Moana",
-              "available": false
+              "available": true
             },
             {
               "name": "Kahala",
-              "available": true
+              "available": false
             }
           ]
         }
