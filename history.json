@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T19:49:01.114064+00:00",
+  "updated": "2026-10-19T20:15:34.731109+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -3272,6 +3272,30 @@
       "region": "Hawaii",
       "store": "Kahala",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-19T20:15:34.731109+00:00",
+      "partNumber": "MJQ34LL/A",
+      "productName": "iPhone 18 Pro 256GB Black",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-19T20:15:34.731109+00:00",
+      "partNumber": "MJQC4LL/A",
+      "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-19T20:15:34.731109+00:00",
+      "partNumber": "MJQG4LL/A",
+      "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
     }
   ]
 }
