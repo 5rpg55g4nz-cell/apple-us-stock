@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19 17:27:53 PT",
+  "updated": "2026-10-19 18:12:20 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -50,7 +50,7 @@
             },
             {
               "name": "Washington Square",
-              "available": false
+              "available": true
             },
             {
               "name": "Bridgeport Village",
@@ -198,7 +198,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": false
+              "available": true
             }
           ]
         },
@@ -522,7 +522,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": true
+              "available": false
             }
           ]
         },
@@ -603,7 +603,7 @@
           "stores": [
             {
               "name": "Ala Moana",
-              "available": true
+              "available": false
             },
             {
               "name": "Kahala",
