@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T06:06:13.041961+00:00",
+  "updated": "2026-10-20T06:41:55.798449+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -3512,6 +3512,14 @@
       "region": "Hawaii",
       "store": "Kahala",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-20T06:41:55.798449+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "available"
     }
   ]
 }
