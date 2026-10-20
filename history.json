@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T09:08:11.257772+00:00",
+  "updated": "2026-10-20T09:37:55.919202+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -3535,6 +3535,22 @@
       "productName": "iPhone 18 Pro Max 256GB Black",
       "region": "Hawaii",
       "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-20T09:37:55.919202+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-20T09:37:55.919202+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "available"
     }
   ]
