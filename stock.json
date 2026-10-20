@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20 07:03:19 PT",
+  "updated": "2026-10-20 07:34:19 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -675,7 +675,7 @@
           "stores": [
             {
               "name": "Ala Moana",
-              "available": false
+              "available": true
             },
             {
               "name": "Kahala",
