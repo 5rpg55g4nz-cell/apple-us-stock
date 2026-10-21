@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T01:39:29.129000+00:00",
+  "updated": "2026-10-21T02:10:34.550554+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -3909,6 +3909,14 @@
       "timestamp": "2026-10-21T01:39:29.129000+00:00",
       "partNumber": "MJQ74LL/A",
       "productName": "iPhone 18 Pro 512GB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-21T02:10:34.550554+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
       "region": "Oregon",
       "store": "Washington Square",
       "status": "available"
