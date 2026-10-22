@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T20:13:06.672167+00:00",
+  "updated": "2026-10-22T20:43:03.007697+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4167,6 +4167,22 @@
       "productName": "iPhone 18 Pro 512GB Glacier",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-22T20:43:03.007697+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-22T20:43:03.007697+00:00",
+      "partNumber": "MJQG4LL/A",
+      "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Hawaii",
+      "store": "Kahala",
       "status": "unavailable"
     }
   ]
