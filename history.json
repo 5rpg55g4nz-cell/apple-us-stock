@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T05:17:26.485924+00:00",
+  "updated": "2026-10-23T05:50:52.930217+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4328,6 +4328,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-23T05:50:52.930217+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
     }
   ]
 }
