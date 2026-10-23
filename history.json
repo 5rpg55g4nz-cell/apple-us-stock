@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T20:36:09.404765+00:00",
+  "updated": "2026-10-23T21:06:14.803022+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4453,6 +4453,14 @@
       "timestamp": "2026-10-23T20:36:09.404765+00:00",
       "partNumber": "MJQC4LL/A",
       "productName": "iPhone 18 Pro 1TB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-23T21:06:14.803022+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "available"
