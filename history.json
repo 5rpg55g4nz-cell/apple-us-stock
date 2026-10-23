@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T01:15:39.931340+00:00",
+  "updated": "2026-10-23T01:51:06.620438+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4253,6 +4253,14 @@
       "timestamp": "2026-10-23T00:29:01.492759+00:00",
       "partNumber": "MJQG4LL/A",
       "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-23T01:51:06.620438+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
       "region": "Hawaii",
       "store": "Kahala",
       "status": "available"
