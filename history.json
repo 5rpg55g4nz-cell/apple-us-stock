@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T01:28:46.440547+00:00",
+  "updated": "2026-10-24T02:04:35.844492+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4488,6 +4488,14 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-24T02:04:35.844492+00:00",
+      "partNumber": "MJQE4LL/A",
+      "productName": "iPhone 18 Pro 1TB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
     }
   ]
 }
