@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T04:02:22.850536+00:00",
+  "updated": "2026-10-24T04:29:26.640860+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -4592,6 +4592,14 @@
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-24T04:29:26.640860+00:00",
+      "partNumber": "MJQ54LL/A",
+      "productName": "iPhone 18 Pro 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
     }
   ]
 }
