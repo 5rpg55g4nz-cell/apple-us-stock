@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26T11:42:54.306964+00:00",
+  "updated": "2026-10-26T14:03:54.512048+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -5088,6 +5088,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-26T14:03:54.512048+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
     }
   ]
 }
