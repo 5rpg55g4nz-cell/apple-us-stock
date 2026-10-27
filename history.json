@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T22:14:02.103507+00:00",
+  "updated": "2026-10-27T22:46:17.777094+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -5392,6 +5392,38 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-27T22:46:17.777094+00:00",
+      "partNumber": "MJQ64LL/A",
+      "productName": "iPhone 18 Pro 256GB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-27T22:46:17.777094+00:00",
+      "partNumber": "MJQ74LL/A",
+      "productName": "iPhone 18 Pro 512GB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-27T22:46:17.777094+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-27T22:46:17.777094+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
     }
   ]
 }
