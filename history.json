@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28T04:42:42.548848+00:00",
+  "updated": "2026-10-28T05:21:07.719048+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -5503,6 +5503,54 @@
       "productName": "iPhone 18 Pro 1TB Glacier",
       "region": "Oregon",
       "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T05:21:07.719048+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Hawaii",
+      "store": "Ala Moana",
       "status": "unavailable"
     }
   ]
