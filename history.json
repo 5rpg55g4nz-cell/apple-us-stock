@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28T00:11:18.078101+00:00",
+  "updated": "2026-10-28T01:04:48.701498+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -5453,6 +5453,38 @@
       "timestamp": "2026-10-28T00:11:18.078101+00:00",
       "partNumber": "MJQG4LL/A",
       "productName": "iPhone 18 Pro 2TB Black",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-28T01:04:48.701498+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-28T01:04:48.701498+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-28T01:04:48.701498+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-28T01:04:48.701498+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
       "region": "Hawaii",
       "store": "Kahala",
       "status": "unavailable"
