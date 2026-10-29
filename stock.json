@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28 19:26:45 PT",
+  "updated": "2026-10-28 20:12:20 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -586,7 +586,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": false
+              "available": true
             },
             {
               "name": "Washington Square",
@@ -658,7 +658,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": false
+              "available": true
             },
             {
               "name": "Washington Square",
@@ -694,7 +694,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": false
+              "available": true
             },
             {
               "name": "Washington Square",
