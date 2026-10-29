@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T20:15:41.044599+00:00",
+  "updated": "2026-10-29T20:57:38.267347+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -5887,6 +5887,14 @@
       "productName": "iPhone 18 Pro Max 256GB Silver",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-29T20:57:38.267347+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
       "status": "unavailable"
     }
   ]
