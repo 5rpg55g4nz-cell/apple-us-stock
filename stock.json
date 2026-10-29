@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28 21:33:11 PT",
+  "updated": "2026-10-28 22:18:26 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -262,7 +262,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": true
+              "available": false
             },
             {
               "name": "Washington Square",
@@ -666,7 +666,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": false
+              "available": true
             }
           ]
         },
