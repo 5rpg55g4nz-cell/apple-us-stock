@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28 20:12:20 PT",
+  "updated": "2026-10-28 20:54:50 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -211,7 +211,7 @@
             },
             {
               "name": "Kahala",
-              "available": false
+              "available": true
             }
           ]
         }
@@ -586,7 +586,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": true
+              "available": false
             },
             {
               "name": "Washington Square",
@@ -626,7 +626,7 @@
             },
             {
               "name": "Washington Square",
-              "available": false
+              "available": true
             },
             {
               "name": "Bridgeport Village",
@@ -658,7 +658,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": true
+              "available": false
             },
             {
               "name": "Washington Square",
@@ -694,7 +694,7 @@
           "stores": [
             {
               "name": "Pioneer Place",
-              "available": true
+              "available": false
             },
             {
               "name": "Washington Square",
