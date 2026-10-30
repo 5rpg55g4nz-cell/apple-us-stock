@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T23:01:28.936371+00:00",
+  "updated": "2026-10-30T23:33:36.289703+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6168,6 +6168,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-30T23:33:36.289703+00:00",
+      "partNumber": "MJQK4LL/A",
+      "productName": "iPhone 18 Pro 2TB Glacier",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
     }
   ]
 }
