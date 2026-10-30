@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T06:34:13.906098+00:00",
+  "updated": "2026-10-30T07:38:09.977411+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6047,6 +6047,14 @@
       "productName": "iPhone 18 Pro Max 256GB Glacier",
       "region": "Oregon",
       "store": "Washington Square",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-30T07:38:09.977411+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
       "status": "unavailable"
     }
   ]
