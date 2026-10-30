@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T16:56:43.211411+00:00",
+  "updated": "2026-10-30T17:32:07.781813+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6069,6 +6069,22 @@
       "timestamp": "2026-10-30T16:13:57.008797+00:00",
       "partNumber": "MJW54LL/A",
       "productName": "iPhone 18 Pro Max 256GB Silver",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-10-30T17:32:07.781813+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-30T17:32:07.781813+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
       "region": "Oregon",
       "store": "Pioneer Place",
       "status": "unavailable"
