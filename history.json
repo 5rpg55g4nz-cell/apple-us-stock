@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T23:33:36.289703+00:00",
+  "updated": "2026-10-31T00:06:18.926296+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6175,6 +6175,30 @@
       "productName": "iPhone 18 Pro 2TB Glacier",
       "region": "Oregon",
       "store": "Bridgeport Village",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T00:06:18.926296+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T00:06:18.926296+00:00",
+      "partNumber": "MJQH4LL/A",
+      "productName": "iPhone 18 Pro 2TB Silver",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T00:06:18.926296+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Pioneer Place",
       "status": "available"
     }
   ]
