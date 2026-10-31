@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T19:43:57.721936+00:00",
+  "updated": "2026-10-31T20:12:42.361153+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6488,6 +6488,14 @@
       "region": "Oregon",
       "store": "Bridgeport Village",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T20:12:42.361153+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
+      "status": "unavailable"
     }
   ]
 }
