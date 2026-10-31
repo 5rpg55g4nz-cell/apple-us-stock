@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T01:49:18.076346+00:00",
+  "updated": "2026-10-31T02:30:26.449995+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -6216,6 +6216,46 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T02:30:26.449995+00:00",
+      "partNumber": "MJQF4LL/A",
+      "productName": "iPhone 18 Pro 1TB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T02:30:26.449995+00:00",
+      "partNumber": "MJQJ4LL/A",
+      "productName": "iPhone 18 Pro 2TB Burgundy",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T02:30:26.449995+00:00",
+      "partNumber": "MJQK4LL/A",
+      "productName": "iPhone 18 Pro 2TB Glacier",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T02:30:26.449995+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
+    },
+    {
+      "timestamp": "2026-10-31T02:30:26.449995+00:00",
+      "partNumber": "MJW44LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Black",
+      "region": "Oregon",
+      "store": "Washington Square",
+      "status": "unavailable"
     }
   ]
 }
