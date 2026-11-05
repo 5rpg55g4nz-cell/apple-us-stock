@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04 15:43:01 PT",
+  "updated": "2026-11-04 19:44:26 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -715,7 +715,7 @@
             },
             {
               "name": "Kahala",
-              "available": true
+              "available": false
             }
           ]
         }
