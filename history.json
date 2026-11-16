@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T23:50:41.471714+00:00",
+  "updated": "2026-11-16T03:15:56.103672+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -8191,6 +8191,14 @@
       "productName": "iPhone 18 Pro 512GB Silver",
       "region": "Hawaii",
       "store": "Ala Moana",
+      "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-11-16T03:15:56.103672+00:00",
+      "partNumber": "MJW64LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Burgundy",
+      "region": "Oregon",
+      "store": "Bridgeport Village",
       "status": "unavailable"
     }
   ]
