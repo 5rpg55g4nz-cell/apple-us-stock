@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T21:12:03.037056+00:00",
+  "updated": "2026-11-17T03:52:25.420142+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -8224,6 +8224,14 @@
       "region": "Oregon",
       "store": "Washington Square",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-11-17T03:52:25.420142+00:00",
+      "partNumber": "MJQ84LL/A",
+      "productName": "iPhone 18 Pro 512GB Silver",
+      "region": "Hawaii",
+      "store": "Ala Moana",
+      "status": "available"
     }
   ]
 }
