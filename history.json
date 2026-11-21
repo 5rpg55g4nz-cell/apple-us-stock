@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T02:31:41.598588+00:00",
+  "updated": "2026-11-21T10:07:22.994830+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -8456,6 +8456,14 @@
       "region": "Hawaii",
       "store": "Ala Moana",
       "status": "unavailable"
+    },
+    {
+      "timestamp": "2026-11-21T10:07:22.994830+00:00",
+      "partNumber": "MJW74LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Glacier",
+      "region": "Oregon",
+      "store": "Pioneer Place",
+      "status": "available"
     }
   ]
 }
