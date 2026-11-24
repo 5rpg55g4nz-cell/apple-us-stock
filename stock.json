@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23 16:03:50 PT",
+  "updated": "2026-11-24 01:42:31 PT",
   "products": [
     {
       "partNumber": "MJQ34LL/A",
@@ -355,7 +355,7 @@
             },
             {
               "name": "Kahala",
-              "available": true
+              "available": false
             }
           ]
         }
@@ -666,7 +666,7 @@
             },
             {
               "name": "Bridgeport Village",
-              "available": true
+              "available": false
             }
           ]
         },
