@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T03:35:21.859339+00:00",
+  "updated": "2026-11-25T13:26:15.757768+00:00",
   "events": [
     {
       "timestamp": "2026-10-04T11:04:00.395986+00:00",
@@ -8648,6 +8648,14 @@
       "region": "Hawaii",
       "store": "Kahala",
       "status": "available"
+    },
+    {
+      "timestamp": "2026-11-25T13:26:15.757768+00:00",
+      "partNumber": "MJW54LL/A",
+      "productName": "iPhone 18 Pro Max 256GB Silver",
+      "region": "Hawaii",
+      "store": "Kahala",
+      "status": "unavailable"
     }
   ]
 }
